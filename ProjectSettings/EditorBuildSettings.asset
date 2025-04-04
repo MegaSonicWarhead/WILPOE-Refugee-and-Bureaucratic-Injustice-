@@ -6,6 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Main_Menu.unity
+    guid: f00d24fc39022ca41858c40f0ca71d09
+  - enabled: 1
+    path: Assets/Scenes/Inside_TenT.unity
+    guid: fdf6b824033628741b2cd8d2789419a7
+  - enabled: 1
+    path: Assets/Scenes/Outside_Living_Area.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Home_Affairs.unity
+    guid: c57f63cb1b6dccc4990c18634adbb06b
+  - enabled: 1
+    path: Assets/Scenes/Shops.unity
+    guid: 1fdbc8750a8565b4babcfbde06a1441e
+  - enabled: 1
+    path: Assets/Scenes/Work.unity
+    guid: 4ffb992b69219254cb0837edcd7f67ab
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0
