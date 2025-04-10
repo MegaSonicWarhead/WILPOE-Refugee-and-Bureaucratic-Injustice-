@@ -8,7 +8,7 @@ public class PopupMenuController : MonoBehaviour
     public GameObject[] allPanels; // List of all panels (main menu, popups, etc.)
 
     // References to specific popup panels
-    public GameObject dailyObjectivesPopup;
+    //public GameObject dailyObjectivesPopup;
     public GameObject foodPopup;
 
     // Reference to the main panel (e.g., background or menu)
@@ -23,18 +23,7 @@ public class PopupMenuController : MonoBehaviour
         HideAllPopups();
     }
 
-    // Function to toggle the daily objectives popup
-    public void ToggleDailyObjectivesPopup()
-    {
-        if (activePopup == dailyObjectivesPopup)
-        {
-            HideAllPopups(); // Hide pop-up if it's already active
-        }
-        else
-        {
-            ShowPopup(dailyObjectivesPopup); // Show daily objectives pop-up
-        }
-    }
+
 
     // Function to toggle the food popup
     public void ToggleFoodPopup()
@@ -77,7 +66,7 @@ public class PopupMenuController : MonoBehaviour
     private void HideAllPopups()
     {
         // Hide all popups (dailyObjectives, food, etc.)
-        dailyObjectivesPopup.SetActive(false);
+        
         foodPopup.SetActive(false);
 
         // Reset the active popup tracker
