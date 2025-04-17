@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Home Affairs_0: 227012298818091216
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
