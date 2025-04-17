@@ -10447,6 +10447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2137117886}
+  - component: {fileID: 2137117887}
   m_Layer: 0
   m_Name: WeatherManager
   m_TagString: Untagged
@@ -10469,6 +10470,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2137117887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137117885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1f948bb000b164289e43dbbd7f43df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weatherIcon: {fileID: 1544300637}
+  weatherText: {fileID: 1770457906}
+  weatherTypes:
+  - name: Sunny
+    icon: {fileID: 1750847918288461579, guid: be565f62eb60a454ebf504af40b168b1, type: 3}
+    particleEffect: {fileID: 0}
+    weight: 25
+  - name: Cloudy
+    icon: {fileID: 5704748392462881141, guid: 1366f0075fafde0418a1f487417fda9f, type: 3}
+    particleEffect: {fileID: 0}
+    weight: 22
+  - name: Rain
+    icon: {fileID: -6830152201372448578, guid: 8fbbfdc7f5aed79489b0b91cd86f6dd2, type: 3}
+    particleEffect: {fileID: 0}
+    weight: 19
+  changeInterval: 10
 --- !u!1 &2140893468
 GameObject:
   m_ObjectHideFlags: 0

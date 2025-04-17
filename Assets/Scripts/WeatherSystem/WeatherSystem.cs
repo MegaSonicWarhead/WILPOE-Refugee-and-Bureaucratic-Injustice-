@@ -12,20 +12,20 @@ public class WeatherSystem : MonoBehaviour
         public string name;
         public Sprite icon;
         public GameObject particleEffect;
-        public int weight; // Higher = more common
+        public int weight; 
     }
 
-    public Image weatherIcon; // UI Image (WeatherIcon)
-    public TextMeshProUGUI weatherText; // TextMeshPro below it
-    public List<WeatherType> weatherTypes; // Fill in Inspector
+    public Image weatherIcon; 
+    public TextMeshProUGUI weatherText; 
+    public List<WeatherType> weatherTypes; 
 
     public float changeInterval = 30f;
 
     private WeatherType currentWeather;
-    // Start is called before the first frame update
+   
     void Start()
     {
-        SetRandomWeather(); // Start with random weather
+        SetRandomWeather(); 
         StartCoroutine(ChangeWeatherRoutine());
     }
 
@@ -70,7 +70,7 @@ public class WeatherSystem : MonoBehaviour
                 return weather;
         }
 
-        return weatherTypes[0]; // Fallback
+        return weatherTypes[0]; 
     }
 
     
