@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cloudy_0: 5704748392462881141
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
