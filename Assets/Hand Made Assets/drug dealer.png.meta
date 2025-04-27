@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      drug dealer_0: -2181421762966098303
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

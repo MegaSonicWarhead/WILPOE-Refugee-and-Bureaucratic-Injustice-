@@ -1,0 +1,664 @@
+fileFormatVersion: 2
+guid: 0dcb062bbd71f3743953ab004459c554
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4307670966044113779
+    second: windy_0
+  - first:
+      213: 1010919574888596455
+    second: windy_1
+  - first:
+      213: 121913478447718105
+    second: windy_2
+  - first:
+      213: -5095175662401718726
+    second: windy_3
+  - first:
+      213: -2848351739454997515
+    second: windy_4
+  - first:
+      213: 5343589488006518025
+    second: windy_5
+  - first:
+      213: 7151657592000762898
+    second: windy_6
+  - first:
+      213: -6191094770580829667
+    second: windy_7
+  - first:
+      213: -1557563089675935371
+    second: windy_8
+  - first:
+      213: -3466562572315291947
+    second: windy_9
+  - first:
+      213: -4740916933632028409
+    second: windy_10
+  - first:
+      213: -7030896332246030721
+    second: windy_11
+  - first:
+      213: -2130163763566308042
+    second: windy_12
+  - first:
+      213: -3139730085731767798
+    second: windy_13
+  - first:
+      213: 7045335925765769461
+    second: windy_14
+  - first:
+      213: 9034633010732661643
+    second: windy_15
+  - first:
+      213: 5291309161705950765
+    second: windy_16
+  - first:
+      213: 4046593242282988085
+    second: windy_17
+  - first:
+      213: 4297640659199136850
+    second: windy_18
+  - first:
+      213: -6161586616550354755
+    second: windy_19
+  - first:
+      213: 6569296589363419647
+    second: windy_20
+  - first:
+      213: 2208766231777530825
+    second: windy_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: windy_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 114
+        width: 44
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37bb25cabebe7cb30800000000000000
+      internalID: 4307670966044113779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 120
+        width: 33
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e349bd4ff1870e00800000000000000
+      internalID: 1010919574888596455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 110
+        width: 67
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de5538a9af11b100800000000000000
+      internalID: 121913478447718105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 101
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a36745efabc4a49b0800000000000000
+      internalID: -5095175662401718726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_4
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 81
+        width: 46
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fb3b662f2f9878d0800000000000000
+      internalID: -2848351739454997515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_5
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 89
+        width: 58
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 905d32ae35e382a40800000000000000
+      internalID: 5343589488006518025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 92
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2145e6650bacf3360800000000000000
+      internalID: 7151657592000762898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 78
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a40c4ab10d41aa0800000000000000
+      internalID: -6191094770580829667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_8
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 72
+        width: 42
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5712b9c4f9c626ae0800000000000000
+      internalID: -1557563089675935371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_9
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 79
+        width: 30
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5de8b7505bb44efc0800000000000000
+      internalID: -3466562572315291947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 69
+        width: 22
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7019a35da21e43eb0800000000000000
+      internalID: -4740916933632028409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_11
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 56
+        width: 70
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f76e0ef790d3d6e90800000000000000
+      internalID: -7030896332246030721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_12
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 58
+        width: 31
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6359837d7532072e0800000000000000
+      internalID: -2130163763566308042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_13
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 42
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ae95d3f107d64d0800000000000000
+      internalID: -3139730085731767798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_14
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 44
+        width: 26
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8019a52bf06c160800000000000000
+      internalID: 7045335925765769461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_15
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 35
+        width: 60
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8bfcb01bd6716d70800000000000000
+      internalID: 9034633010732661643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2ec044e5a18e6940800000000000000
+      internalID: 5291309161705950765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 21
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53216c43d13682830800000000000000
+      internalID: 4046593242282988085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_18
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 25
+        width: 41
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25417dfd86944ab30800000000000000
+      internalID: 4297640659199136850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_19
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 7
+        width: 42
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db017b32e95ad7aa0800000000000000
+      internalID: -6161586616550354755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 46
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff911314174da2b50800000000000000
+      internalID: 6569296589363419647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: windy_21
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 10
+        width: 45
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c35afc6f2d17ae10800000000000000
+      internalID: 2208766231777530825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      windy_0: 4307670966044113779
+      windy_1: 1010919574888596455
+      windy_10: -4740916933632028409
+      windy_11: -7030896332246030721
+      windy_12: -2130163763566308042
+      windy_13: -3139730085731767798
+      windy_14: 7045335925765769461
+      windy_15: 9034633010732661643
+      windy_16: 5291309161705950765
+      windy_17: 4046593242282988085
+      windy_18: 4297640659199136850
+      windy_19: -6161586616550354755
+      windy_2: 121913478447718105
+      windy_20: 6569296589363419647
+      windy_21: 2208766231777530825
+      windy_3: -5095175662401718726
+      windy_4: -2848351739454997515
+      windy_5: 5343589488006518025
+      windy_6: 7151657592000762898
+      windy_7: -6191094770580829667
+      windy_8: -1557563089675935371
+      windy_9: -3466562572315291947
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
