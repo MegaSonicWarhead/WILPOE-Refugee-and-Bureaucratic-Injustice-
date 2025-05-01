@@ -1,16 +1,19 @@
 // Scripts/RandomEventManager.cs
 using UnityEngine;
+using TMPro;
 
 public class RandomEventManager : MonoBehaviour
 {
-    public EventData[] allDailyEvents; // Assign these in the inspector or load from resources
+    public EventData[] allDailyEvents;
+
+    [Header("UI Elements")]
+    public TextMeshProUGUI outcomeTitleText;
+    public TextMeshProUGUI outcomeDescriptionText;
 
     void Start()
     {
         if (GameTime.Instance != null)
-        {
             GameTime.Instance.OnNewDay += TriggerRandomDailyEvent;
-        }
     }
 
     void TriggerRandomDailyEvent()
@@ -21,8 +24,17 @@ public class RandomEventManager : MonoBehaviour
         EventData chosenEvent = allDailyEvents[index];
 
         EventOutcome outcome = GetRandomOutcome(chosenEvent.possibleOutcomes);
+
+        // Log outcome
         Debug.Log($"[Day Event Triggered] {chosenEvent.eventName}");
         Debug.Log($"Outcome: {outcome.outcomeName} - {outcome.outcomeDescription}");
+
+        // Update UI
+        if (outcomeTitleText != null)
+            outcomeTitleText.text = outcome.outcomeName;
+
+        if (outcomeDescriptionText != null)
+            outcomeDescriptionText.text = outcome.outcomeDescription;
     }
 
     private EventOutcome GetRandomOutcome(EventOutcome[] outcomes)
@@ -41,14 +53,12 @@ public class RandomEventManager : MonoBehaviour
                 return o;
         }
 
-        return outcomes[0]; // Fallback
+        return outcomes[0];
     }
 
     void OnDestroy()
     {
         if (GameTime.Instance != null)
-        {
             GameTime.Instance.OnNewDay -= TriggerRandomDailyEvent;
-        }
     }
 }

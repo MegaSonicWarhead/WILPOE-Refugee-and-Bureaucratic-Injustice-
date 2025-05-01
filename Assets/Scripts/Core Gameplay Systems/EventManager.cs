@@ -1,8 +1,14 @@
+// Scripts/EventManager.cs
 using UnityEngine;
+using TMPro;
 
 public class EventManager : MonoBehaviour
 {
     public EventData currentEvent;
+
+    [Header("UI Elements")]
+    public TextMeshProUGUI outcomeTitleText;
+    public TextMeshProUGUI outcomeDescriptionText;
 
     public void TriggerEvent()
     {
@@ -13,17 +19,23 @@ public class EventManager : MonoBehaviour
         }
 
         EventOutcome selected = GetRandomOutcome(currentEvent.possibleOutcomes);
+
         Debug.Log($"Event Triggered: {currentEvent.eventName}");
         Debug.Log($"Outcome: {selected.outcomeName} - {selected.outcomeDescription}");
+
+        // Update TextMeshPro UI
+        if (outcomeTitleText != null)
+            outcomeTitleText.text = selected.outcomeName;
+
+        if (outcomeDescriptionText != null)
+            outcomeDescriptionText.text = selected.outcomeDescription;
     }
 
     private EventOutcome GetRandomOutcome(EventOutcome[] outcomes)
     {
         int totalWeight = 0;
         foreach (var o in outcomes)
-        {
             totalWeight += o.weight;
-        }
 
         int randomValue = Random.Range(0, totalWeight);
         int cumulative = 0;
@@ -32,11 +44,9 @@ public class EventManager : MonoBehaviour
         {
             cumulative += o.weight;
             if (randomValue < cumulative)
-            {
                 return o;
-            }
         }
 
-        return outcomes[0]; 
+        return outcomes[0]; // Fallback
     }
 }
