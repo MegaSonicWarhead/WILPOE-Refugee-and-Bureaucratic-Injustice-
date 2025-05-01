@@ -89,6 +89,7 @@ public class QueueButton : MonoBehaviour
         if (popupPanel != null)
         {
             popupPanel.SetActive(false);
+            Debug.LogError("popup menu is false ...");
         }
         else
         {
