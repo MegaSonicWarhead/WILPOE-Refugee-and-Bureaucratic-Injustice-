@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7f04c31e202eed40a7b576149fd4192
+guid: 7513c0b0ebd183c4c99f9bd5b825464a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2234213645459250752
-    second: TestPicHomeAffairs_0
+      213: -5770038735344600631
+    second: Grass river end top cap_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TestPicHomeAffairs_0
+      name: Grass river end top cap_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 640
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 04edde12975810f10800000000000000
-      internalID: 2234213645459250752
+      spriteID: 9c97a875754bcefa0800000000000000
+      internalID: -5770038735344600631
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      TestPicHomeAffairs_0: 2234213645459250752
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
