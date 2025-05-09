@@ -63,23 +63,22 @@ public class QueueButton : MonoBehaviour
         if (outcome != null)
         {
             popupPanel.SetActive(true);
-            popupPanel.transform.SetAsLastSibling(); // Force popup to front of Canvas
+            popupPanel.transform.SetAsLastSibling();
             popupText.text = $"You waited {outcome.hoursToAdvance} hours.";
 
             if (GameTime.Instance != null)
-            {
                 GameTime.Instance.AdvanceHours(outcome.hoursToAdvance);
-            }
-            else
-            {
-                Debug.LogError("QueueButton: GameTime.Instance is null! Make sure GameTime prefab exists in this scene!");
-            }
-        }
-        else
-        {
-            Debug.LogError("QueueButton: No outcome received from EventManager!");
+
+            StartCoroutine(AutoClosePopup());
         }
     }
+
+    private IEnumerator AutoClosePopup()
+    {
+        yield return new WaitForSeconds(3f); // adjust delay
+        ClosePopup();
+    }
+
 
     /// <summary>
     /// Called by the close button on the popup panel to hide it.
@@ -96,4 +95,5 @@ public class QueueButton : MonoBehaviour
             Debug.LogError("QueueButton: PopupPanel reference is missing when trying to close popup!");
         }
     }
+
 }

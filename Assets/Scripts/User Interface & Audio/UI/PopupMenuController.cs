@@ -78,4 +78,5 @@ public class PopupMenuController : MonoBehaviour
             mainPanel.SetActive(true); // Show the main panel
         }
     }
+
 }
