@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Grass river end top cap_0: -5770038735344600631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
