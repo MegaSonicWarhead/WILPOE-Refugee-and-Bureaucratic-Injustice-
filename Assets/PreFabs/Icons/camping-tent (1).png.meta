@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e8b06752de24f304d911edfa4e976e63
+guid: 7cc16657d4cbfc84d9a5e676553c1ad3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3947057943441848186
-    second: paper 2_0
+      213: -7228749899787569616
+    second: camping-tent (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: paper 2_0
+      name: camping-tent (1)_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 5
-        width: 106
-        height: 120
+        x: 0
+        y: 105
+        width: 512
+        height: 302
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 688c34d76bb3939c0800000000000000
-      internalID: -3947057943441848186
+      spriteID: 036750504425eab90800000000000000
+      internalID: -7228749899787569616
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      paper 2_0: -3947057943441848186
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
