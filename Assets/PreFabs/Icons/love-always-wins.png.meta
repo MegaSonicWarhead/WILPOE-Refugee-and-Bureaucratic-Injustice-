@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      love-always-wins_0: -3591467939486144328
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

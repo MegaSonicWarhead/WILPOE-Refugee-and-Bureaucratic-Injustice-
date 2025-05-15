@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      brainstorm_0: 7896059383082361317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

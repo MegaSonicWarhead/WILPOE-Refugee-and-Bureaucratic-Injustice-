@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 7cc16657d4cbfc84d9a5e676553c1ad3
+guid: 205baef0310af204c8c792d919ae7c0a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7228749899787569616
-    second: camping-tent (1)_0
+      213: 8170952434638866330
+    second: washing-hands_0
+  - first:
+      213: -1879674547872699178
+    second: washing-hands_1
+  - first:
+      213: 7644235722385964567
+    second: washing-hands_2
+  - first:
+      213: 5225396135612672778
+    second: washing-hands_3
+  - first:
+      213: 2757831054292941318
+    second: washing-hands_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +112,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: camping-tent (1)_0
+      name: washing-hands_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 105
-        width: 512
-        height: 302
+        x: 160
+        y: 404
+        width: 69
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +126,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 036750504425eab90800000000000000
-      internalID: -7228749899787569616
+      spriteID: a97434f92fd056170800000000000000
+      internalID: 8170952434638866330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: washing-hands_1
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 450
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc64b825fd0ae5e0800000000000000
+      internalID: -1879674547872699178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: washing-hands_2
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 432
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71eba2c73e7c51a60800000000000000
+      internalID: 7644235722385964567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: washing-hands_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 509
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b64e99916548840800000000000000
+      internalID: 5225396135612672778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: washing-hands_4
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 374
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60afba57bb8c54620800000000000000
+      internalID: 2757831054292941318
       vertices: []
       indices: 
       edges: []
@@ -130,8 +226,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      camping-tent (1)_0: -7228749899787569616
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

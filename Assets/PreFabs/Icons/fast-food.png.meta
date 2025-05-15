@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fast-food_0: -5039621858309347517
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
