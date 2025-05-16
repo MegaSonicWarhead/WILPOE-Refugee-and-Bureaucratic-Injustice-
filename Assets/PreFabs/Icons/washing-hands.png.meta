@@ -226,7 +226,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      washing-hands_0: 8170952434638866330
+      washing-hands_1: -1879674547872699178
+      washing-hands_2: 7644235722385964567
+      washing-hands_3: 5225396135612672778
+      washing-hands_4: 2757831054292941318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
