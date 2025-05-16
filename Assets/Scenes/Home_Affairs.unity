@@ -514,7 +514,6 @@ GameObject:
   - component: {fileID: 248869006}
   - component: {fileID: 248869005}
   - component: {fileID: 248869004}
-  - component: {fileID: 248869008}
   m_Layer: 5
   m_Name: OKButton
   m_TagString: Untagged
@@ -549,7 +548,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248869002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 927c9a195c573574782c13bb7abb8524, type: 3}
   m_Name: 
@@ -601,9 +600,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 248869008}
-        m_TargetAssemblyTypeName: PopupCloser, Assembly-CSharp
-        m_MethodName: Close
+      - m_Target: {fileID: 248869004}
+        m_TargetAssemblyTypeName: QueueButton, Assembly-CSharp
+        m_MethodName: ClosePopup
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -651,19 +650,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 248869002}
   m_CullTransparentMesh: 1
---- !u!114 &248869008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 248869002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb9ffb894b5a5f44381d2adf51eac7b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupPanel: {fileID: 203608509}
 --- !u!1 &451097272
 GameObject:
   m_ObjectHideFlags: 0
