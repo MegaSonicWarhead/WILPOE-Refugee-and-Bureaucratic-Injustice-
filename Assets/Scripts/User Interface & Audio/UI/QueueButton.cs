@@ -84,16 +84,5 @@ public class QueueButton : MonoBehaviour
     /// <summary>
     /// Called by the close button on the popup panel to hide it.
     /// </summary>
-    public void ClosePopup()
-    {
-        if (popupPanel != null)
-        {
-            popupPanel.SetActive(false);
-            Debug.LogError("popup menu is false ...");
-        }
-        else
-        {
-            Debug.LogError("QueueButton: PopupPanel reference is missing when trying to close popup!");
-        }
-    }
+   
 }
