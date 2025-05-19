@@ -14,6 +14,8 @@ public class PopupMenuController : MonoBehaviour
     // Reference to the main panel (e.g., background or menu)
     public GameObject mainPanel;
 
+    public GameObject JobPanel;
+
     // Track the currently active popup
     private GameObject activePopup = null;
 
@@ -35,6 +37,18 @@ public class PopupMenuController : MonoBehaviour
         else
         {
             ShowPopup(foodPopup); // Show food pop-up
+        }
+    }
+
+    public void ToggleJobPanel()
+    {
+        if (activePopup == JobPanel)
+        {
+            HideAllPopups(); // Hide pop-up if it's already active
+        }
+        else
+        {
+            ShowPopup(JobPanel); // Show food pop-up
         }
     }
 
@@ -68,6 +82,7 @@ public class PopupMenuController : MonoBehaviour
         // Hide all popups (dailyObjectives, food, etc.)
         
         foodPopup.SetActive(false);
+        JobPanel.SetActive(false);
 
         // Reset the active popup tracker
         activePopup = null;

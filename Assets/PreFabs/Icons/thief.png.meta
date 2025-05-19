@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 2649c128e820fe545a8965343a252d84
+guid: 54606a85ccdc8884493d4df8fe605044
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6991895514769011534
-    second: systems offline_0
+      213: -2262647735747319561
+    second: thief_0
+  - first:
+      213: 5728512208896428891
+    second: thief_1
+  - first:
+      213: 6379740353906782393
+    second: thief_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: systems offline_0
+      name: thief_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 128
+        x: 23
+        y: 10
+        width: 456
+        height: 482
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +120,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bccb8fe21cc7fe90800000000000000
-      internalID: -6991895514769011534
+      spriteID: 7f860f25fd57990e0800000000000000
+      internalID: -2262647735747319561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief_1
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 434
+        width: 57
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5b82c6c083cf7f40800000000000000
+      internalID: 5728512208896428891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thief_2
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 355
+        width: 72
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b0b6d1fc04698850800000000000000
+      internalID: 6379740353906782393
       vertices: []
       indices: 
       edges: []
@@ -130,8 +178,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      systems offline_0: -6991895514769011534
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
