@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      grass landscape with city roads pixel_0: -4618427825163950749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

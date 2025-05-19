@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      police-station_0: -3394809916893187880
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
