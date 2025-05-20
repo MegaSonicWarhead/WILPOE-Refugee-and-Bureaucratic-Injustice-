@@ -17,7 +17,6 @@ public class JobButtonHandler : MonoBehaviour
     public GameObject jobPanel;
     public GameObject notificationPanel;
     public TMP_Text notificationText;
-    public Slider sanitySlider;
 
     private Button button;
 
@@ -33,27 +32,30 @@ public class JobButtonHandler : MonoBehaviour
         int totalMoney = hoursWorked * moneyPerHour;
         int totalSanityLoss = hoursWorked * sanityLossPerHour;
 
-        // Apply time skip
+        // Advance game time
         if (GameTime.Instance != null)
         {
             GameTime.Instance.AdvanceHours(hoursWorked);
         }
 
-        // Apply money
+        //// Add money
         //if (GameCurrency.Instance != null)
         //{
         //    GameCurrency.Instance.Earn(totalMoney);
         //}
 
-        // Reduce sanity
-        if (sanitySlider != null)
+        // Reduce sanity using PlayerStats
+        if (PlayerStats.Instance != null)
         {
-            sanitySlider.value = Mathf.Max(sanitySlider.value - totalSanityLoss, 0);
+            PlayerStats.Instance.ModifySanity(-totalSanityLoss);
         }
 
-        // Show notification
-        jobPanel.SetActive(false);
-        notificationPanel.SetActive(true);
-        notificationText.text = $"You {jobName} for {hoursWorked} hours. +${totalMoney}, -{totalSanityLoss} Sanity.";
+        // Update UI
+        if (jobPanel != null) jobPanel.SetActive(false);
+        if (notificationPanel != null) notificationPanel.SetActive(true);
+        if (notificationText != null)
+        {
+            notificationText.text = $"You {jobName} for {hoursWorked} hours.\n+${totalMoney}, -{totalSanityLoss} Sanity.";
+        }
     }
 }
