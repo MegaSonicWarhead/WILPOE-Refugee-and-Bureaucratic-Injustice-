@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Craft Food Background_0: 672265022965635888
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

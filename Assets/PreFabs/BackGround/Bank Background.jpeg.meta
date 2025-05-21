@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bank Background_0: -7513235044013798234
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

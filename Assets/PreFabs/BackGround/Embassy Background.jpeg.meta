@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Embassy Background_0: 5502002653357877091
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

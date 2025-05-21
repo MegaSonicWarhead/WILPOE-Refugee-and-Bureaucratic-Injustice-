@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Post Office Background_0: -7361454764105341551
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

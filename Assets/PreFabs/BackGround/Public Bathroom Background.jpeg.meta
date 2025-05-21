@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Public Bathroom Background_0: 5100641313041265422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

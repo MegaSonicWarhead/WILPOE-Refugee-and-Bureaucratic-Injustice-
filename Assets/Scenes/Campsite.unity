@@ -5060,6 +5060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProgression: 0
+  currentDay: 1
+  currentWeek: 1
+  clueGivenToday: 0
 --- !u!4 &989483668
 Transform:
   m_ObjectHideFlags: 0

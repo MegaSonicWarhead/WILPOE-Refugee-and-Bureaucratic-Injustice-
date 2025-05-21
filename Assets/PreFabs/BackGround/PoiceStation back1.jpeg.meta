@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PoiceStation back1_0: -7945632090183673749
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

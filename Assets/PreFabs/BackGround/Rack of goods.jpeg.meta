@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rack of goods_0: -8886308157341683712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
