@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac6937a38504ad147956674d99b1b98b, type: 3}
   m_Name: Bread
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  maxStackSize: 99
+  itemName: Bread
+  icon: {fileID: 21300000, guid: 6358c031fb583044e9999d49c91e0c4e, type: 3}
+  maxStackSize: 10
