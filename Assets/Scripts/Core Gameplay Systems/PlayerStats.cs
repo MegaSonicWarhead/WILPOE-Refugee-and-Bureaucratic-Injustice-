@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
@@ -36,8 +37,19 @@ public class PlayerStats : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void Start()
     {
+        AssignSliders();
         UpdateUI();
 
         if (GameTime.Instance != null)
@@ -54,39 +66,49 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        AssignSliders();
+        UpdateUI();
+    }
+
+    private void AssignSliders()
+    {
+        if (healthSlider == null)
+            healthSlider = GameObject.FindWithTag("HealthSlider")?.GetComponent<Slider>();
+        if (thirstSlider == null)
+            thirstSlider = GameObject.FindWithTag("ThirstSlider")?.GetComponent<Slider>();
+        if (hungerSlider == null)
+            hungerSlider = GameObject.FindWithTag("HungerSlider")?.GetComponent<Slider>();
+        if (sanitySlider == null)
+            sanitySlider = GameObject.FindWithTag("SanitySlider")?.GetComponent<Slider>();
+    }
+
     void OnNewDay()
     {
         if (isDead) return;
 
-        // Hunger and thirst decay each day
         ModifyHunger(-15f);
         ModifyThirst(-20f);
 
-        // Health penalties if hunger or thirst are critically low
         if (hunger <= 10f)
-        {
             ModifyHealth(-5f);
-        }
         if (thirst <= 10f)
-        {
             ModifyHealth(-10f);
-        }
 
-        // Player loses health & sanity if they didn't eat
         if (lastEatDay != GameTime.Instance.currentDay)
         {
             ModifyHealth(-10f);
             ModifySanity(-5f);
         }
 
-        // Track sleep deprivation
         if (lastSleepDay != GameTime.Instance.currentDay)
         {
             daysWithoutSleep++;
         }
         else
         {
-            daysWithoutSleep = 0; // reset if player slept today
+            daysWithoutSleep = 0;
         }
 
         if (daysWithoutSleep >= 4)
@@ -98,7 +120,6 @@ public class PlayerStats : MonoBehaviour
         UpdateUI();
     }
 
-    // Actions
     public void Sleep()
     {
         if (isDead) return;
@@ -141,7 +162,6 @@ public class PlayerStats : MonoBehaviour
         // Implement later if needed
     }
 
-    // Modifiers
     public void ModifyHealth(float amount)
     {
         if (isDead) return;
@@ -179,19 +199,15 @@ public class PlayerStats : MonoBehaviour
         if (sanitySlider != null) sanitySlider.value = sanity;
     }
 
-    // Death Handler
     void KillPlayer()
     {
         if (isDead) return;
 
         isDead = true;
         Debug.Log("Player has died.");
-        // TODO: Add your Game Over logic here, e.g.:
-        // GameManager.Instance.TriggerGameOver();
-        // Disable player controls, show UI, etc.
+        // Game Over logic goes here
     }
 
-    // Refresh all sliders
     void UpdateUI()
     {
         if (healthSlider != null) healthSlider.value = health;
