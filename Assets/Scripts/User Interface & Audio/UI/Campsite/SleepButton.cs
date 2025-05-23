@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class SleepButton : MonoBehaviour
 {
-    // Sleep button
     public void OnSleepButtonPressed()
     {
-        PlayerStats.Instance.Sleep();
+        if (GameTime.Instance != null)
+        {
+            GameTime.Instance.SleepUntilMorning();
+        }
+
+        if (PlayerStats.Instance != null)
+        {
+            PlayerStats.Instance.Sleep(); // Keep this if you also want to recover sanity/etc.
+        }
     }
 }

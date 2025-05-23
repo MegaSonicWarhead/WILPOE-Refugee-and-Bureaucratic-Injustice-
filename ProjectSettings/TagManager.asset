@@ -10,6 +10,7 @@ TagManager:
   - SanitySlider
   - WeatherIcon
   - WeatherText
+  - MoneyText
   layers:
   - Default
   - TransparentFX

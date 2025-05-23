@@ -1,6 +1,7 @@
 // Scripts/MoneySystem.cs
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MoneySystem : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class MoneySystem : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern
+        // Singleton pattern to persist across scenes
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -21,12 +22,36 @@ public class MoneySystem : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Stay across scenes
+        DontDestroyOnLoad(gameObject); // Persist across scenes
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Start()
     {
         UpdateMoneyUI();
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Attempt to find a new TextMeshProUGUI tagged with "MoneyText"
+        if (moneyText == null)
+        {
+            GameObject found = GameObject.FindWithTag("MoneyText");
+            if (found != null)
+            {
+                moneyText = found.GetComponent<TextMeshProUGUI>();
+                UpdateMoneyUI();
+            }
+        }
     }
 
     public void AddMoney(int amount)
@@ -65,6 +90,7 @@ public class MoneySystem : MonoBehaviour
         }
     }
 
+    // Allow UI in each scene to register itself
     public void SetMoneyText(TextMeshProUGUI newText)
     {
         moneyText = newText;

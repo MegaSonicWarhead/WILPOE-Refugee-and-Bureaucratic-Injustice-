@@ -63,7 +63,13 @@ public class GameTime : MonoBehaviour
         OnTimeChanged?.Invoke(); // Notify subscribers
     }
 
-    private void EndDay()
+    // Skips to next day, used by the Sleep Button
+    public void SleepUntilMorning()
+    {
+        EndDay();
+    }
+
+    public void EndDay()
     {
         currentHour = 8;
         currentMinute = 0;

@@ -205,7 +205,15 @@ public class PlayerStats : MonoBehaviour
 
         isDead = true;
         Debug.Log("Player has died.");
-        // Game Over logic goes here
+
+        // Optionally delay scene change to show death feedback (e.g. animation)
+        StartCoroutine(HandlePlayerDeath());
+    }
+
+    IEnumerator HandlePlayerDeath()
+    {
+        yield return new WaitForSeconds(1.5f); // Optional: wait before switching scene
+        SceneManager.LoadScene("PlayerDead");
     }
 
     void UpdateUI()
