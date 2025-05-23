@@ -2384,6 +2384,7 @@ GameObject:
   - component: {fileID: 423588996}
   - component: {fileID: 423588995}
   - component: {fileID: 423588994}
+  - component: {fileID: 423588997}
   m_Layer: 5
   m_Name: ThievingButton
   m_TagString: Untagged
@@ -2493,6 +2494,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423588992}
   m_CullTransparentMesh: 1
+--- !u!114 &423588997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423588992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659a87f6a636d5845b10adf6cca95eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: Thieving
+  minHours: 4
+  maxHours: 10
+  moneyPerHour: 2
+  sanityLossPerHour: 5
+  jobPanel: {fileID: 1490021245}
+  MainPanel: {fileID: 2077777667}
+  notificationPanel: {fileID: 1604814475}
+  notificationText: {fileID: 1874907060}
 --- !u!1 &464518276
 GameObject:
   m_ObjectHideFlags: 0
@@ -5186,6 +5208,7 @@ GameObject:
   - component: {fileID: 989483669}
   - component: {fileID: 989483670}
   - component: {fileID: 989483671}
+  - component: {fileID: 989483672}
   m_Layer: 0
   m_Name: GameManger
   m_TagString: Untagged
@@ -5268,6 +5291,19 @@ MonoBehaviour:
   thirst: 100
   hunger: 100
   sanity: 100
+--- !u!114 &989483672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989483666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b45bf8ed3681724e80d9405c8ce11e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 2091115143}
 --- !u!1 &990069237
 GameObject:
   m_ObjectHideFlags: 0
@@ -7706,6 +7742,7 @@ GameObject:
   - component: {fileID: 1342818921}
   - component: {fileID: 1342818920}
   - component: {fileID: 1342818919}
+  - component: {fileID: 1342818922}
   m_Layer: 5
   m_Name: GardnerButton
   m_TagString: Untagged
@@ -7815,6 +7852,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342818917}
   m_CullTransparentMesh: 1
+--- !u!114 &1342818922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342818917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659a87f6a636d5845b10adf6cca95eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: Gardner
+  minHours: 4
+  maxHours: 10
+  moneyPerHour: 2
+  sanityLossPerHour: 5
+  jobPanel: {fileID: 1490021245}
+  MainPanel: {fileID: 2077777667}
+  notificationPanel: {fileID: 1604814475}
+  notificationText: {fileID: 1874907060}
 --- !u!1 &1352524994
 GameObject:
   m_ObjectHideFlags: 0
@@ -14117,8 +14175,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13, y: 16.370087}
-  m_SizeDelta: {x: -1529.5891, y: -90.73987}
+  m_AnchoredPosition: {x: -13, y: -7.3833}
+  m_SizeDelta: {x: -1529.5891, y: -43.2327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1604814477
 MonoBehaviour:
@@ -14894,6 +14952,7 @@ GameObject:
   - component: {fileID: 1796391695}
   - component: {fileID: 1796391694}
   - component: {fileID: 1796391693}
+  - component: {fileID: 1796391696}
   m_Layer: 5
   m_Name: Pick_Up_TrashButton
   m_TagString: Untagged
@@ -15003,6 +15062,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796391691}
   m_CullTransparentMesh: 1
+--- !u!114 &1796391696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796391691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659a87f6a636d5845b10adf6cca95eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: Pick Up Trash
+  minHours: 4
+  maxHours: 10
+  moneyPerHour: 2
+  sanityLossPerHour: 5
+  jobPanel: {fileID: 1490021245}
+  MainPanel: {fileID: 2077777667}
+  notificationPanel: {fileID: 1604814475}
+  notificationText: {fileID: 1874907060}
 --- !u!1 &1801197174
 GameObject:
   m_ObjectHideFlags: 0
@@ -15366,8 +15446,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 331.17, y: 90.0971}
+  m_AnchoredPosition: {x: 0.00024128, y: 0.00026941}
+  m_SizeDelta: {x: 390.41, y: 190.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874907060
 MonoBehaviour:
@@ -15389,7 +15469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You slept like baby but got robbed -$10
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16599,6 +16679,7 @@ GameObject:
   - component: {fileID: 2105653663}
   - component: {fileID: 2105653662}
   - component: {fileID: 2105653661}
+  - component: {fileID: 2105653664}
   m_Layer: 5
   m_Name: Pizza_deliveryButton
   m_TagString: Untagged
@@ -16708,6 +16789,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105653659}
   m_CullTransparentMesh: 1
+--- !u!114 &2105653664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105653659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659a87f6a636d5845b10adf6cca95eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobName: Pizza Delivery
+  minHours: 4
+  maxHours: 10
+  moneyPerHour: 2
+  sanityLossPerHour: 5
+  jobPanel: {fileID: 1490021245}
+  MainPanel: {fileID: 2077777667}
+  notificationPanel: {fileID: 1604814475}
+  notificationText: {fileID: 1874907060}
 --- !u!1 &2116659813
 GameObject:
   m_ObjectHideFlags: 0

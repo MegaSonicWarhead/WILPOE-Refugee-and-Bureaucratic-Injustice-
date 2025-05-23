@@ -30,7 +30,7 @@ public class MapLocationButton : MonoBehaviour
         if (costText != null)
         {
             // Display like "HomeAffairs - $100"
-            costText.text = $"{locationData.locationName} - ${locationData.travelCost}";
+            costText.text = $"{locationData.locationName} - R{locationData.travelCost}";
         }
 
         popupPanel.SetActive(false);
@@ -39,21 +39,20 @@ public class MapLocationButton : MonoBehaviour
 
     void OnLocationClicked()
     {
-        //if (GameCurrency.Instance == null)
-        //{
-        //    Debug.LogError("GameCurrency instance not found.");
-        //    return;
-        //}
+        if (MoneySystem.Instance == null)
+        {
+            Debug.LogError("MoneySystem instance not found.");
+            return;
+        }
 
-        //if (GameCurrency.Instance.CanAfford(locationData.travelCost))
-        //{
-        //    GameCurrency.Instance.Spend(locationData.travelCost);
-        //    SceneManager.LoadScene(locationData.sceneName);
-        //}
-        //else
-        //{
-        //    ShowNotEnoughMoneyPopup();
-        //}
+        if (MoneySystem.Instance.SpendMoney(locationData.travelCost))
+        {
+            SceneManager.LoadScene(locationData.sceneName);
+        }
+        else
+        {
+            ShowNotEnoughMoneyPopup();
+        }
     }
 
     void ShowNotEnoughMoneyPopup()

@@ -15,6 +15,7 @@ public class JobButtonHandler : MonoBehaviour
 
     [Header("UI References")]
     public GameObject jobPanel;
+    public GameObject MainPanel;
     public GameObject notificationPanel;
     public TMP_Text notificationText;
 
@@ -38,11 +39,11 @@ public class JobButtonHandler : MonoBehaviour
             GameTime.Instance.AdvanceHours(hoursWorked);
         }
 
-        //// Add money
-        //if (GameCurrency.Instance != null)
-        //{
-        //    GameCurrency.Instance.Earn(totalMoney);
-        //}
+        // Add money using MoneySystem
+        if (MoneySystem.Instance != null)
+        {
+            MoneySystem.Instance.AddMoney(totalMoney);
+        }
 
         // Reduce sanity using PlayerStats
         if (PlayerStats.Instance != null)
@@ -52,10 +53,11 @@ public class JobButtonHandler : MonoBehaviour
 
         // Update UI
         if (jobPanel != null) jobPanel.SetActive(false);
+        if (MainPanel != null) MainPanel.SetActive(true);
         if (notificationPanel != null) notificationPanel.SetActive(true);
         if (notificationText != null)
         {
-            notificationText.text = $"You {jobName} for {hoursWorked} hours.\n+${totalMoney}, -{totalSanityLoss} Sanity.";
+            notificationText.text = $"You {jobName} for {hoursWorked} hours.\n+R{totalMoney}, -{totalSanityLoss} Sanity.";
         }
     }
 }

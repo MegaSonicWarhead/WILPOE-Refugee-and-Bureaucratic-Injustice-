@@ -2512,7 +2512,7 @@ GameObject:
   - component: {fileID: 596503041}
   - component: {fileID: 596503040}
   m_Layer: 0
-  m_Name: Money
+  m_Name: MoneyTextmanger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
