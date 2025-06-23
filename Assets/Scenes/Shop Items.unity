@@ -1057,6 +1057,10 @@ MonoBehaviour:
     quantity: 2
   - data: {fileID: 11400000, guid: 31f6754218d80f149b13ac92629022d9, type: 2}
     quantity: 5
+  - data: {fileID: 11400000, guid: f6a1e480db66f06408fef8b084a3bf22, type: 2}
+    quantity: 5
+  - data: {fileID: 11400000, guid: 1c225df99e543b945ad115a02d41a33b, type: 2}
+    quantity: 5
   inventoryUI: {fileID: 1563477757}
 --- !u!4 &324138883
 Transform:
@@ -5542,7 +5546,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1563477757}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
         m_MethodName: ToggleInventory
         m_Mode: 1
