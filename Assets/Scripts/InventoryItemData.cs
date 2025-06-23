@@ -7,4 +7,7 @@ public class InventoryItemData : ScriptableObject
     public string itemName;
     public Sprite icon;
     public int maxStackSize = 99;
+
+    [Header("Shop")]
+    public int price;
 }
