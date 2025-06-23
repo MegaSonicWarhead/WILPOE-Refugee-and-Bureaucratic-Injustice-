@@ -6,5 +6,6 @@ public class EventOutcome
     public string outcomeName;
     [TextArea]
     public string outcomeDescription;
-    public int weight; 
+    public int weight;
+    public int hoursToAdvance;
 }

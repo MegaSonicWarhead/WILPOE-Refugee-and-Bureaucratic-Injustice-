@@ -3,58 +3,109 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WeatherSystem : MonoBehaviour
 {
+    public static WeatherSystem Instance;
+
     [System.Serializable]
     public class WeatherType
     {
         public string name;
         public Sprite icon;
         public GameObject particleEffect;
-        public int weight; 
+        public int weight;
     }
 
-    public Image weatherIcon; 
-    public TextMeshProUGUI weatherText; 
-    public List<WeatherType> weatherTypes; 
+    [Header("UI Elements")]
+    public Image weatherIcon;
+    public TextMeshProUGUI weatherText;
 
-    public float changeInterval = 30f;
+    [Header("Weather Options")]
+    public List<WeatherType> weatherTypes;
 
     private WeatherType currentWeather;
-   
-    void Start()
+
+    private void Awake()
     {
-        SetRandomWeather(); 
-        StartCoroutine(ChangeWeatherRoutine());
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    IEnumerator ChangeWeatherRoutine()
+    private void OnEnable()
     {
-        while (true)
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void Start()
+    {
+        AssignUI();
+        SetRandomWeather(); // First weather on initial start
+
+        if (GameTime.Instance != null)
         {
-            yield return new WaitForSeconds(changeInterval);
-            SetRandomWeather();
+            GameTime.Instance.OnNewDay += SetRandomWeather;
         }
     }
 
-    void SetRandomWeather()
+    private void OnDestroy()
     {
-        WeatherType newWeather = GetWeightedRandomWeather();
+        if (GameTime.Instance != null)
+        {
+            GameTime.Instance.OnNewDay -= SetRandomWeather;
+        }
+    }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        AssignUI();
+        ApplyWeatherEffects(); // Reapply particle and icon/text when scene changes
+    }
+
+    private void AssignUI()
+    {
+        if (weatherIcon == null)
+            weatherIcon = GameObject.FindWithTag("WeatherIcon")?.GetComponent<Image>();
+        if (weatherText == null)
+            weatherText = GameObject.FindWithTag("WeatherText")?.GetComponent<TextMeshProUGUI>();
+    }
+
+    private void SetRandomWeather()
+    {
         if (currentWeather != null && currentWeather.particleEffect != null)
             currentWeather.particleEffect.SetActive(false);
 
-        currentWeather = newWeather;
-
-        weatherIcon.sprite = newWeather.icon;
-        weatherText.text = newWeather.name;
-
-        if (newWeather.particleEffect != null)
-            newWeather.particleEffect.SetActive(true);
+        currentWeather = GetWeightedRandomWeather();
+        ApplyWeatherEffects();
     }
 
-    WeatherType GetWeightedRandomWeather()
+    private void ApplyWeatherEffects()
+    {
+        if (currentWeather == null) return;
+
+        if (weatherIcon != null) weatherIcon.sprite = currentWeather.icon;
+        if (weatherText != null) weatherText.text = currentWeather.name;
+
+        foreach (var weather in weatherTypes)
+        {
+            if (weather.particleEffect != null)
+                weather.particleEffect.SetActive(weather == currentWeather);
+        }
+    }
+
+    private WeatherType GetWeightedRandomWeather()
     {
         int totalWeight = 0;
         foreach (var weather in weatherTypes)
@@ -70,8 +121,6 @@ public class WeatherSystem : MonoBehaviour
                 return weather;
         }
 
-        return weatherTypes[0]; 
+        return weatherTypes[0];
     }
-
-    
 }

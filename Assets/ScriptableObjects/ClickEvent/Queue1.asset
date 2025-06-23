@@ -17,12 +17,16 @@ MonoBehaviour:
   - outcomeName: Wait time1
     outcomeDescription: 2 hour wait
     weight: 25
+    hoursToAdvance: 2
   - outcomeName: Wait time2
     outcomeDescription: 4 hour wait
     weight: 25
+    hoursToAdvance: 4
   - outcomeName: Wait time3
     outcomeDescription: 6 hour wait
     weight: 25
+    hoursToAdvance: 6
   - outcomeName: Wait time4
     outcomeDescription: 8 hour wait
-    weight: 50
+    weight: 25
+    hoursToAdvance: 8

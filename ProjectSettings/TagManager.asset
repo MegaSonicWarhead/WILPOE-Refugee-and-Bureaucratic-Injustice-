@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HealthSlider
+  - ThirstSlider
+  - HungerSlider
+  - SanitySlider
+  - WeatherIcon
+  - WeatherText
+  - MoneyText
   layers:
   - Default
   - TransparentFX

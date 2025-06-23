@@ -18,7 +18,28 @@ EditorBuildSettings:
     path: Assets/Scenes/Shops.unity
     guid: 1fdbc8750a8565b4babcfbde06a1441e
   - enabled: 1
-    path: Assets/Scenes/Work.unity
-    guid: 4ffb992b69219254cb0837edcd7f67ab
+    path: Assets/Scenes/Map.unity
+    guid: e25361a4f1796f7499b8381dc37bd7e7
+  - enabled: 1
+    path: Assets/Scenes/Bank.unity
+    guid: 0603aa3587c8be94984e3df2b9f73006
+  - enabled: 1
+    path: Assets/Scenes/Post Office.unity
+    guid: 376806d5588342446927ad4325409a1a
+  - enabled: 1
+    path: Assets/Scenes/Police Station.unity
+    guid: 699d0fa08b89cfa4588975bf0b975484
+  - enabled: 1
+    path: Assets/Scenes/Embassy.unity
+    guid: 1b0784f9d87f760449d98f726ddaf459
+  - enabled: 1
+    path: Assets/Scenes/Public Bathrooms.unity
+    guid: 984a78150edf2a44f8f7b7b6d95487b3
+  - enabled: 1
+    path: Assets/Scenes/Deported.unity
+    guid: c7c44ded88f19f64a9ae971eb8b2a3bb
+  - enabled: 1
+    path: Assets/Scenes/PlayerDead.unity
+    guid: 29aee509da2f3ea4a8ce653afacc3c23
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
