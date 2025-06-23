@@ -1,5 +1,5 @@
 [System.Serializable]
-public class InventoryItem 
+public class InventoryItem
 {
     public InventoryItemData data;
     public int quantity;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public static InventoryManager Instance;
+   public static InventoryManager Instance;
     public List<InventoryItem> items = new List<InventoryItem>();
     public InventoryUI inventoryUI;
 

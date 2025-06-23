@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Vegetables
   icon: {fileID: -1610813842045675387, guid: 75f64a82e34134a4ebd7efdb3c74a345, type: 3}
   maxStackSize: 10
-  price: 0
+  price: 39
