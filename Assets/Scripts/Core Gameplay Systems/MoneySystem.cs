@@ -10,7 +10,7 @@ public class MoneySystem : MonoBehaviour
     [Header("UI Reference")]
     public TextMeshProUGUI moneyText;
 
-    private int currentMoney = 100;
+    private int currentMoney = 150;
 
     private void Awake()
     {
