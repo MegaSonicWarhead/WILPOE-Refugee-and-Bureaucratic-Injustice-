@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      home_affrairs_concept_0: 5544598545942300673
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
