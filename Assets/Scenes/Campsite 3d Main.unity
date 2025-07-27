@@ -439,6 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 94793782}
   - component: {fileID: 94793783}
+  - component: {fileID: 94793784}
   m_Layer: 0
   m_Name: Sky_Background
   m_TagString: Untagged
@@ -515,6 +516,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &94793784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94793781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde928e48a1677d4b8adac2734961391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.05
+  useVerticalParallax: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
 --- !u!1 &104896997
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,6 +4212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 750496926}
   - component: {fileID: 750496927}
+  - component: {fileID: 750496928}
   m_Layer: 0
   m_Name: Distant_Environment
   m_TagString: Untagged
@@ -4271,6 +4289,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &750496928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750496925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde928e48a1677d4b8adac2734961391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.1
+  useVerticalParallax: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
 --- !u!1 &768082382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4647,6 +4681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 826921050}
   - component: {fileID: 826921051}
+  - component: {fileID: 826921052}
   m_Layer: 0
   m_Name: Front_Camp
   m_TagString: Untagged
@@ -4723,6 +4758,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &826921052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826921049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde928e48a1677d4b8adac2734961391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.8
+  useVerticalParallax: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
 --- !u!1 &846179025
 GameObject:
   m_ObjectHideFlags: 0
@@ -5524,6 +5575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 995879370}
   - component: {fileID: 995879371}
+  - component: {fileID: 995879372}
   m_Layer: 0
   m_Name: Camp_Background
   m_TagString: Untagged
@@ -5600,6 +5652,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &995879372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995879369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde928e48a1677d4b8adac2734961391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.4
+  useVerticalParallax: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
 --- !u!1 &1005865454
 GameObject:
   m_ObjectHideFlags: 0
@@ -6347,6 +6415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1124431657}
   - component: {fileID: 1124431658}
+  - component: {fileID: 1124431659}
   m_Layer: 0
   m_Name: Foreground_Details
   m_TagString: Untagged
@@ -6423,6 +6492,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1124431659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124431656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde928e48a1677d4b8adac2734961391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.9
+  useVerticalParallax: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
 --- !u!1 &1179748737
 GameObject:
   m_ObjectHideFlags: 0
@@ -8425,6 +8510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1393522110}
   - component: {fileID: 1393522111}
+  - component: {fileID: 1393522112}
   m_Layer: 0
   m_Name: Far_Trees
   m_TagString: Untagged
@@ -8501,6 +8587,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1393522112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393522109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde928e48a1677d4b8adac2734961391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.2
+  useVerticalParallax: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
 --- !u!1 &1407534358
 GameObject:
   m_ObjectHideFlags: 0
@@ -16760,6 +16862,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2061139411}
   - component: {fileID: 2061139412}
+  - component: {fileID: 2061139413}
   m_Layer: 0
   m_Name: Main_Camp
   m_TagString: Untagged
@@ -16836,6 +16939,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2061139413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061139410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde928e48a1677d4b8adac2734961391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parallaxEffect: 0.7
+  useVerticalParallax: 1
+  infiniteHorizontal: 0
+  infiniteVertical: 0
 --- !u!1 &2077777667
 GameObject:
   m_ObjectHideFlags: 0
