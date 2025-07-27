@@ -530,7 +530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxEffect: 0.05
   useVerticalParallax: 1
-  infiniteHorizontal: 0
+  infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &104896997
 GameObject:
@@ -4303,7 +4303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxEffect: 0.1
   useVerticalParallax: 1
-  infiniteHorizontal: 0
+  infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &768082382
 GameObject:
@@ -4771,7 +4771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.8
-  useVerticalParallax: 1
+  useVerticalParallax: 0
   infiniteHorizontal: 0
   infiniteVertical: 0
 --- !u!1 &846179025
@@ -6505,7 +6505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.9
-  useVerticalParallax: 1
+  useVerticalParallax: 0
   infiniteHorizontal: 0
   infiniteVertical: 0
 --- !u!1 &1179748737
@@ -8601,7 +8601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parallaxEffect: 0.2
   useVerticalParallax: 1
-  infiniteHorizontal: 0
+  infiniteHorizontal: 1
   infiniteVertical: 0
 --- !u!1 &1407534358
 GameObject:
@@ -16952,7 +16952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxEffect: 0.7
-  useVerticalParallax: 1
+  useVerticalParallax: 0
   infiniteHorizontal: 0
   infiniteVertical: 0
 --- !u!1 &2077777667
