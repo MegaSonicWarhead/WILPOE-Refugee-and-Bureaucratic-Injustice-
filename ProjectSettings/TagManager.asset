@@ -54,3 +54,24 @@ TagManager:
   - name: ground
     uniqueID: 1547931931
     locked: 0
+  - name: Sky_Background
+    uniqueID: 477987543
+    locked: 0
+  - name: Distant_Environment
+    uniqueID: 4172340683
+    locked: 0
+  - name: Far_Trees
+    uniqueID: 540143291
+    locked: 0
+  - name: Camp_Background
+    uniqueID: 2254468875
+    locked: 0
+  - name: Main_Camp
+    uniqueID: 1552040103
+    locked: 0
+  - name: Front_Camp
+    uniqueID: 3479445255
+    locked: 0
+  - name: Foreground_Details
+    uniqueID: 2342042203
+    locked: 0

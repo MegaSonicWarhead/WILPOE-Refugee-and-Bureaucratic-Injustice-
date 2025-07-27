@@ -1,304 +1,284 @@
 # Campsite Scene Implementation Plan
 
-## Phase 1: Scene Setup (2-3 hours)
+## Phase 1: Unity Scene Setup (2-3 hours)
 
 ### 1. Create Development Scene
 ```
-- Duplicate Campsite.unity to Campsite_3D.unity
-- Keep original as backup
-- Clear test/temporary objects
+1. In Unity Editor:
+   - Duplicate Campsite.unity to Campsite_3D.unity
+   - Keep original as backup
+   - Clear test/temporary objects
 ```
 
-### 2. Camera Configuration
+### 2. Unity Camera Setup
 ```
-1. Add PerspectiveCamera.cs to main camera
-2. Camera settings for outdoor space:
+1. Select Main Camera in hierarchy
+2. Add PerspectiveCamera.cs component
+3. Configure Transform component:
    - Position: (0, 12, -12)
-   - Rotation: X=20 degrees (more top-down for camp view)
-   - Orthographic size: 6 (wider view for camp area)
-   - Clear Flags: Solid Color (for sky)
+   - Rotation: X=20, Y=0, Z=0
+   - Scale: (1, 1, 1)
+4. Camera component settings:
+   - Projection: Orthographic
+   - Size: 6
+   - Clear Flags: Solid Color
+   - Background: Set sky color
 ```
 
-### 3. Layer Organization
+### 3. Unity Layer Setup
 ```
-Sorting Layers (Edit > Project Settings > Tags and Layers):
-1. Sky_Background (1000)
-2. Distant_Environment (800)
-3. Far_Trees (600)
-4. Camp_Background (400)
-5. Main_Camp (0)
-6. Front_Camp (-400)
-7. Foreground_Details (-600)
-```
-
-## Phase 2: Environment Preparation (4-5 hours)
-
-### 1. Sky and Background
-```
-1. Create layers for:
-   - Sky gradient
-   - Distant mountains/hills
-   - Far treeline
-   - Environmental fog
-2. Save each as separate PNG with transparency
-3. Extend edges for parallax scrolling
+1. Open Edit > Project Settings > Tags and Layers
+2. Add Sorting Layers (in this order):
+   - Sky_Background
+   - Distant_Environment
+   - Far_Trees
+   - Camp_Background
+   - Main_Camp
+   - Front_Camp
+   - Foreground_Details
 ```
 
-### 2. Camp Elements
+### 4. Scene Hierarchy Setup
 ```
-1. Separate existing camp assets:
-   - Ground/terrain base
-   - Tent layers (back to front)
-   - Props and facilities
-   - Character areas
-   - Campfire and effects
-2. Create shadow maps for:
+1. Create base structure:
+   CampsiteEnvironment (Empty GameObject)
+   ├── SkyPanel (Z=15)
+   ├── DistantEnvironmentPanel (Z=12)
+   ├── TreeLinePanel (Z=10)
+   ├── CampBackgroundPanel (Z=5)
+   ├── MainCampPanel (Z=0)
+   ├── FrontCampPanel (Z=-5)
+   └── ForegroundPanel (Z=-10)
+
+2. For each panel:
+   - Add Sprite Renderer component
+   - Set corresponding Sorting Layer
+   - Add ParallaxBackground script
+```
+
+## Phase 2: Unity Asset Preparation (4-5 hours)
+
+### 1. Project Window Organization
+```
+Create folders in Project window:
+Assets/
+└── Scenes/
+    └── Campsite/
+        ├── Sprites/
+        │   ├── Background/
+        │   ├── Environment/
+        │   ├── Props/
+        │   └── Characters/
+        ├── Prefabs/
+        ├── Materials/
+        └── Scripts/
+```
+
+### 2. Sprite Setup
+```
+1. Import/prepare sprites:
+   - Set Texture Type: Sprite (2D and UI)
+   - Set Pixels Per Unit: 100
+   - Enable Read/Write if needed
+   - Apply settings
+
+2. For each depth layer:
+   - Create sprite assets
+   - Set appropriate Sprite Renderer settings
+   - Configure transparency
+```
+
+### 3. Prefab Creation
+```
+1. Create prefabs for repeated elements:
    - Tents
    - Trees
-   - Large props
+   - Props
+   - Character templates
+2. Set Z-positions within prefabs
+3. Configure Sprite Renderer components
 ```
 
-### 3. Asset Organization
+## Phase 3: Unity Scene Assembly (3-4 hours)
+
+### 1. Background Implementation
 ```
-Assets/Scenes/Campsite/
-├── Environment/
-│   ├── Sky/
-│   ├── Terrain/
-│   └── Vegetation/
-├── Structures/
-│   ├── Tents/
-│   └── Props/
-├── Effects/
-│   ├── Weather/
-│   ├── Fire/
-│   └── Ambient/
-└── Characters/
-    ├── Refugees/
-    └── Shadows/
+1. For each panel in hierarchy:
+   - Assign sprites to Sprite Renderer
+   - Set Sorting Layer
+   - Configure ParallaxBackground values:
+     * SkyPanel: 0.05
+     * DistantEnvironmentPanel: 0.1
+     * TreeLinePanel: 0.2
+     * CampBackgroundPanel: 0.4
+     * MainCampPanel: 0.7
+     * FrontCampPanel: 0.8
+     * ForegroundPanel: 0.9
 ```
 
-## Phase 3: Scene Construction (3-4 hours)
-
-### 1. Environment Setup
+### 2. Environment Setup
 ```
-Scene Hierarchy:
-- EnvironmentContainer
-  |- SkyLayer (z=15)
-  |- MountainsLayer (z=12)
-  |- TreelineLayer (z=10)
-  |- CampBackgroundLayer (z=5)
-  |- MainCampLayer (z=0)
-  |- ForegroundLayer (z=-5)
+1. Create environment prefabs:
+   - Drag sprites to scene
+   - Set Z-positions
+   - Configure components
+   - Create prefabs
+   - Delete scene objects
+   - Instantiate from prefabs
 ```
 
-### 2. Parallax Configuration
+### 3. Collider Setup
 ```
-ParallaxBackground.cs settings:
-1. Sky: 0.05 parallax effect
-2. Mountains: 0.1 effect
-3. Treeline: 0.2 effect
-4. Camp Background: 0.4 effect
-5. Main Camp: 0.7 effect
-6. Foreground: 0.9 effect
+1. Add appropriate 2D colliders:
+   - Box Collider 2D for boundaries
+   - Polygon Collider 2D for terrain
+   - Circle Collider 2D for interaction zones
+2. Set collider Z-positions to match visuals
 ```
 
-### 3. Ground System
+## Phase 4: Unity Lighting (2-3 hours)
+
+### 1. URP Setup (if not done)
 ```
-1. Create terrain layers:
-   - Base ground texture
-   - Detail overlays
-   - Path markers
-   - Grass/dirt transitions
-2. Add ground shadows
-3. Setup terrain colliders
+1. Install Universal RP package
+2. Create URP Asset
+3. Set Graphics Settings
+4. Configure 2D Renderer
 ```
 
-## Phase 4: Lighting System (2-3 hours)
-
-### 1. Time of Day Lighting
+### 2. Light Components
 ```
-1. Add DynamicLighting.cs
-2. Configure light settings:
-   - Dawn: Warm orange (0.8 intensity)
-   - Day: Bright white (1.0 intensity)
-   - Dusk: Deep orange (0.8 intensity)
-   - Night: Deep blue (0.4 intensity)
-```
-
-### 2. Campfire Lighting
-```
-1. Create point light for fire
-2. Add flickering effect
-3. Setup light falloff
-4. Configure shadow interaction
+1. Add Unity 2D lights:
+   - Global Light 2D for sun/moon
+   - Point Light 2D for campfire
+   - Freeform Light 2D for ambient
+2. Configure light properties:
+   - Intensity
+   - Color
+   - Falloff
+   - Blend Style
 ```
 
-### 3. Ambient Lighting
+### 3. Shadow Configuration
 ```
-1. Setup ambient light for scene
-2. Add rim lighting for tents
-3. Configure shadow softness
-4. Add light probes for props
-```
-
-## Phase 5: Weather and Effects (3-4 hours)
-
-### 1. Weather System
-```
-1. Setup weather layers:
-   - Rain particles (3 depths)
-   - Wind effects
-   - Dust particles
-   - Fog system
-2. Configure weather transitions
+1. Enable 2D shadows in URP settings
+2. Add Shadow Caster 2D components
+3. Set shadow parameters:
+   - Self Shadow
+   - Cast Shadows
+   - Shadow Distance
 ```
 
-### 2. Environmental Effects
-```
-1. Campfire effects:
-   - Particle smoke
-   - Fire animation
-   - Heat distortion
-2. Ambient effects:
-   - Floating dust
-   - Grass movement
-   - Tent fabric motion
-```
+## Phase 5: Unity Effects (3-4 hours)
 
-### 3. Time-Based Effects
+### 1. Particle Systems
 ```
-1. Morning effects:
-   - Dawn mist
-   - Light rays
-2. Evening effects:
-   - Sunset colors
-   - Cricket sounds
-3. Night effects:
+1. Create particle systems:
+   - Right-click > Effects > Particle System
+2. Configure for:
+   - Rain (3 layers with different Z positions)
+   - Campfire smoke
+   - Ambient dust
    - Fireflies
-   - Star particles
+3. Set Particle System Renderer:
+   - Set sorting layer
+   - Adjust Z position
 ```
 
-## Phase 6: Character Integration (2-3 hours)
-
-### 1. Character Placement
+### 2. Weather Implementation
 ```
-1. Create character zones:
-   - Tent areas
-   - Campfire gathering
-   - Resource collection
-2. Setup pathing system
-3. Add depth-based sorting
+1. Add WeatherSystem script
+2. Configure weather transitions
+3. Setup particle triggers
+4. Add weather sound effects
 ```
 
-### 2. Shadow System
+## Phase 6: Character Setup (2-3 hours)
+
+### 1. Character Prefab Setup
 ```
-1. Dynamic character shadows:
-   - Length varies with time
-   - Opacity changes with weather
-   - Interaction with terrain
-2. Static prop shadows
+1. Create character prefab:
+   - Add Sprite Renderer
+   - Add Rigidbody 2D
+   - Add Collider 2D
+   - Add character controller script
+2. Configure Z-position handling
+3. Setup sorting layer changes
 ```
 
-### 3. Character Effects
+### 2. Movement System
 ```
-1. Footprint effects
-2. Interaction particles
-3. Weather reactions
-```
-
-## Phase 7: UI and Interaction (2-3 hours)
-
-### 1. World Space UI
-```
-1. Setup interaction markers
-2. Add floating indicators
-3. Configure depth scaling
+1. Implement character movement:
+   - Add input handling
+   - Setup movement boundaries
+   - Configure collision detection
+2. Add depth-based movement scaling
 ```
 
-### 2. Environmental UI
-```
-1. Time of day indicator
-2. Weather status
-3. Temperature system
-4. Resource markers
-```
+## Phase 7: Unity UI Setup (2-3 hours)
 
-## Phase 8: Optimization (2-3 hours)
-
-### 1. Performance Checks
+### 1. Canvas Configuration
 ```
-1. Batch similar sprites
-2. Optimize particle systems
-3. Setup object pooling
-4. Configure LOD system
+1. Create canvases:
+   - World Space canvas for floating UI
+   - Screen Space canvas for HUD
+2. Set proper sorting layers
+3. Configure canvas scaling
 ```
 
-### 2. Quality Settings
+### 2. UI Elements
 ```
-1. Adjust draw distances
-2. Configure effect densities
-3. Setup quality tiers
-4. Optimize shadow resolution
-```
-
-## Testing Checklist
-
-### Visual Tests
-- [ ] Day/night cycle smooth
-- [ ] Weather effects convincing
-- [ ] Character shadows correct
-- [ ] Parallax movement natural
-- [ ] Campfire effects realistic
-
-### Performance Tests
-- [ ] Stable frame rate
-- [ ] Memory usage optimal
-- [ ] Particle system performance
-- [ ] Shadow performance
-- [ ] Weather system impact
-
-### Gameplay Tests
-- [ ] Character movement natural
-- [ ] Interaction points clear
-- [ ] UI elements readable
-- [ ] Weather affects gameplay
-- [ ] Time system functional
-
-## Common Issues and Solutions
-
-### 1. Tent Shadow Issues
-```
-Problem: Tent shadows not aligning with time of day
-Solution:
-1. Check shadow anchor points
-2. Verify light angle calculations
-3. Adjust shadow softness
+1. Add UI elements:
+   - Time display
+   - Weather indicators
+   - Interaction prompts
+2. Set proper Z-positions for world space elements
 ```
 
-### 2. Weather Clipping
+## Phase 8: Testing & Optimization
+
+### Unity Profiler Checks
 ```
-Problem: Weather effects showing through tents
-Solution:
-1. Adjust particle collision
-2. Check sorting layers
-3. Modify particle Z-depth
+1. Open Window > Analysis > Profiler
+2. Check for:
+   - Sprite batch breaks
+   - Particle system performance
+   - Shadow performance
+   - Memory usage
 ```
 
-### 3. Performance Drops
+### Scene View Tests
 ```
-Problem: Frame rate issues during weather
-Solution:
-1. Reduce particle count
-2. Optimize shadow resolution
-3. Adjust effect distances
+1. Test parallax in Scene view
+2. Verify Z-position sorting
+3. Check lighting in all angles
+4. Verify particle system depths
 ```
 
-## Next Steps
-1. Begin with sky and background setup
-2. Add basic parallax movement
-3. Implement time of day system
-4. Add character placement
-5. Integrate weather effects
-6. Polish and optimize
+## Common Unity Issues
 
-Would you like to start with Phase 1 and begin setting up the Campsite_3D scene? 
+### 1. Sprite Sorting Issues
+```
+Fix: 
+1. Check Sprite Renderer sorting layer
+2. Verify Z position
+3. Check parent object positions
+```
+
+### 2. Light Bleeding
+```
+Fix:
+1. Adjust light parameters in URP settings
+2. Check shadow caster positions
+3. Verify light layer masks
+```
+
+### 3. Particle Depth Issues
+```
+Fix:
+1. Check Particle System Renderer sorting layer
+2. Adjust particle system Z position
+3. Verify particle scaling over lifetime
+```
+
+Would you like to start with Phase 1 and begin setting up the Unity scene? 
