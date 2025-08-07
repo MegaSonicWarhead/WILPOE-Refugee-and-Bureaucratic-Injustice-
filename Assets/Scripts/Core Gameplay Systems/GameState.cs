@@ -5,17 +5,12 @@ using UnityEngine;
 
 public enum PlayerProgression
 {
-    FirstVisit,
-    SecondVisit,
-    ThirdVisit,
-    FourthVisit,
-    FifthVisit,
-    AskedPermit1,
-    AskedPermit2,
-    AskedPermit3,
-    AskedPermit4,
-    AskedPermit5,
-    HasDocuments,
+    None, // Not started
+    Step1_AcquireAsylumApplicationForm,
+    Step2_AcquireID,
+    Step3_AcquireBiometrics,
+    Step4_AcquireTravelDocument,
+    Step5_AcquireFirstInterview,
     CompletedApplication
 }
 
@@ -23,8 +18,8 @@ public enum DocumentType
 {
     AsylumApplicationFormDHA1590,
     ID,
-    TravelDocument,
     Biometrics,
+    TravelDocument,
     FirstInterview
 }
 
@@ -33,7 +28,7 @@ public class GameState : MonoBehaviour
 {
     public static GameState Instance;
 
-    public PlayerProgression playerProgression = PlayerProgression.FirstVisit;
+    public PlayerProgression playerProgression = PlayerProgression.Step1_AcquireAsylumApplicationForm;
 
     public int currentDay = 1;
     public int currentWeek = 1;
@@ -73,11 +68,13 @@ public class GameState : MonoBehaviour
         }
     }
 
+    // Call this when the player acquires a document
     public void AcquireDocument(DocumentType doc)
     {
         if (acquiredDocuments.Add(doc))
         {
             Debug.Log($"Document acquired: {doc}");
+            CheckAndAdvanceProgression();
         }
     }
 
@@ -86,8 +83,38 @@ public class GameState : MonoBehaviour
         return acquiredDocuments.Contains(doc);
     }
 
+    // Automatically advances progression if the required document for the current step is acquired
+    private void CheckAndAdvanceProgression()
+    {
+        switch (playerProgression)
+        {
+            case PlayerProgression.Step1_AcquireAsylumApplicationForm:
+                if (HasDocument(DocumentType.AsylumApplicationFormDHA1590))
+                    playerProgression = PlayerProgression.Step2_AcquireID;
+                break;
+            case PlayerProgression.Step2_AcquireID:
+                if (HasDocument(DocumentType.ID))
+                    playerProgression = PlayerProgression.Step3_AcquireBiometrics;
+                break;
+            case PlayerProgression.Step3_AcquireBiometrics:
+                if (HasDocument(DocumentType.Biometrics))
+                    playerProgression = PlayerProgression.Step4_AcquireTravelDocument;
+                break;
+            case PlayerProgression.Step4_AcquireTravelDocument:
+                if (HasDocument(DocumentType.TravelDocument))
+                    playerProgression = PlayerProgression.Step5_AcquireFirstInterview;
+                break;
+            case PlayerProgression.Step5_AcquireFirstInterview:
+                if (HasDocument(DocumentType.FirstInterview))
+                    playerProgression = PlayerProgression.CompletedApplication;
+                break;
+            default:
+                break;
+        }
+    }
+
     public bool IsGameComplete()
     {
-        return acquiredDocuments.Count == System.Enum.GetNames(typeof(DocumentType)).Length;
+        return playerProgression == PlayerProgression.CompletedApplication;
     }
 }

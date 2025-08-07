@@ -2063,7 +2063,7 @@ GameObject:
   - component: {fileID: 602425432}
   - component: {fileID: 602425431}
   m_Layer: 5
-  m_Name: SpeakButton
+  m_Name: GetOfficerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

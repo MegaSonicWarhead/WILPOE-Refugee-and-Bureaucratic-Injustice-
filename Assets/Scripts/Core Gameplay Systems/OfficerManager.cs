@@ -66,45 +66,29 @@ public class OfficerManager : MonoBehaviour
 
     void SetActionButtonTextsByProgression()
     {
-        string docText = "Temporary Permit";
-
+        // Set button text based on the current progression step
         switch (GameState.Instance.playerProgression)
         {
-            case PlayerProgression.FirstVisit:
-                SetButtons($"{docText} First Required Document", "I Don't Know?");
+            case PlayerProgression.Step1_AcquireAsylumApplicationForm:
+                SetButtons("Ask about Asylum Application Form", "I Don't Know?");
                 break;
-            case PlayerProgression.SecondVisit:
-                SetButtons($"{docText} Second Required Document", "I Don't Know?");
+            case PlayerProgression.Step2_AcquireID:
+                SetButtons("Ask about ID", "I Don't Know?");
                 break;
-            case PlayerProgression.ThirdVisit:
-                SetButtons($"{docText} Third Required Document", "I Don't Know?");
+            case PlayerProgression.Step3_AcquireBiometrics:
+                SetButtons("Ask about Biometrics", "I Don't Know?");
                 break;
-            case PlayerProgression.FourthVisit:
-                SetButtons($"{docText} Fourth Required Document", "I Don't Know?");
+            case PlayerProgression.Step4_AcquireTravelDocument:
+                SetButtons("Ask about Travel Document", "I Don't Know?");
                 break;
-            case PlayerProgression.FifthVisit:
-                SetButtons($"{docText} Fifth Required Document", "I Don't Know?");
-                break;
-            case PlayerProgression.AskedPermit1:
-                SetButtons("I Have the First Document", "I Need Help");
-                break;
-            case PlayerProgression.AskedPermit2:
-                SetButtons("I Have the Second Document", "I Need Help");
-                break;
-            case PlayerProgression.AskedPermit3:
-                SetButtons("I Have the Third Document", "I Need Help");
-                break;
-            case PlayerProgression.AskedPermit4:
-                SetButtons("I Have the Fourth Document", "I Need Help");
-                break;
-            case PlayerProgression.AskedPermit5:
-                SetButtons("I Have the Fifth Document", "I Need Help");
-                break;
-            case PlayerProgression.HasDocuments:
-                SetButtons("Submit Application", "Missing Something?");
+            case PlayerProgression.Step5_AcquireFirstInterview:
+                SetButtons("Ask about First Interview", "I Don't Know?");
                 break;
             case PlayerProgression.CompletedApplication:
                 SetButtons("What's Next?", "Thank You");
+                break;
+            default:
+                SetButtons("Ask for Help", "I Don't Know?");
                 break;
         }
     }
@@ -149,7 +133,7 @@ public class OfficerManager : MonoBehaviour
 
         if (currentOfficer.officerType == OfficerType.Nice)
         {
-            message = $"You’ll find your {neededDoc} at the {correctLocation}.";
+            message = $"Youï¿½ll find your {neededDoc} at the {correctLocation}.";
         }
         else if (currentOfficer.officerType == OfficerType.Corrupt)
         {
@@ -175,7 +159,7 @@ public class OfficerManager : MonoBehaviour
 
         if (MoneySystem.Instance != null && MoneySystem.Instance.SpendMoney(50))
         {
-            message = $"Alright... You’ll find your {neededDoc} at the {correctLocation}.";
+            message = $"Alright... Youï¿½ll find your {neededDoc} at the {correctLocation}.";
             return true;
         }
 
@@ -192,11 +176,11 @@ public class OfficerManager : MonoBehaviour
     {
         return GameState.Instance.playerProgression switch
         {
-            PlayerProgression.FirstVisit => DocumentType.AsylumApplicationFormDHA1590,
-            PlayerProgression.SecondVisit => DocumentType.ID,
-            PlayerProgression.ThirdVisit => DocumentType.Biometrics,
-            PlayerProgression.FourthVisit => DocumentType.TravelDocument,
-            PlayerProgression.FifthVisit => DocumentType.FirstInterview,
+            PlayerProgression.Step1_AcquireAsylumApplicationForm => DocumentType.AsylumApplicationFormDHA1590,
+            PlayerProgression.Step2_AcquireID => DocumentType.ID,
+            PlayerProgression.Step3_AcquireBiometrics => DocumentType.Biometrics,
+            PlayerProgression.Step4_AcquireTravelDocument => DocumentType.TravelDocument,
+            PlayerProgression.Step5_AcquireFirstInterview => DocumentType.FirstInterview,
             _ => DocumentType.ID
         };
     }
@@ -217,27 +201,43 @@ public class OfficerManager : MonoBehaviour
         return locations[Random.Range(0, locations.Length)];
     }
 
-    string GetResponseForButton(string text) => text switch
+    string GetResponseForButton(string text)
     {
-        "Temporary Permit First Required Document" => Progress(PlayerProgression.AskedPermit1, "You need Asylum Application Form DHA-1590."),
-        "Temporary Permit Second Required Document" => Progress(PlayerProgression.AskedPermit2, "You need a copy of your ID."),
-        "Temporary Permit Third Required Document" => Progress(PlayerProgression.AskedPermit3, "You need to do your biometrics: fingerprints and ID photos."),
-        "Temporary Permit Fourth Required Document" => Progress(PlayerProgression.AskedPermit4, "You need a Travel Document."),
-        "Temporary Permit Fifth Required Document" => Progress(PlayerProgression.AskedPermit5, "You need to complete your First Interview and submit proof."),
-        "I Have all the Documents" => Progress(PlayerProgression.HasDocuments, "Great. Let me check what you have."),
-        "Submit Application" => Progress(PlayerProgression.CompletedApplication, "Application submitted. Now wait for a response."),
-        "I Need Help" => "Ask specific questions or check the checklist.",
-        "Missing Something?" => "Make sure you have all required documents.",
-        "What's Next?" => "You’ll be contacted by an officer for next steps.",
-        "Thank You" => "You're welcome. Good luck.",
-        "I Don't Know?" => "Please come back when you're ready.",
-        _ => "I don't understand your request."
-    };
-
-    string Progress(PlayerProgression newProgress, string msg)
-    {
-        GameState.Instance.playerProgression = newProgress;
-        return msg;
+        // Provide feedback based on the current progression step
+        switch (GameState.Instance.playerProgression)
+        {
+            case PlayerProgression.Step1_AcquireAsylumApplicationForm:
+                if (text == "Ask about Asylum Application Form")
+                    return "You need to get the Asylum Application Form (DHA-1590).";
+                break;
+            case PlayerProgression.Step2_AcquireID:
+                if (text == "Ask about ID")
+                    return "You need to get your ID document.";
+                break;
+            case PlayerProgression.Step3_AcquireBiometrics:
+                if (text == "Ask about Biometrics")
+                    return "You need to complete your biometrics (fingerprints and ID photos).";
+                break;
+            case PlayerProgression.Step4_AcquireTravelDocument:
+                if (text == "Ask about Travel Document")
+                    return "You need to get your Travel Document.";
+                break;
+            case PlayerProgression.Step5_AcquireFirstInterview:
+                if (text == "Ask about First Interview")
+                    return "You need to complete your First Interview and submit proof.";
+                break;
+            case PlayerProgression.CompletedApplication:
+                if (text == "What's Next?")
+                    return "You'll be contacted by an officer for next steps.";
+                if (text == "Thank You")
+                    return "You're welcome. Good luck.";
+                break;
+            default:
+                break;
+        }
+        if (text == "I Don't Know?")
+            return "Please come back when you're ready.";
+        return "I don't understand your request.";
     }
 
     OfficerData GetRandomOfficer()
