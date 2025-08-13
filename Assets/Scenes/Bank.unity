@@ -933,7 +933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &209352771
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1224,6 +1224,7 @@ MonoBehaviour:
   actionButton2: {fileID: 127165766}
   helpButton: {fileID: 796328164}
   leaveButton: {fileID: 1766634419}
+  getOfficerButton: {fileID: 209352772}
   officerPanel: {fileID: 1070888992}
 --- !u!1 &295546324
 GameObject:

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OfficerManager_PostOffice : MonoBehaviour
 {
@@ -14,9 +15,11 @@ public class OfficerManager_PostOffice : MonoBehaviour
     public UnityEngine.UI.Button helpButton;
     public UnityEngine.UI.Button leaveButton;
     public GameObject officerPanel;
+    public Button getOfficerButton;
 
     private void Start()
     {
+        getOfficerButton.onClick.AddListener(OpenClerkPanel);
         officerPanel.SetActive(false);
         actionButton1.onClick.AddListener(() => HandleResponse(1));
         actionButton2.onClick.AddListener(() => HandleResponse(2));

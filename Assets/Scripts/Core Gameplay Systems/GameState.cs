@@ -41,14 +41,17 @@ public class GameState : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log($"[GameState] Awake called in scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}, object: {gameObject.name}");
         if (Instance != null && Instance != this)
         {
+            Debug.LogWarning($"[GameState] Duplicate detected! Destroying object: {gameObject.name} in scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}");
             Destroy(gameObject);
             return;
         }
-
         Instance = this;
+        Debug.Log($"[GameState] Instance set to: {gameObject.name} in scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}");
         DontDestroyOnLoad(gameObject);
+        Debug.Log($"[GameState] DontDestroyOnLoad called for: {gameObject.name}");
     }
 
     public void AdvanceDay()

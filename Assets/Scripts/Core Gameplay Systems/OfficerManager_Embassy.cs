@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OfficerManager_Embassy : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class OfficerManager_Embassy : MonoBehaviour
     public UnityEngine.UI.Button actionButton2;
     public UnityEngine.UI.Button helpButton;
     public UnityEngine.UI.Button leaveButton;
+    public Button getOfficerButton;
     public GameObject officerPanel;
 
     private void Start()
     {
+        getOfficerButton.onClick.AddListener(OpenEmployeePanel);
         officerPanel.SetActive(false);
         actionButton1.onClick.AddListener(() => HandleResponse(1));
         actionButton2.onClick.AddListener(() => HandleResponse(2));

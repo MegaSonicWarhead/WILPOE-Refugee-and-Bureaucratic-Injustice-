@@ -18,9 +18,15 @@ public class OfficerManager : MonoBehaviour
     public Button actionButton2;
     public Button helpButton;
     public Button leaveButton;
+	public Button bribeButton;
+	public Button noButton;
+	public Button giveDocumentButton;
     public GameObject officerPanel;
 
     private OfficerData currentOfficer;
+	private DocumentType pendingBribeDocument;
+	private string pendingBribeLocation;
+	private bool awaitingBribeChoice = false;
 
     private string[] wrongDocumentAnswers = new string[]
     {
@@ -47,6 +53,13 @@ public class OfficerManager : MonoBehaviour
         actionButton2.onClick.AddListener(() => HandleResponse(2));
         helpButton.onClick.AddListener(GiveDocumentClue);
         leaveButton.onClick.AddListener(ClosePanel);
+
+		if (giveDocumentButton != null)
+			giveDocumentButton.onClick.AddListener(GiveDocumentClue);
+		if (bribeButton != null)
+			bribeButton.onClick.AddListener(OnBribeButtonClicked);
+		if (noButton != null)
+			noButton.onClick.AddListener(OnNoButtonClicked);
     }
 
     void ClosePanel() => officerPanel.SetActive(false);
@@ -133,24 +146,72 @@ public class OfficerManager : MonoBehaviour
 
         if (currentOfficer.officerType == OfficerType.Nice)
         {
-            message = $"You�ll find your {neededDoc} at the {correctLocation}.";
+            message = $"You'll find your {neededDoc} at the {correctLocation}.";
+            GameState.Instance.clueGivenToday = true;
+            GameState.Instance.clueHistory[neededDoc] = correctLocation;
+            responseText.text = $"{currentOfficer.officerName}: {message}";
+            return;
         }
         else if (currentOfficer.officerType == OfficerType.Corrupt)
         {
-            if (TryBribeForClue(out string bribeMsg))
-                message = bribeMsg;
-            else
-                message = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
+            StartBribeFlow(neededDoc, correctLocation);
+            return;
         }
         else
         {
             message = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
+            GameState.Instance.clueGivenToday = true;
+            GameState.Instance.clueHistory[neededDoc] = correctLocation;
+            responseText.text = $"{currentOfficer.officerName}: {message}";
+            return;
         }
-
-        GameState.Instance.clueGivenToday = true;
-        GameState.Instance.clueHistory[neededDoc] = correctLocation;
-        responseText.text = $"{currentOfficer.officerName}: {message}";
     }
+
+	void StartBribeFlow(DocumentType neededDoc, string correctLocation)
+	{
+		responseText.text = $"{currentOfficer.officerName}: I can give you that information if you make it worth my time. I think R100 sounds good. What do you think?";
+		pendingBribeDocument = neededDoc;
+		pendingBribeLocation = correctLocation;
+		awaitingBribeChoice = true;
+	}
+
+	void OnBribeButtonClicked()
+	{
+		if (currentOfficer == null) return;
+
+		// Determine context
+		DocumentType doc = awaitingBribeChoice ? pendingBribeDocument : GetExpectedDocumentForProgression();
+		string location = awaitingBribeChoice ? pendingBribeLocation : GetCorrectLocationForDocument(doc);
+
+		if (MoneySystem.Instance != null && MoneySystem.Instance.SpendMoney(100))
+		{
+			string msg = $"Alright... You'll find your {doc} at the {location}.";
+			GameState.Instance.clueGivenToday = true;
+			GameState.Instance.clueHistory[doc] = location;
+			responseText.text = $"{currentOfficer.officerName}: {msg}";
+		}
+		else
+		{
+			responseText.text = $"{currentOfficer.officerName}: You don't have enough money.";
+		}
+
+		awaitingBribeChoice = false;
+	}
+
+	void OnNoButtonClicked()
+	{
+		if (currentOfficer == null) return;
+
+		DocumentType doc = awaitingBribeChoice ? pendingBribeDocument : GetExpectedDocumentForProgression();
+		string location = awaitingBribeChoice ? pendingBribeLocation : GetCorrectLocationForDocument(doc);
+
+		string msg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
+		GameState.Instance.clueGivenToday = true;
+		GameState.Instance.clueHistory[doc] = location;
+		responseText.text = $"{currentOfficer.officerName}: {msg}";
+
+		awaitingBribeChoice = false;
+	}
 
     bool TryBribeForClue(out string message)
     {
@@ -159,7 +220,7 @@ public class OfficerManager : MonoBehaviour
 
         if (MoneySystem.Instance != null && MoneySystem.Instance.SpendMoney(50))
         {
-            message = $"Alright... You�ll find your {neededDoc} at the {correctLocation}.";
+            message = $"Alright... You'll find your {neededDoc} at the {correctLocation}.";
             return true;
         }
 

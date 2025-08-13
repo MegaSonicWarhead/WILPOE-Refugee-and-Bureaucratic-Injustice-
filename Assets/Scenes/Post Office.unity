@@ -2688,6 +2688,7 @@ MonoBehaviour:
   helpButton: {fileID: 1440527665}
   leaveButton: {fileID: 1460119467}
   officerPanel: {fileID: 274304161}
+  getOfficerButton: {fileID: 466327554}
 --- !u!1 &776354920
 GameObject:
   m_ObjectHideFlags: 0

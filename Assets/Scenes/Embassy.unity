@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &66962197
 RectTransform:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32, y: -137}
+  m_AnchoredPosition: {x: -80.777, y: -218}
   m_SizeDelta: {x: 160, y: 84.8715}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &66962198
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popupPanel: {fileID: 2091655215}
-  getOfficerButton: {fileID: 0}
+  getOfficerButton: {fileID: 66962198}
 --- !u!114 &235850097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,6 +1230,7 @@ GameObject:
   - component: {fileID: 496646641}
   - component: {fileID: 496646640}
   - component: {fileID: 496646639}
+  - component: {fileID: 496646642}
   m_Layer: 5
   m_Name: QueueButton
   m_TagString: Untagged
@@ -1339,6 +1340,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496646637}
   m_CullTransparentMesh: 1
+--- !u!114 &496646642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496646637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7674a8aceab50e4c96f3feac643f140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventManager: {fileID: 2094404285}
+  popupPanel: {fileID: 2091655215}
+  popupText: {fileID: 193521164}
 --- !u!1 &520540757
 GameObject:
   m_ObjectHideFlags: 0
@@ -4166,6 +4182,7 @@ MonoBehaviour:
   actionButton2: {fileID: 876777746}
   helpButton: {fileID: 1916834759}
   leaveButton: {fileID: 587489690}
+  getOfficerButton: {fileID: 66962198}
   officerPanel: {fileID: 1542821056}
 --- !u!1 &1542821056
 GameObject:
