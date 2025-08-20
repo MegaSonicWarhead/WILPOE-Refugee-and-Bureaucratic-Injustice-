@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerProgression
 {
@@ -22,7 +23,7 @@ public enum DocumentType
     TravelDocument,
     FirstInterview
 }
-
+//meow
 
 public class GameState : MonoBehaviour
 {
@@ -34,31 +35,52 @@ public class GameState : MonoBehaviour
     public int currentWeek = 1;
 
     public HashSet<DocumentType> acquiredDocuments = new HashSet<DocumentType>();
-
     public bool clueGivenToday = false;
-
     public Dictionary<DocumentType, string> clueHistory = new Dictionary<DocumentType, string>();
 
     private void Awake()
     {
-        Debug.Log($"[GameState] Awake called in scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}, object: {gameObject.name}");
+        Debug.Log($"[GameState] Awake in scene: {SceneManager.GetActiveScene().name}, object: {gameObject.name}");
+
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[GameState] Duplicate detected! Destroying object: {gameObject.name} in scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}");
+            Debug.LogWarning($"[GameState] Duplicate detected -> Destroying {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
-        Debug.Log($"[GameState] Instance set to: {gameObject.name} in scene: {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}");
+        Debug.Log($"[GameState] Singleton Instance set to: {gameObject.name}");
+
         DontDestroyOnLoad(gameObject);
         Debug.Log($"[GameState] DontDestroyOnLoad called for: {gameObject.name}");
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log($"[GameState] OnEnable called for {gameObject.name}");
+    }
+
+    private void Start()
+    {
+        Debug.Log($"[GameState] Start called for {gameObject.name}");
+    }
+
+    private void OnDisable()
+    {
+        Debug.Log($"[GameState] OnDisable called for {gameObject.name}");
+    }
+
+    private void OnDestroy()
+    {
+        Debug.LogError($"[GameState] OnDestroy called for {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
     }
 
     public void AdvanceDay()
     {
         clueGivenToday = false;
-
         currentDay++;
+
         if (currentDay > 4)
         {
             currentDay = 1;
@@ -67,16 +89,15 @@ public class GameState : MonoBehaviour
 
         if (currentWeek > 12)
         {
-            Debug.Log("Game Over - Time Expired!");
+            Debug.Log("[GameState] Game Over - Time Expired!");
         }
     }
 
-    // Call this when the player acquires a document
     public void AcquireDocument(DocumentType doc)
     {
         if (acquiredDocuments.Add(doc))
         {
-            Debug.Log($"Document acquired: {doc}");
+            Debug.Log($"[GameState] Document acquired: {doc}");
             CheckAndAdvanceProgression();
         }
     }
@@ -86,7 +107,6 @@ public class GameState : MonoBehaviour
         return acquiredDocuments.Contains(doc);
     }
 
-    // Automatically advances progression if the required document for the current step is acquired
     private void CheckAndAdvanceProgression()
     {
         switch (playerProgression)
