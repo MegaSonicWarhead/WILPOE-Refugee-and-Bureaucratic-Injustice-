@@ -1054,13 +1054,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - data: {fileID: 11400000, guid: 5a37afbaa4e7262498574f740b958302, type: 2}
-    quantity: 2
+    quantity: 0
   - data: {fileID: 11400000, guid: 31f6754218d80f149b13ac92629022d9, type: 2}
-    quantity: 5
+    quantity: 0
   - data: {fileID: 11400000, guid: f6a1e480db66f06408fef8b084a3bf22, type: 2}
-    quantity: 5
+    quantity: 0
   - data: {fileID: 11400000, guid: 1c225df99e543b945ad115a02d41a33b, type: 2}
-    quantity: 5
+    quantity: 0
   inventoryUI: {fileID: 1563477757}
 --- !u!4 &324138883
 Transform:
