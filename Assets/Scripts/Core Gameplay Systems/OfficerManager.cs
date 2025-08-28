@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -18,31 +18,35 @@ public class OfficerManager : MonoBehaviour
     public Button actionButton2;
     public Button helpButton;
     public Button leaveButton;
-	public Button bribeButton;
-	public Button noButton;
-	public Button giveDocumentButton;
+    public Button bribeButton;
+    public Button noButton;
+    public Button giveDocumentButton;
     public GameObject officerPanel;
 
     private OfficerData currentOfficer;
-	private DocumentType pendingBribeDocument;
-	private string pendingBribeLocation;
-	private bool awaitingBribeChoice = false;
+    private DocumentType pendingBribeDocument;
+    private string pendingBribeLocation;
+    private bool awaitingBribeChoice = false;
+    private bool corruptOfficerAskedForHelp = false; // ✅ Track corrupt officer help flow
+
+    // ✅ Store the last wrong document so other scripts (like Bank/Embassy) can access it
+    public static string LastWrongDocument { get; private set; }
 
     private string[] wrongDocumentAnswers = new string[]
     {
         "BI-947 form: Application form for refugee status",
-        "Valid passport: For yourself and family members",
+        "Valid passport",
         "Application for certification (BI 1754)",
         "Proof of 10 years continuous refugee status",
         "Valid refugee status document (Section 24 visa)",
-        "Information about dependents: Refugee status, birth certificates, marriage certificates",
+        "Information about dependents",
         "Certified copies of passports",
-        "Police affidavit (if applicable): If you claim not to have a passport",
-        "Marriage certificate: If married and spouse is accompanying you",
-        "Proof of parental responsibilities: If bringing dependent children",
+        "Police affidavit",
+        "Marriage certificate",
+        "Proof of parental responsibilities",
         "Birth certificates: For yourself and any dependents",
-        "Police clearance certificate: If 18 or older",
-        "Yellow fever vaccination certificate: If applicable"
+        "Police clearance certificate",
+        "Yellow fever vaccination certificate"
     };
 
     private void Start()
@@ -54,12 +58,12 @@ public class OfficerManager : MonoBehaviour
         helpButton.onClick.AddListener(GiveDocumentClue);
         leaveButton.onClick.AddListener(ClosePanel);
 
-		if (giveDocumentButton != null)
-			giveDocumentButton.onClick.AddListener(GiveDocumentClue);
-		if (bribeButton != null)
-			bribeButton.onClick.AddListener(OnBribeButtonClicked);
-		if (noButton != null)
-			noButton.onClick.AddListener(OnNoButtonClicked);
+        if (giveDocumentButton != null)
+            giveDocumentButton.onClick.AddListener(GiveDocumentClue);
+        if (bribeButton != null)
+            bribeButton.onClick.AddListener(OnBribeButtonClicked);
+        if (noButton != null)
+            noButton.onClick.AddListener(OnNoButtonClicked);
     }
 
     void ClosePanel() => officerPanel.SetActive(false);
@@ -74,12 +78,12 @@ public class OfficerManager : MonoBehaviour
         officerNameText.text = currentOfficer.officerName;
         responseText.text = currentOfficer.initialGreeting;
 
+        corruptOfficerAskedForHelp = false; // reset state when officer changes
         SetActionButtonTextsByProgression();
     }
 
     void SetActionButtonTextsByProgression()
     {
-        // Set button text based on the current progression step
         switch (GameState.Instance.playerProgression)
         {
             case PlayerProgression.Step1_AcquireAsylumApplicationForm:
@@ -154,7 +158,9 @@ public class OfficerManager : MonoBehaviour
         }
         else if (currentOfficer.officerType == OfficerType.Corrupt)
         {
+            // ✅ corrupt officer, wait for No/Bribe choice
             StartBribeFlow(neededDoc, correctLocation);
+            corruptOfficerAskedForHelp = true;
             return;
         }
         else
@@ -167,70 +173,69 @@ public class OfficerManager : MonoBehaviour
         }
     }
 
-	void StartBribeFlow(DocumentType neededDoc, string correctLocation)
-	{
-		responseText.text = $"{currentOfficer.officerName}: I can give you that information if you make it worth my time. I think R100 sounds good. What do you think?";
-		pendingBribeDocument = neededDoc;
-		pendingBribeLocation = correctLocation;
-		awaitingBribeChoice = true;
-	}
-
-	void OnBribeButtonClicked()
-	{
-		if (currentOfficer == null) return;
-
-		// Determine context
-		DocumentType doc = awaitingBribeChoice ? pendingBribeDocument : GetExpectedDocumentForProgression();
-		string location = awaitingBribeChoice ? pendingBribeLocation : GetCorrectLocationForDocument(doc);
-
-		if (MoneySystem.Instance != null && MoneySystem.Instance.SpendMoney(100))
-		{
-			string msg = $"Alright... You'll find your {doc} at the {location}.";
-			GameState.Instance.clueGivenToday = true;
-			GameState.Instance.clueHistory[doc] = location;
-			responseText.text = $"{currentOfficer.officerName}: {msg}";
-		}
-		else
-		{
-			responseText.text = $"{currentOfficer.officerName}: You don't have enough money.";
-		}
-
-		awaitingBribeChoice = false;
-	}
-
-	void OnNoButtonClicked()
-	{
-		if (currentOfficer == null) return;
-
-		DocumentType doc = awaitingBribeChoice ? pendingBribeDocument : GetExpectedDocumentForProgression();
-		string location = awaitingBribeChoice ? pendingBribeLocation : GetCorrectLocationForDocument(doc);
-
-		string msg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
-		GameState.Instance.clueGivenToday = true;
-		GameState.Instance.clueHistory[doc] = location;
-		responseText.text = $"{currentOfficer.officerName}: {msg}";
-
-		awaitingBribeChoice = false;
-	}
-
-    bool TryBribeForClue(out string message)
+    void StartBribeFlow(DocumentType neededDoc, string correctLocation)
     {
-        DocumentType neededDoc = GetExpectedDocumentForProgression();
-        string correctLocation = GetCorrectLocationForDocument(neededDoc);
+        responseText.text = $"{currentOfficer.officerName}: I can give you that information if you make it worth my time. I think R100 sounds good. What do you think?";
+        pendingBribeDocument = neededDoc;
+        pendingBribeLocation = correctLocation;
+        awaitingBribeChoice = true;
+    }
 
-        if (MoneySystem.Instance != null && MoneySystem.Instance.SpendMoney(50))
+    void OnBribeButtonClicked()
+    {
+        if (currentOfficer == null) return;
+
+        DocumentType doc = awaitingBribeChoice ? pendingBribeDocument : GetExpectedDocumentForProgression();
+        string location = awaitingBribeChoice ? pendingBribeLocation : GetCorrectLocationForDocument(doc);
+
+        if (MoneySystem.Instance != null && MoneySystem.Instance.SpendMoney(100))
         {
-            message = $"Alright... You'll find your {neededDoc} at the {correctLocation}.";
-            return true;
+            string msg = $"Alright... You'll find your {doc} at the {location}.";
+            GameState.Instance.clueGivenToday = true;
+            GameState.Instance.clueHistory[doc] = location;
+            responseText.text = $"{currentOfficer.officerName}: {msg}";
+        }
+        else
+        {
+            responseText.text = $"{currentOfficer.officerName}: You don't have enough money.";
         }
 
-        message = null;
-        return false;
+        awaitingBribeChoice = false;
+        corruptOfficerAskedForHelp = false;
+    }
+
+    void OnNoButtonClicked()
+    {
+        if (currentOfficer == null) return;
+
+        DocumentType doc = awaitingBribeChoice ? pendingBribeDocument : GetExpectedDocumentForProgression();
+        string location = awaitingBribeChoice ? pendingBribeLocation : GetCorrectLocationForDocument(doc);
+
+        // ✅ If corrupt officer and player asked for help first → give fake clue
+        if (currentOfficer.officerType == OfficerType.Corrupt && corruptOfficerAskedForHelp)
+        {
+            string msg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
+            GameState.Instance.clueGivenToday = true;
+            GameState.Instance.clueHistory[doc] = location;
+            responseText.text = $"{currentOfficer.officerName}: {msg}";
+            corruptOfficerAskedForHelp = false;
+            awaitingBribeChoice = false;
+            return;
+        }
+
+        // fallback → same as default misleading
+        string fallbackMsg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
+        GameState.Instance.clueGivenToday = true;
+        GameState.Instance.clueHistory[doc] = location;
+        responseText.text = $"{currentOfficer.officerName}: {fallbackMsg}";
+
+        awaitingBribeChoice = false;
     }
 
     string GetRandomWrongDocument()
     {
-        return wrongDocumentAnswers[Random.Range(0, wrongDocumentAnswers.Length)];
+        LastWrongDocument = wrongDocumentAnswers[Random.Range(0, wrongDocumentAnswers.Length)];
+        return LastWrongDocument;
     }
 
     DocumentType GetExpectedDocumentForProgression()
@@ -264,7 +269,6 @@ public class OfficerManager : MonoBehaviour
 
     string GetResponseForButton(string text)
     {
-        // Provide feedback based on the current progression step
         switch (GameState.Instance.playerProgression)
         {
             case PlayerProgression.Step1_AcquireAsylumApplicationForm:
@@ -298,7 +302,7 @@ public class OfficerManager : MonoBehaviour
         }
         if (text == "I Don't Know?")
             return "Please come back when you're ready.";
-        return "I don't understand your request.";
+        return "I understand that you are a refugee. In South Africa, refugees are required to have a temporary permit, which can only be obtained with the correct supporting documents.";
     }
 
     OfficerData GetRandomOfficer()

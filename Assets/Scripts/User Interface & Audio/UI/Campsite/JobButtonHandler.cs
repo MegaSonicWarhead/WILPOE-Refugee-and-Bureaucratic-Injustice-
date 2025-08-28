@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -24,40 +24,36 @@ public class JobButtonHandler : MonoBehaviour
     private void Start()
     {
         button = GetComponent<Button>();
-        button.onClick.AddListener(HandleJobClick);
+        if (button != null)
+            button.onClick.AddListener(HandleJobClick);
     }
 
-    void HandleJobClick()
+    private void HandleJobClick()
     {
         int hoursWorked = Random.Range(minHours, maxHours + 1);
         int totalMoney = hoursWorked * moneyPerHour;
         int totalSanityLoss = hoursWorked * sanityLossPerHour;
 
-        // Advance game time
-        if (GameTime.Instance != null)
-        {
-            GameTime.Instance.AdvanceHours(hoursWorked);
-        }
+        Debug.Log($"[JOB] {jobName} for {hoursWorked}h | +R{totalMoney} | -{totalSanityLoss} Sanity");
 
-        // Add money using MoneySystem
-        if (MoneySystem.Instance != null)
-        {
-            MoneySystem.Instance.AddMoney(totalMoney);
-        }
+        GameTime.Instance?.AdvanceHours(hoursWorked);
+        MoneySystem.Instance?.AddMoney(totalMoney);
+        PlayerStats.Instance?.ModifySanity(-totalSanityLoss);
 
-        // Reduce sanity using PlayerStats
-        if (PlayerStats.Instance != null)
-        {
-            PlayerStats.Instance.ModifySanity(-totalSanityLoss);
-        }
+        TogglePanels();
+        ShowNotification($"You {jobName} for {hoursWorked} hours.\n+R{totalMoney}, -{totalSanityLoss} Sanity.");
+    }
 
-        // Update UI
+    private void ShowNotification(string message)
+    {
+        Debug.Log($"[NOTIFICATION] {message}");
+        if (notificationPanel != null) notificationPanel.SetActive(true);
+        if (notificationText != null) notificationText.text = message;
+    }
+
+    private void TogglePanels()
+    {
         if (jobPanel != null) jobPanel.SetActive(false);
         if (MainPanel != null) MainPanel.SetActive(true);
-        if (notificationPanel != null) notificationPanel.SetActive(true);
-        if (notificationText != null)
-        {
-            notificationText.text = $"You {jobName} for {hoursWorked} hours.\n+R{totalMoney}, -{totalSanityLoss} Sanity.";
-        }
     }
 }

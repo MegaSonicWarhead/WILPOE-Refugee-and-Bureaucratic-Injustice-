@@ -7,27 +7,33 @@ public class OfficerManager_Embassy : MonoBehaviour
     public OfficerData embassyEmployee;
 
     [Header("UI Elements")]
-    public UnityEngine.UI.Image officerImage;
+    public Image officerImage;
     public TMPro.TMP_Text officerNameText;
     public TMPro.TMP_Text responseText;
-    public UnityEngine.UI.Button actionButton1;
-    public UnityEngine.UI.Button actionButton2;
-    public UnityEngine.UI.Button helpButton;
-    public UnityEngine.UI.Button leaveButton;
+    public Button actionButton1;
+    public Button actionButton2;
+    public Button giveAsylumApplicationFormButton;
+    public Button giveWrongDocButton;
+    public Button leaveButton;
     public Button getOfficerButton;
     public GameObject officerPanel;
 
     private void Start()
     {
-        getOfficerButton.onClick.AddListener(OpenEmployeePanel);
+        // Initialize UI setup and button listeners
         officerPanel.SetActive(false);
+
+        getOfficerButton.onClick.AddListener(OpenEmployeePanel);
+        leaveButton.onClick.AddListener(ClosePanel);
+
         actionButton1.onClick.AddListener(() => HandleResponse(1));
         actionButton2.onClick.AddListener(() => HandleResponse(2));
-        helpButton.onClick.AddListener(GiveDocumentClue);
-        leaveButton.onClick.AddListener(ClosePanel);
+
+        giveAsylumApplicationFormButton.onClick.AddListener(GiveCorrectDocument);
+        giveWrongDocButton.onClick.AddListener(GiveWrongDocument);
     }
 
-    void ClosePanel() => officerPanel.SetActive(false);
+    private void ClosePanel() => officerPanel.SetActive(false);
 
     public void OpenEmployeePanel()
     {
@@ -38,7 +44,7 @@ public class OfficerManager_Embassy : MonoBehaviour
         SetActionButtonTextsByProgression();
     }
 
-    void SetActionButtonTextsByProgression()
+    private void SetActionButtonTextsByProgression()
     {
         switch (GameState.Instance.playerProgression)
         {
@@ -54,27 +60,34 @@ public class OfficerManager_Embassy : MonoBehaviour
         }
     }
 
-    void SetButtons(string text1, string text2)
+    private void SetButtons(string text1, string text2)
     {
         actionButton1.GetComponentInChildren<TMPro.TMP_Text>().text = text1;
         actionButton2.GetComponentInChildren<TMPro.TMP_Text>().text = text2;
     }
 
-    void HandleResponse(int option)
+    private void HandleResponse(int option)
     {
-        string text = option == 1
+        string selectedText = option == 1
             ? actionButton1.GetComponentInChildren<TMPro.TMP_Text>().text
             : actionButton2.GetComponentInChildren<TMPro.TMP_Text>().text;
-        responseText.text = $"{embassyEmployee.officerName}: {GetResponseForButton(text)}";
+
+        responseText.text = $"{embassyEmployee.officerName}: {GetResponseForButton(selectedText)}";
     }
 
-    void GiveDocumentClue()
+    private void GiveCorrectDocument()
     {
-        // Implement as needed for Embassy
-        responseText.text = $"{embassyEmployee.officerName}: You can get your Asylum Application Form and complete your First Interview here.";
+        // Correct document logic
+        responseText.text = $"{embassyEmployee.officerName}: Here you go, one Asylum Application Form (DHA-1590).";
     }
 
-    string GetResponseForButton(string text)
+    private void GiveWrongDocument()
+    {
+        // Wrong document logic
+        responseText.text = $"{embassyEmployee.officerName}: This is not the correct document. Please check again.";
+    }
+
+    private string GetResponseForButton(string text)
     {
         switch (GameState.Instance.playerProgression)
         {
@@ -82,15 +95,16 @@ public class OfficerManager_Embassy : MonoBehaviour
                 if (text == "Ask about Asylum Application Form")
                     return "You need to get the Asylum Application Form (DHA-1590). Please speak to the front desk.";
                 break;
+
             case PlayerProgression.Step5_AcquireFirstInterview:
                 if (text == "Ask about First Interview")
-                    return "You need to complete your First Interview. Please wait for your name to be called.";
-                break;
-            default:
+                    return "Your First Interview is scheduled here. Please wait for your name to be called.";
                 break;
         }
+
         if (text == "I Don't Know?")
             return "Please come back when you're ready.";
-        return "I don't understand your request.";
+
+        return "You can get your Asylum Application Form and attend your First Interview here.";
     }
 }

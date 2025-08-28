@@ -11,72 +11,55 @@ public class MoneySystem : MonoBehaviour
     public TextMeshProUGUI moneyText;
 
     private int currentMoney = 150;
+    private bool instanceSet = false;
 
     private void Awake()
     {
-        Debug.Log($"[MoneySystem] Awake in scene: {SceneManager.GetActiveScene().name}, object: {gameObject.name}");
-
         if (Instance == null)
         {
             Instance = this;
+            instanceSet = true;
             DontDestroyOnLoad(gameObject);
-            Debug.Log($"[MoneySystem] Instance set and DontDestroyOnLoad applied to: {gameObject.name}");
+            Debug.Log($"[MoneySystem] Instance set for {gameObject.name}");
         }
         else if (Instance != this)
         {
-            Debug.LogWarning($"[MoneySystem] Duplicate detected. Destroying ONLY MoneySystem component on {gameObject.name} (existing: {Instance.gameObject.name})");
-            Destroy(this); // ✅ only remove this component, not the entire GameObject
+            Debug.LogWarning($"[MoneySystem] Duplicate detected. Destroying only this component on {gameObject.name}");
+            Destroy(this);
             return;
         }
     }
 
     private void OnEnable()
     {
-        Debug.Log($"[MoneySystem] OnEnable called on {gameObject.name}");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
-        Debug.Log($"[MoneySystem] OnDisable called on {gameObject.name}");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void Start()
     {
-        Debug.Log($"[MoneySystem] Start in scene: {SceneManager.GetActiveScene().name}");
         UpdateMoneyUI();
     }
 
     private void OnDestroy()
     {
-        if (Instance == this)
-        {
-            Debug.LogError($"[MoneySystem] The *real* MoneySystem was destroyed in scene {SceneManager.GetActiveScene().name}. This should NOT happen!");
+        if (instanceSet)
             Instance = null;
-        }
-        else
-        {
-            Debug.Log($"[MoneySystem] Duplicate MoneySystem component cleaned up in {SceneManager.GetActiveScene().name}");
-        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log($"[MoneySystem] Scene loaded: {scene.name}. Checking for MoneyText...");
-
         if (moneyText == null)
         {
             GameObject found = GameObject.FindWithTag("MoneyText");
             if (found != null)
             {
                 moneyText = found.GetComponent<TextMeshProUGUI>();
-                Debug.Log($"[MoneySystem] Found MoneyText in scene: {scene.name}");
                 UpdateMoneyUI();
-            }
-            else
-            {
-                Debug.LogWarning($"[MoneySystem] MoneyText tag not found in scene: {scene.name}");
             }
         }
     }
@@ -90,6 +73,7 @@ public class MoneySystem : MonoBehaviour
 
     public bool SpendMoney(int amount)
     {
+        if (amount <= 0) return true; // ignore zero or negative
         if (currentMoney >= amount)
         {
             currentMoney -= amount;
@@ -99,33 +83,25 @@ public class MoneySystem : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("[MoneySystem] Not enough money!");
+            // If not enough, set to 0 and log
+            currentMoney = 0;
+            UpdateMoneyUI();
+            Debug.LogWarning($"[MoneySystem] Not enough money! Money set to 0.");
             return false;
         }
     }
 
-    public int GetMoney()
-    {
-        return currentMoney;
-    }
+    public int GetMoney() => currentMoney;
 
     public void UpdateMoneyUI()
     {
         if (moneyText != null)
-        {
             moneyText.text = $"R {currentMoney}";
-            Debug.Log($"[MoneySystem] UpdateMoneyUI -> {moneyText.text}");
-        }
-        else
-        {
-            Debug.Log("[MoneySystem] UpdateMoneyUI skipped (moneyText is null)");
-        }
     }
 
     public void SetMoneyText(TextMeshProUGUI newText)
     {
         moneyText = newText;
-        Debug.Log("[MoneySystem] Money text reference updated via SetMoneyText");
         UpdateMoneyUI();
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class OfficerManager_Bank : MonoBehaviour
@@ -12,7 +12,8 @@ public class OfficerManager_Bank : MonoBehaviour
     public TMPro.TMP_Text responseText;
     public UnityEngine.UI.Button actionButton1;
     public UnityEngine.UI.Button actionButton2;
-    public UnityEngine.UI.Button helpButton;
+    public UnityEngine.UI.Button GivebiometricsButton;
+    public UnityEngine.UI.Button GiveWrongDocButton;
     public UnityEngine.UI.Button leaveButton;
     public Button getOfficerButton;
     public GameObject officerPanel;
@@ -21,10 +22,16 @@ public class OfficerManager_Bank : MonoBehaviour
     {
         getOfficerButton.onClick.AddListener(OpenClerkPanel);
         officerPanel.SetActive(false);
+
         actionButton1.onClick.AddListener(() => HandleResponse(1));
         actionButton2.onClick.AddListener(() => HandleResponse(2));
-        helpButton.onClick.AddListener(GiveDocumentClue);
+        GivebiometricsButton.onClick.AddListener(GiveCorrectDocument);
+        GiveWrongDocButton.onClick.AddListener(GiveWrongDocument);
         leaveButton.onClick.AddListener(ClosePanel);
+
+        // Ensure WrongDoc button is hidden/disabled at start
+        GiveWrongDocButton.interactable = false;
+        GiveWrongDocButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Give Wrong Document";
     }
 
     void ClosePanel() => officerPanel.SetActive(false);
@@ -35,7 +42,21 @@ public class OfficerManager_Bank : MonoBehaviour
         officerImage.sprite = bankClerk.officerImage;
         officerNameText.text = bankClerk.officerName;
         responseText.text = bankClerk.initialGreeting;
+
         SetActionButtonTextsByProgression();
+
+        // ✅ Update Wrong Doc button text with the last wrong document (if available)
+        if (!string.IsNullOrEmpty(OfficerManager.LastWrongDocument))
+        {
+            GiveWrongDocButton.interactable = true;
+            GiveWrongDocButton.GetComponentInChildren<TMPro.TMP_Text>().text =
+                $"Give {OfficerManager.LastWrongDocument}";
+        }
+        else
+        {
+            GiveWrongDocButton.interactable = false;
+            GiveWrongDocButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Give Wrong Document";
+        }
     }
 
     void SetActionButtonTextsByProgression()
@@ -62,13 +83,20 @@ public class OfficerManager_Bank : MonoBehaviour
         string text = option == 1
             ? actionButton1.GetComponentInChildren<TMPro.TMP_Text>().text
             : actionButton2.GetComponentInChildren<TMPro.TMP_Text>().text;
+
         responseText.text = $"{bankClerk.officerName}: {GetResponseForButton(text)}";
     }
 
-    void GiveDocumentClue()
+    void GiveCorrectDocument()
     {
-        // Implement as needed for Bank
-        responseText.text = $"{bankClerk.officerName}: You can complete your biometrics here.";
+        responseText.text = $"{bankClerk.officerName}: Here is your Fingerprints document.";
+    }
+
+    void GiveWrongDocument()
+    {
+        // ✅ Use the exact wrong document chosen in OfficerManager
+        string wrongDoc = OfficerManager.LastWrongDocument ?? "some random document";
+        responseText.text = $"{bankClerk.officerName}: Here is the {wrongDoc} you asked for.";
     }
 
     string GetResponseForButton(string text)
@@ -79,11 +107,11 @@ public class OfficerManager_Bank : MonoBehaviour
                 if (text == "Ask about Biometrics")
                     return "You need to complete your biometrics. Please proceed to the fingerprint scanner.";
                 break;
-            default:
-                break;
         }
+
         if (text == "I Don't Know?")
             return "Please come back when you're ready.";
-        return "I don't understand your request.";
+
+        return "You can complete your biometrics here.";
     }
 }

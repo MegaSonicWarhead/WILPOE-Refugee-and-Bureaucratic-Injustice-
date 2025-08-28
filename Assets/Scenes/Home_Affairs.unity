@@ -1925,9 +1925,9 @@ MonoBehaviour:
   actionButton2: {fileID: 380909951}
   helpButton: {fileID: 415115300}
   leaveButton: {fileID: 1776967063}
-  bribeButton: {fileID: 0}
-  noButton: {fileID: 0}
-  giveDocumentButton: {fileID: 0}
+  bribeButton: {fileID: 1653267604}
+  noButton: {fileID: 1084526223}
+  giveDocumentButton: {fileID: 134349196}
   officerPanel: {fileID: 460669207}
 --- !u!1 &409237296
 GameObject:
