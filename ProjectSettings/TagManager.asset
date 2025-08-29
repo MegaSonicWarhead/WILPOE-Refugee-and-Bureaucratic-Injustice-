@@ -11,6 +11,9 @@ TagManager:
   - WeatherIcon
   - WeatherText
   - MoneyText
+  - Bowl
+  - Brocolli
+  - Meat
   layers:
   - Default
   - TransparentFX
