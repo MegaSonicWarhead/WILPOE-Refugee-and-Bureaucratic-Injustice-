@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 461152163}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1009,8 +1009,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 461152162}
   moveSpeed: 4.5
-  mouseSensitivity: 160
-  gravity: -20
+  mouseSensitivity: 100
+  gravity: -15
   jumpHeight: 1.2
 --- !u!136 &1873803893
 CapsuleCollider:
@@ -1249,6 +1249,10 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2685189104407023175, guid: e19df6d7be1af8141a5251f1442794af, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 7214261658305165242, guid: e19df6d7be1af8141a5251f1442794af, type: 3}
       propertyPath: m_Name
       value: Food_Broccoli
@@ -1413,6 +1417,10 @@ PrefabInstance:
     - target: {fileID: 5940679179396712807, guid: 0ce52cc205252a0479a243d2b44ce539, type: 3}
       propertyPath: m_UseGravity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940679179396712807, guid: 0ce52cc205252a0479a243d2b44ce539, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 8349880815360452765, guid: 0ce52cc205252a0479a243d2b44ce539, type: 3}
       propertyPath: m_LocalPosition.x
