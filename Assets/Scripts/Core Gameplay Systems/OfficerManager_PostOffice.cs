@@ -95,18 +95,36 @@ public class OfficerManager_PostOffice : MonoBehaviour
     void GiveFirstCorrectDocument()
     {
         responseText.text = $"{postOfficeClerk.officerName}: Here is your ID document.";
+
+        //// Add ID document to inventory
+        //var idDoc = Resources.Load<InventoryItemData>("Items/ID_Document"); // path to your ScriptableObject
+        //if (idDoc != null)
+        //    InventoryManager.Instance.AddItem(idDoc);
+
+        //GameState.Instance.playerProgression = PlayerProgression.Step3_AcquiredID;
     }
 
     void GiveSecondCorrectDocument()
     {
         responseText.text = $"{postOfficeClerk.officerName}: Here is your Travel Document.";
+
+        //// Add Travel Document to inventory
+        //var travelDoc = Resources.Load<InventoryItemData>("Items/Travel_Document");
+        //if (travelDoc != null)
+        //    InventoryManager.Instance.AddItem(travelDoc);
+
+       // GameState.Instance.playerProgression = PlayerProgression.Step5_AcquiredTravelDocument;
     }
 
     void GiveWrongDocument()
     {
-        // ✅ Pull wrong doc from OfficerManager
-        string wrongDoc = OfficerManager.LastWrongDocument ?? "some random document";
-        responseText.text = $"{postOfficeClerk.officerName}: Here is the {wrongDoc} you asked for.";
+        string wrongDocName = OfficerManager.LastWrongDocument ?? "Fake_Document";
+        responseText.text = $"{postOfficeClerk.officerName}: Here is the {wrongDocName}.";
+
+        // Add wrong document to inventory
+        var wrongDoc = Resources.Load<InventoryItemData>($"Items/{wrongDocName}");
+        if (wrongDoc != null)
+            InventoryManager.Instance.AddItem(wrongDoc);
     }
 
     string GetResponseForButton(string text)

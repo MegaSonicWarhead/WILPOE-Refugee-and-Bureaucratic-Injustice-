@@ -27,9 +27,8 @@ public class OfficerManager : MonoBehaviour
     private DocumentType pendingBribeDocument;
     private string pendingBribeLocation;
     private bool awaitingBribeChoice = false;
-    private bool corruptOfficerAskedForHelp = false; // ✅ Track corrupt officer help flow
+    private bool corruptOfficerAskedForHelp = false;
 
-    // ✅ Store the last wrong document so other scripts (like Bank/Embassy) can access it
     public static string LastWrongDocument { get; private set; }
 
     private string[] wrongDocumentAnswers = new string[]
@@ -59,7 +58,7 @@ public class OfficerManager : MonoBehaviour
         leaveButton.onClick.AddListener(ClosePanel);
 
         if (giveDocumentButton != null)
-            giveDocumentButton.onClick.AddListener(GiveDocumentClue);
+            giveDocumentButton.onClick.AddListener(OnGiveDocumentClicked); // ✅ handle document hand-in
         if (bribeButton != null)
             bribeButton.onClick.AddListener(OnBribeButtonClicked);
         if (noButton != null)
@@ -78,8 +77,40 @@ public class OfficerManager : MonoBehaviour
         officerNameText.text = currentOfficer.officerName;
         responseText.text = currentOfficer.initialGreeting;
 
-        corruptOfficerAskedForHelp = false; // reset state when officer changes
+        corruptOfficerAskedForHelp = false;
         SetActionButtonTextsByProgression();
+    }
+
+    // -----------------------
+    // ✅ New: Give Document Button
+    // -----------------------
+    void OnGiveDocumentClicked()
+    {
+        if (currentOfficer == null) return;
+
+        DocumentType neededDoc = GetExpectedDocumentForProgression();
+        InventoryItemData docItemData = DocumentDatabase.Instance.GetItemDataForDocument(neededDoc);
+
+        if (docItemData == null)
+        {
+            responseText.text = $"{currentOfficer.officerName}: I don't recognize that document.";
+            return;
+        }
+
+        if (InventoryManager.Instance.HasItem(docItemData))
+        {
+            // Remove from inventory
+            InventoryManager.Instance.RemoveItem(docItemData);
+
+            // Advance progression
+            GameState.Instance.AcquireDocument(neededDoc);
+
+            responseText.text = $"{currentOfficer.officerName}: Thank you for providing your {neededDoc}. Your application is moving forward!";
+        }
+        else
+        {
+            responseText.text = $"{currentOfficer.officerName}: You don’t have the correct document yet.";
+        }
     }
 
     void SetActionButtonTextsByProgression()
@@ -158,7 +189,6 @@ public class OfficerManager : MonoBehaviour
         }
         else if (currentOfficer.officerType == OfficerType.Corrupt)
         {
-            // ✅ corrupt officer, wait for No/Bribe choice
             StartBribeFlow(neededDoc, correctLocation);
             corruptOfficerAskedForHelp = true;
             return;
@@ -211,7 +241,6 @@ public class OfficerManager : MonoBehaviour
         DocumentType doc = awaitingBribeChoice ? pendingBribeDocument : GetExpectedDocumentForProgression();
         string location = awaitingBribeChoice ? pendingBribeLocation : GetCorrectLocationForDocument(doc);
 
-        // ✅ If corrupt officer and player asked for help first → give fake clue
         if (currentOfficer.officerType == OfficerType.Corrupt && corruptOfficerAskedForHelp)
         {
             string msg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
@@ -223,7 +252,6 @@ public class OfficerManager : MonoBehaviour
             return;
         }
 
-        // fallback → same as default misleading
         string fallbackMsg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
         GameState.Instance.clueGivenToday = true;
         GameState.Instance.clueHistory[doc] = location;
@@ -292,16 +320,12 @@ public class OfficerManager : MonoBehaviour
                     return "You need to complete your First Interview and submit proof.";
                 break;
             case PlayerProgression.CompletedApplication:
-                if (text == "What's Next?")
-                    return "You'll be contacted by an officer for next steps.";
-                if (text == "Thank You")
-                    return "You're welcome. Good luck.";
+                if (text == "What's Next?") return "You'll be contacted by an officer for next steps.";
+                if (text == "Thank You") return "You're welcome. Good luck.";
                 break;
-            default:
-                break;
+            default: break;
         }
-        if (text == "I Don't Know?")
-            return "Please come back when you're ready.";
+        if (text == "I Don't Know?") return "Please come back when you're ready.";
         return "I understand that you are a refugee. In South Africa, refugees are required to have a temporary permit, which can only be obtained with the correct supporting documents.";
     }
 
