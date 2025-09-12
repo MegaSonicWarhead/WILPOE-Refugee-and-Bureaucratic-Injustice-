@@ -11,6 +11,8 @@ TagManager:
   - WeatherIcon
   - WeatherText
   - MoneyText
+  - Pickup
+  - Delivery
   layers:
   - Default
   - TransparentFX
