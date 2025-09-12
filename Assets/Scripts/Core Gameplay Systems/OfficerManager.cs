@@ -88,26 +88,47 @@ public class OfficerManager : MonoBehaviour
     {
         if (currentOfficer == null) return;
 
+        // Determine which document is expected for current progression
         DocumentType neededDoc = GetExpectedDocumentForProgression();
+
+        if (DocumentDatabase.Instance == null)
+        {
+            Debug.LogError("DocumentDatabase.Instance is null! Make sure it's in the scene.");
+            return;
+        }
+
         InventoryItemData docItemData = DocumentDatabase.Instance.GetItemDataForDocument(neededDoc);
 
         if (docItemData == null)
         {
             responseText.text = $"{currentOfficer.officerName}: I don't recognize that document.";
+            Debug.LogError($"ScriptableObject for {neededDoc} not found in DocumentDatabase!");
             return;
         }
 
+        if (InventoryManager.Instance == null)
+        {
+            Debug.LogError("InventoryManager.Instance is null! Make sure it's in the scene.");
+            return;
+        }
+
+        // Check if player has the item in inventory
         if (InventoryManager.Instance.HasItem(docItemData))
         {
-            InventoryManager.Instance.RemoveItem(docItemData);          // remove 1 from inventory
-            GameState.Instance.AcquireDocument(neededDoc);             // advance progression
+            // Remove 1 from inventory
+            InventoryManager.Instance.RemoveItem(docItemData);
 
+            // Advance game progression
+            GameState.Instance.AcquireDocument(neededDoc);
+
+            // Feedback to player
             responseText.text = $"{currentOfficer.officerName}: Thank you for providing your {neededDoc}. Your application is moving forward!";
             Debug.Log($"[HomeAffairs] {neededDoc} handed in successfully.");
         }
         else
         {
             responseText.text = $"{currentOfficer.officerName}: You don’t have the correct document yet.";
+            Debug.Log($"[HomeAffairs] Player tried to hand in {neededDoc}, but it wasn't in inventory.");
         }
     }
 
