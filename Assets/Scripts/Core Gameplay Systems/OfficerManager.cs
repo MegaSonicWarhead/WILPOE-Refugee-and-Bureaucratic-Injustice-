@@ -99,13 +99,11 @@ public class OfficerManager : MonoBehaviour
 
         if (InventoryManager.Instance.HasItem(docItemData))
         {
-            // Remove from inventory
-            InventoryManager.Instance.RemoveItem(docItemData);
-
-            // Advance progression
-            GameState.Instance.AcquireDocument(neededDoc);
+            InventoryManager.Instance.RemoveItem(docItemData);          // remove 1 from inventory
+            GameState.Instance.AcquireDocument(neededDoc);             // advance progression
 
             responseText.text = $"{currentOfficer.officerName}: Thank you for providing your {neededDoc}. Your application is moving forward!";
+            Debug.Log($"[HomeAffairs] {neededDoc} handed in successfully.");
         }
         else
         {

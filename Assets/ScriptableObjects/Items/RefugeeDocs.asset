@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: RefugeeDocs
   icon: {fileID: -3947057943441848186, guid: e8b06752de24f304d911edfa4e976e63, type: 3}
   maxStackSize: 2
+  price: 0

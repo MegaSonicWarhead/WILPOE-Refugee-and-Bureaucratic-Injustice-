@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac6937a38504ad147956674d99b1b98b, type: 3}
-  m_Name: ID
+  m_Name: Travel
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  maxStackSize: 99
+  itemName: Travel_Documents
+  icon: {fileID: 8964220846212836604, guid: 0adad9a01a88f5f4da4db3b0e361bcd3, type: 3}
+  maxStackSize: 2
   price: 0

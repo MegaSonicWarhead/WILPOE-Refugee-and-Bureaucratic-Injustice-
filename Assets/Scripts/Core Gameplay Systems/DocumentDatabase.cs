@@ -7,13 +7,14 @@ public class DocumentDatabase : MonoBehaviour
     public static DocumentDatabase Instance;
 
     [System.Serializable]
-    public struct DocumentEntry
+    public class DocumentEntry
     {
         public DocumentType documentType;
         public InventoryItemData itemData;
     }
 
-    public List<DocumentEntry> documents;
+    [Header("All Documents")]
+    public List<DocumentEntry> documents = new List<DocumentEntry>();
 
     private void Awake()
     {
@@ -21,14 +22,9 @@ public class DocumentDatabase : MonoBehaviour
         else Destroy(gameObject);
     }
 
-    // Get the InventoryItemData for a DocumentType
     public InventoryItemData GetItemDataForDocument(DocumentType docType)
     {
-        foreach (var entry in documents)
-        {
-            if (entry.documentType == docType)
-                return entry.itemData;
-        }
-        return null;
+        var entry = documents.Find(d => d.documentType == docType);
+        return entry != null ? entry.itemData : null;
     }
 }

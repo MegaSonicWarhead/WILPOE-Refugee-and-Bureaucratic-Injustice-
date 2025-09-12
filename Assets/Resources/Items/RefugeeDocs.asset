@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac6937a38504ad147956674d99b1b98b, type: 3}
-  m_Name: Travel
+  m_Name: RefugeeDocs
   m_EditorClassIdentifier: 
-  itemName: 
-  icon: {fileID: 0}
-  maxStackSize: 99
+  itemName: RefugeeDocs
+  icon: {fileID: -3947057943441848186, guid: e8b06752de24f304d911edfa4e976e63, type: 3}
+  maxStackSize: 2
   price: 0
