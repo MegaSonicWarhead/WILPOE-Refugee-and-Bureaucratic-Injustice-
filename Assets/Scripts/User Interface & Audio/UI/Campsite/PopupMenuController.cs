@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PopupMenuController : MonoBehaviour
 {
@@ -30,14 +31,8 @@ public class PopupMenuController : MonoBehaviour
     // Function to toggle the food popup
     public void ToggleFoodPopup()
     {
-        if (activePopup == foodPopup)
-        {
-            HideAllPopups(); // Hide pop-up if it's already active
-        }
-        else
-        {
-            ShowPopup(foodPopup); // Show food pop-up
-        }
+
+        SceneManager.LoadScene("Food Crafting");
     }
 
     public void ToggleJobPanel()
