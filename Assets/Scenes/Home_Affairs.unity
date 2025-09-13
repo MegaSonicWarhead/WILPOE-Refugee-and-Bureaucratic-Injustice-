@@ -1677,9 +1677,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - data: {fileID: 11400000, guid: 9f313c9b9756b2349ae51949ec9304cf, type: 2}
-    quantity: 0
+    quantity: 1
   - data: {fileID: 11400000, guid: 8db38ba046c3097428067913fee63377, type: 2}
-    quantity: 0
+    quantity: 1
   inventoryUI: {fileID: 1989305776}
 --- !u!4 &254801370
 Transform:
