@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6937a38504ad147956674d99b1b98b, type: 3}
+  m_Name: TravelDocument
+  m_EditorClassIdentifier: 
+  itemName: Travel_Documents
+  icon: {fileID: 8964220846212836604, guid: 0adad9a01a88f5f4da4db3b0e361bcd3, type: 3}
+  maxStackSize: 2
+  price: 0

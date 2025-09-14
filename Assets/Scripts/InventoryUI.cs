@@ -1,4 +1,4 @@
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +8,14 @@ public class InventoryUI : MonoBehaviour
     public Transform slotParent;
     public GameObject slotPrefab;
 
+    private void Update()
+    {
+        // Close inventory if Escape is pressed and panel is active
+        if (inventoryPanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            inventoryPanel.SetActive(false);
+        }
+    }
     public void RefreshInventory()
     {
         foreach (Transform child in slotParent)
@@ -25,8 +33,20 @@ public class InventoryUI : MonoBehaviour
 
     public void ToggleInventory()
     {
-        inventoryPanel.SetActive(!inventoryPanel.activeSelf);
-        if (inventoryPanel.activeSelf)
+        if (inventoryPanel == null) return;
+
+        bool isActive = inventoryPanel.activeSelf;
+
+        if (!isActive)
+        {
+            // Opening the inventory → refresh contents
+            inventoryPanel.SetActive(true);
             RefreshInventory();
+        }
+        else
+        {
+            // Closing the inventory
+            inventoryPanel.SetActive(false);
+        }
     }
 }

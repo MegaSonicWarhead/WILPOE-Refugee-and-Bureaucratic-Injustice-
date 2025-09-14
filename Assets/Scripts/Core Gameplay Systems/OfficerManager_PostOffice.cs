@@ -94,7 +94,19 @@ public class OfficerManager_PostOffice : MonoBehaviour
 
     void GiveFirstCorrectDocument()
     {
-        responseText.text = $"{postOfficeClerk.officerName}: Here is your ID document.";
+        var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.ID);
+        if (docItemData != null)
+        {
+            InventoryManager.Instance.AddItem(docItemData);           // add to inventory
+            GameState.Instance.AcquireDocument(DocumentType.ID);     // advance progression
+            responseText.text = $"{postOfficeClerk.officerName}: Here is your ID document.";
+            Debug.Log("[PostOffice] ID Document added to inventory.");
+        }
+        else
+        {
+            Debug.LogError("ID_Document ScriptableObject not found in DocumentDatabase!");
+        }
+
 
         //// Add ID document to inventory
         //var idDoc = Resources.Load<InventoryItemData>("Items/ID_Document"); // path to your ScriptableObject
@@ -106,14 +118,31 @@ public class OfficerManager_PostOffice : MonoBehaviour
 
     void GiveSecondCorrectDocument()
     {
-        responseText.text = $"{postOfficeClerk.officerName}: Here is your Travel Document.";
+        var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.TravelDocument);
+
+        if (docItemData != null)
+        {
+            // Add to inventory
+            InventoryManager.Instance.AddItem(docItemData);
+
+            // Advance game progression
+            GameState.Instance.AcquireDocument(DocumentType.TravelDocument);
+
+            // Update response text
+            responseText.text = $"{postOfficeClerk.officerName}: Here is your Travel Document.";
+            Debug.Log("[PostOffice] Travel Document added to inventory.");
+        }
+        else
+        {
+            Debug.LogError("Travel_Document ScriptableObject not found in DocumentDatabase!");
+        }
 
         //// Add Travel Document to inventory
         //var travelDoc = Resources.Load<InventoryItemData>("Items/Travel_Document");
         //if (travelDoc != null)
         //    InventoryManager.Instance.AddItem(travelDoc);
 
-       // GameState.Instance.playerProgression = PlayerProgression.Step5_AcquiredTravelDocument;
+        // GameState.Instance.playerProgression = PlayerProgression.Step5_AcquiredTravelDocument;
     }
 
     void GiveWrongDocument()

@@ -11,11 +11,14 @@ TagManager:
   - WeatherIcon
   - WeatherText
   - MoneyText
+  - Bowl
+  - Brocolli
+  - Meat
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Interactable
   - Water
   - UI
   - WeatherFX
