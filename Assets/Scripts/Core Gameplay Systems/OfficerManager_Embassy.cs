@@ -41,14 +41,7 @@ public class OfficerManager_Embassy : MonoBehaviour
         officerImage.sprite = embassyEmployee.officerImage;
         officerNameText.text = embassyEmployee.officerName;
         responseText.text = embassyEmployee.initialGreeting;
-
         SetActionButtonTextsByProgression();
-
-        // Update the "Give Correct Document" button text based on progression
-        if (GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm)
-            giveAsylumApplicationFormButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Get Asylum Application Form";
-        else
-            giveAsylumApplicationFormButton.GetComponentInChildren<TMPro.TMP_Text>().text = "No Document Available";
     }
 
     private void SetActionButtonTextsByProgression()
@@ -84,18 +77,8 @@ public class OfficerManager_Embassy : MonoBehaviour
 
     private void GiveCorrectDocument()
     {
-        if (GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm)
-        {
-            // Add Asylum Application Form to inventory
-            GameState.Instance.AcquireDocument(DocumentType.AsylumApplicationFormDHA1590);
-
-            responseText.text = $"{embassyEmployee.officerName}: Here you go, one Asylum Application Form (DHA-1590).";
-        }
-        else
-        {
-            // Already acquired or wrong stage
-            responseText.text = $"{embassyEmployee.officerName}: You already have what you need from me.";
-        }
+        // Correct document logic
+        responseText.text = $"{embassyEmployee.officerName}: Here you go, one Asylum Application Form (DHA-1590).";
     }
 
     private void GiveWrongDocument()

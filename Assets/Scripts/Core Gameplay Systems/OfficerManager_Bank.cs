@@ -90,20 +90,6 @@ public class OfficerManager_Bank : MonoBehaviour
     void GiveCorrectDocument()
     {
         responseText.text = $"{bankClerk.officerName}: Here is your Fingerprints document.";
-        var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.Biometrics);
-        if (docItemData != null)
-        {
-            InventoryManager.Instance.AddItem(docItemData); // ✅ Add to inventory
-            GameState.Instance.AcquireDocument(DocumentType.Biometrics); // ✅ Update progression
-
-            responseText.text = $"{bankClerk.officerName}: Here is your Biometrics document.";
-            Debug.Log("[Bank Clerk] Biometrics document added to inventory.");
-        }
-        else
-        {
-            Debug.LogError("Biometrics ScriptableObject not found in DocumentDatabase!");
-            responseText.text = $"{bankClerk.officerName}: Hmm, I can’t seem to find your biometrics record right now.";
-        }
     }
 
     void GiveWrongDocument()
