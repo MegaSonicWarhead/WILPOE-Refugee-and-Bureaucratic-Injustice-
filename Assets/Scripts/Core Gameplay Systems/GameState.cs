@@ -40,40 +40,40 @@ public class GameState : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log($"[GameState] Awake in scene: {SceneManager.GetActiveScene().name}, object: {gameObject.name}");
+        //Debug.Log($"[GameState] Awake in scene: {SceneManager.GetActiveScene().name}, object: {gameObject.name}");
 
         if (Instance != null && Instance != this)
         {
-            Debug.LogWarning($"[GameState] Duplicate detected -> Destroying {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
+           // Debug.LogWarning($"[GameState] Duplicate detected -> Destroying {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
             Destroy(gameObject);
             return;
         }
 
         Instance = this;
-        Debug.Log($"[GameState] Singleton Instance set to: {gameObject.name}");
+        //Debug.Log($"[GameState] Singleton Instance set to: {gameObject.name}");
 
         DontDestroyOnLoad(gameObject);
-        Debug.Log($"[GameState] DontDestroyOnLoad called for: {gameObject.name}");
+        //Debug.Log($"[GameState] DontDestroyOnLoad called for: {gameObject.name}");
     }
 
     private void OnEnable()
     {
-        Debug.Log($"[GameState] OnEnable called for {gameObject.name}");
+        //Debug.Log($"[GameState] OnEnable called for {gameObject.name}");
     }
 
     private void Start()
     {
-        Debug.Log($"[GameState] Start called for {gameObject.name}");
+        //Debug.Log($"[GameState] Start called for {gameObject.name}");
     }
 
     private void OnDisable()
     {
-        Debug.Log($"[GameState] OnDisable called for {gameObject.name}");
+        //Debug.Log($"[GameState] OnDisable called for {gameObject.name}");
     }
 
     private void OnDestroy()
     {
-        Debug.LogError($"[GameState] OnDestroy called for {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
+        //Debug.LogError($"[GameState] OnDestroy called for {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
     }
 
     public void AdvanceDay()
@@ -89,7 +89,7 @@ public class GameState : MonoBehaviour
 
         if (currentWeek > 12)
         {
-            Debug.Log("[GameState] Game Over - Time Expired!");
+           // Debug.Log("[GameState] Game Over - Time Expired!");
         }
     }
 
@@ -97,7 +97,7 @@ public class GameState : MonoBehaviour
     {
         if (acquiredDocuments.Add(doc))
         {
-            Debug.Log($"[GameState] Document acquired: {doc}");
+            //Debug.Log($"[GameState] Document acquired: {doc}");
             CheckAndAdvanceProgression();
         }
     }

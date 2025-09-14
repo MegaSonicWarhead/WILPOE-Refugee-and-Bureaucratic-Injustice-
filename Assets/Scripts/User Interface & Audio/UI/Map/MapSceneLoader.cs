@@ -36,6 +36,6 @@ public class MapSceneLoader : MonoBehaviour
 
     private void OnDestroy()
     {
-        Debug.LogError($"[MapSceneLoader] OnDestroy called for {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
+        //Debug.LogError($"[MapSceneLoader] OnDestroy called for {gameObject.name} in scene: {SceneManager.GetActiveScene().name}");
     }
 }
