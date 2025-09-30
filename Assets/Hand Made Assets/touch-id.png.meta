@@ -178,7 +178,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      touch-id_0: 2508929569273294604
+      touch-id_1: 262574973015275591
+      touch-id_2: -2481052997648926275
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
