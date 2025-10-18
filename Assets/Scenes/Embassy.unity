@@ -484,7 +484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get Asylum Application Form
+  m_text: Pay R20 to get Asylum Application Form
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3343,8 +3343,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 377.28003, y: -322}
-  m_SizeDelta: {x: 160, y: 65}
+  m_AnchoredPosition: {x: 411.55786, y: -361.9909}
+  m_SizeDelta: {x: 228.5558, y: 144.9818}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006416752
 MonoBehaviour:
@@ -4737,11 +4737,13 @@ MonoBehaviour:
   responseText: {fileID: 410173933}
   actionButton1: {fileID: 788356359}
   actionButton2: {fileID: 876777746}
-  giveAsylumApplicationFormButton: {fileID: 0}
-  giveWrongDocButton: {fileID: 0}
+  giveAsylumApplicationFormButton: {fileID: 1916834759}
+  giveWrongDocButton: {fileID: 1006416752}
   leaveButton: {fileID: 587489690}
   getOfficerButton: {fileID: 66962198}
   officerPanel: {fileID: 1542821056}
+  NotifyPanel: {fileID: 2081844884}
+  NotificationText: {fileID: 2033923166}
 --- !u!1 &1542821056
 GameObject:
   m_ObjectHideFlags: 0
@@ -5829,8 +5831,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.8551, y: -228.00012}
-  m_SizeDelta: {x: 145.159, y: 84.004}
+  m_AnchoredPosition: {x: 369.8551, y: -205.1482}
+  m_SizeDelta: {x: 145.159, y: 129.7079}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1916834757
 MonoBehaviour:

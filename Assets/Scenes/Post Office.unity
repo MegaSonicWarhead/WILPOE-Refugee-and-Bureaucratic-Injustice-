@@ -2903,8 +2903,10 @@ MonoBehaviour:
   GiveTravel_DocumentButton: {fileID: 1564656036}
   GiveWrongDocButton: {fileID: 803721653}
   leaveButton: {fileID: 1460119467}
-  officerPanel: {fileID: 274304161}
   getOfficerButton: {fileID: 466327554}
+  officerPanel: {fileID: 274304161}
+  NotifyPanel: {fileID: 217597296}
+  NotificationText: {fileID: 567983410}
 --- !u!1 &776354920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,8 +3091,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 377.28, y: -322}
-  m_SizeDelta: {x: 160, y: 65}
+  m_AnchoredPosition: {x: 377.28, y: -345.99454}
+  m_SizeDelta: {x: 160, y: 112.9891}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &803721653
 MonoBehaviour:
@@ -5289,8 +5291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.8551, y: -228.00012}
-  m_SizeDelta: {x: 145.159, y: 84.004}
+  m_AnchoredPosition: {x: 369.8551, y: -213.14636}
+  m_SizeDelta: {x: 145.159, y: 113.7115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440527665
 MonoBehaviour:
@@ -6425,7 +6427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get ID Document
+  m_text: Pay R20 to get  ID Document
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

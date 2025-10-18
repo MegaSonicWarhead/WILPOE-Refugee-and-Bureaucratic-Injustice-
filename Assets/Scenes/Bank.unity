@@ -1227,6 +1227,8 @@ MonoBehaviour:
   leaveButton: {fileID: 1766634419}
   getOfficerButton: {fileID: 209352772}
   officerPanel: {fileID: 1070888992}
+  NotifyPanel: {fileID: 96501365}
+  NotificationText: {fileID: 2095085678}
 --- !u!1 &295546324
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,8 +3099,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.8551, y: -228.00012}
-  m_SizeDelta: {x: 145.159, y: 84.004}
+  m_AnchoredPosition: {x: 369.8551, y: -210.86115}
+  m_SizeDelta: {x: 145.159, y: 118.282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &796328164
 MonoBehaviour:
@@ -3389,7 +3391,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get biometrics done
+  m_text: Pay R20 to get biometrics done
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3640,8 +3642,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 377.28003, y: -322}
-  m_SizeDelta: {x: 160, y: 65}
+  m_AnchoredPosition: {x: 393.27637, y: -356.27795}
+  m_SizeDelta: {x: 191.9928, y: 133.5559}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1044081996
 MonoBehaviour:

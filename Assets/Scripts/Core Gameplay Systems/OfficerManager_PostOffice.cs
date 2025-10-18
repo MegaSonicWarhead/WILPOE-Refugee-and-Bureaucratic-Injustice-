@@ -7,17 +7,19 @@ public class OfficerManager_PostOffice : MonoBehaviour
     public OfficerData postOfficeClerk;
 
     [Header("UI Elements")]
-    public UnityEngine.UI.Image officerImage;
+    public Image officerImage;
     public TMPro.TMP_Text officerNameText;
     public TMPro.TMP_Text responseText;
-    public UnityEngine.UI.Button actionButton1;
-    public UnityEngine.UI.Button actionButton2;
-    public UnityEngine.UI.Button Give_ID_documentButton;
-    public UnityEngine.UI.Button GiveTravel_DocumentButton;
-    public UnityEngine.UI.Button GiveWrongDocButton;
-    public UnityEngine.UI.Button leaveButton;
-    public GameObject officerPanel;
+    public Button actionButton1;
+    public Button actionButton2;
+    public Button Give_ID_documentButton;
+    public Button GiveTravel_DocumentButton;
+    public Button GiveWrongDocButton;
+    public Button leaveButton;
     public Button getOfficerButton;
+    public GameObject officerPanel;
+    public GameObject NotifyPanel;
+    public TMPro.TMP_Text NotificationText;
 
     private void Start()
     {
@@ -31,7 +33,7 @@ public class OfficerManager_PostOffice : MonoBehaviour
         GiveWrongDocButton.onClick.AddListener(GiveWrongDocument);
         leaveButton.onClick.AddListener(ClosePanel);
 
-        // ✅ Wrong Doc button starts disabled/with placeholder
+        // Wrong Doc button starts disabled
         GiveWrongDocButton.interactable = false;
         GiveWrongDocButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Give Wrong Document";
     }
@@ -47,12 +49,12 @@ public class OfficerManager_PostOffice : MonoBehaviour
 
         SetActionButtonTextsByProgression();
 
-        // ✅ Update Wrong Doc button dynamically
+        // Update Wrong Doc button dynamically
         if (!string.IsNullOrEmpty(OfficerManager.LastWrongDocument))
         {
             GiveWrongDocButton.interactable = true;
             GiveWrongDocButton.GetComponentInChildren<TMPro.TMP_Text>().text =
-                $"Give {OfficerManager.LastWrongDocument}";
+                $"Pay R20 to get {OfficerManager.LastWrongDocument}";
         }
         else
         {
@@ -94,63 +96,71 @@ public class OfficerManager_PostOffice : MonoBehaviour
 
     void GiveFirstCorrectDocument()
     {
+        // Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
+
         var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.ID);
         if (docItemData != null)
         {
-            InventoryManager.Instance.AddItem(docItemData);           // add to inventory
-            GameState.Instance.AcquireDocument(DocumentType.ID);     // advance progression
+            InventoryManager.Instance.AddItem(docItemData);
+            GameState.Instance.AcquireDocument(DocumentType.ID);
             responseText.text = $"{postOfficeClerk.officerName}: Here is your ID document.";
+            if (NotificationText != null)
+                NotificationText.text = "You received your ID document.";
             Debug.Log("[PostOffice] ID Document added to inventory.");
         }
         else
         {
             Debug.LogError("ID_Document ScriptableObject not found in DocumentDatabase!");
         }
-
-
-        //// Add ID document to inventory
-        //var idDoc = Resources.Load<InventoryItemData>("Items/ID_Document"); // path to your ScriptableObject
-        //if (idDoc != null)
-        //    InventoryManager.Instance.AddItem(idDoc);
-
-        //GameState.Instance.playerProgression = PlayerProgression.Step3_AcquiredID;
     }
 
     void GiveSecondCorrectDocument()
     {
-        var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.TravelDocument);
+        // Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
 
+        var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.TravelDocument);
         if (docItemData != null)
         {
-            // Add to inventory
             InventoryManager.Instance.AddItem(docItemData);
-
-            // Advance game progression
             GameState.Instance.AcquireDocument(DocumentType.TravelDocument);
-
-            // Update response text
             responseText.text = $"{postOfficeClerk.officerName}: Here is your Travel Document.";
+            if (NotificationText != null)
+                NotificationText.text = "You received your Travel Document.";
             Debug.Log("[PostOffice] Travel Document added to inventory.");
         }
         else
         {
             Debug.LogError("Travel_Document ScriptableObject not found in DocumentDatabase!");
         }
-
-        //// Add Travel Document to inventory
-        //var travelDoc = Resources.Load<InventoryItemData>("Items/Travel_Document");
-        //if (travelDoc != null)
-        //    InventoryManager.Instance.AddItem(travelDoc);
-
-        // GameState.Instance.playerProgression = PlayerProgression.Step5_AcquiredTravelDocument;
     }
 
     void GiveWrongDocument()
     {
+        // Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
+
         string wrongDocName = OfficerManager.LastWrongDocument ?? "Fake_Document";
         responseText.text = $"{postOfficeClerk.officerName}: Here is the {wrongDocName}.";
+        if (NotificationText != null)
+            NotificationText.text = "You received a document.";
 
-        // Add wrong document to inventory
         var wrongDoc = Resources.Load<InventoryItemData>($"Items/{wrongDocName}");
         if (wrongDoc != null)
             InventoryManager.Instance.AddItem(wrongDoc);

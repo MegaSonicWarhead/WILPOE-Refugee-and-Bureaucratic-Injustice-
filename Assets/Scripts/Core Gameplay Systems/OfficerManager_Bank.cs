@@ -7,16 +7,18 @@ public class OfficerManager_Bank : MonoBehaviour
     public OfficerData bankClerk;
 
     [Header("UI Elements")]
-    public UnityEngine.UI.Image officerImage;
+    public Image officerImage;
     public TMPro.TMP_Text officerNameText;
     public TMPro.TMP_Text responseText;
-    public UnityEngine.UI.Button actionButton1;
-    public UnityEngine.UI.Button actionButton2;
-    public UnityEngine.UI.Button GivebiometricsButton;
-    public UnityEngine.UI.Button GiveWrongDocButton;
-    public UnityEngine.UI.Button leaveButton;
+    public Button actionButton1;
+    public Button actionButton2;
+    public Button GivebiometricsButton;
+    public Button GiveWrongDocButton;
+    public Button leaveButton;
     public Button getOfficerButton;
     public GameObject officerPanel;
+    public GameObject NotifyPanel; // Panel with NotificationText
+    public TMPro.TMP_Text NotificationText; // Reference to the text field
 
     private void Start()
     {
@@ -29,7 +31,6 @@ public class OfficerManager_Bank : MonoBehaviour
         GiveWrongDocButton.onClick.AddListener(GiveWrongDocument);
         leaveButton.onClick.AddListener(ClosePanel);
 
-        // Ensure WrongDoc button is hidden/disabled at start
         GiveWrongDocButton.interactable = false;
         GiveWrongDocButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Give Wrong Document";
     }
@@ -45,12 +46,11 @@ public class OfficerManager_Bank : MonoBehaviour
 
         SetActionButtonTextsByProgression();
 
-        // ✅ Update Wrong Doc button text with the last wrong document (if available)
         if (!string.IsNullOrEmpty(OfficerManager.LastWrongDocument))
         {
             GiveWrongDocButton.interactable = true;
             GiveWrongDocButton.GetComponentInChildren<TMPro.TMP_Text>().text =
-                $"Give {OfficerManager.LastWrongDocument}";
+                $"Pay R20 to get {OfficerManager.LastWrongDocument}";
         }
         else
         {
@@ -89,14 +89,23 @@ public class OfficerManager_Bank : MonoBehaviour
 
     void GiveCorrectDocument()
     {
-        responseText.text = $"{bankClerk.officerName}: Here is your Fingerprints document.";
+        // Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
+
         var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.Biometrics);
         if (docItemData != null)
         {
-            InventoryManager.Instance.AddItem(docItemData); // ✅ Add to inventory
-            GameState.Instance.AcquireDocument(DocumentType.Biometrics); // ✅ Update progression
+            InventoryManager.Instance.AddItem(docItemData);
+            GameState.Instance.AcquireDocument(DocumentType.Biometrics);
 
             responseText.text = $"{bankClerk.officerName}: Here is your Biometrics document.";
+            if (NotificationText != null)
+                NotificationText.text = "You received the Biometrics document.";
             Debug.Log("[Bank Clerk] Biometrics document added to inventory.");
         }
         else
@@ -108,9 +117,18 @@ public class OfficerManager_Bank : MonoBehaviour
 
     void GiveWrongDocument()
     {
-        // ✅ Use the exact wrong document chosen in OfficerManager
+        // Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
+
         string wrongDoc = OfficerManager.LastWrongDocument ?? "some random document";
         responseText.text = $"{bankClerk.officerName}: Here is the {wrongDoc} you asked for.";
+        if (NotificationText != null)
+            NotificationText.text = "You received a document.";
     }
 
     string GetResponseForButton(string text)

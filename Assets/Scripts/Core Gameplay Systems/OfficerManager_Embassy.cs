@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class OfficerManager_Embassy : MonoBehaviour
@@ -17,10 +17,11 @@ public class OfficerManager_Embassy : MonoBehaviour
     public Button leaveButton;
     public Button getOfficerButton;
     public GameObject officerPanel;
+    public GameObject NotifyPanel;               // Panel with NotificationText
+    public TMPro.TMP_Text NotificationText;      // Reference to the text field
 
     private void Start()
     {
-        // Initialize UI setup and button listeners
         officerPanel.SetActive(false);
 
         getOfficerButton.onClick.AddListener(OpenEmployeePanel);
@@ -44,9 +45,8 @@ public class OfficerManager_Embassy : MonoBehaviour
 
         SetActionButtonTextsByProgression();
 
-        // Update the "Give Correct Document" button text based on progression
         if (GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm)
-            giveAsylumApplicationFormButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Get Asylum Application Form";
+            giveAsylumApplicationFormButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Pay R20 to get Asylum Application Form";
         else
             giveAsylumApplicationFormButton.GetComponentInChildren<TMPro.TMP_Text>().text = "No Document Available";
     }
@@ -84,24 +84,41 @@ public class OfficerManager_Embassy : MonoBehaviour
 
     private void GiveCorrectDocument()
     {
+        // ✅ Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
+
         if (GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm)
         {
-            // Add Asylum Application Form to inventory
             GameState.Instance.AcquireDocument(DocumentType.AsylumApplicationFormDHA1590);
-
             responseText.text = $"{embassyEmployee.officerName}: Here you go, one Asylum Application Form (DHA-1590).";
+
+            if (NotificationText != null)
+                NotificationText.text = "You received the Asylum Application Form.";
         }
         else
         {
-            // Already acquired or wrong stage
             responseText.text = $"{embassyEmployee.officerName}: You already have what you need from me.";
         }
     }
 
     private void GiveWrongDocument()
     {
-        // Wrong document logic
+        // ✅ Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
+
         responseText.text = $"{embassyEmployee.officerName}: This is not the correct document. Please check again.";
+        if (NotificationText != null)
+            NotificationText.text = "You received a document.";
     }
 
     private string GetResponseForButton(string text)
