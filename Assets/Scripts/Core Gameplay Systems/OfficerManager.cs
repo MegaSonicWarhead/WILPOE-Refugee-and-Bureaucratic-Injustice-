@@ -75,10 +75,37 @@ public class OfficerManager : MonoBehaviour
         officerPanel.SetActive(true);
         officerImage.sprite = currentOfficer.officerImage;
         officerNameText.text = currentOfficer.officerName;
-        responseText.text = currentOfficer.initialGreeting;
 
+        // 🎲 50% chance systems are down
+        if (Random.value < 0.5f)
+        {
+            responseText.text = $"{currentOfficer.officerName}: Sorry, our systems are down. Please come back tomorrow.";
+
+            // Disable all relevant buttons
+            actionButton1.interactable = false;
+            actionButton2.interactable = false;
+            helpButton.interactable = false;
+            bribeButton.interactable = false;
+            noButton.interactable = false;
+            if (giveDocumentButton != null)
+                giveDocumentButton.interactable = false;
+
+            return; // Exit early, skip normal setup
+        }
+
+        // Normal officer setup
+        responseText.text = currentOfficer.initialGreeting;
         corruptOfficerAskedForHelp = false;
         SetActionButtonTextsByProgression();
+
+        // Ensure buttons are re-enabled for normal case
+        actionButton1.interactable = true;
+        actionButton2.interactable = true;
+        helpButton.interactable = true;
+        bribeButton.interactable = true;
+        noButton.interactable = true;
+        if (giveDocumentButton != null)
+            giveDocumentButton.interactable = true;
     }
 
     // -----------------------
