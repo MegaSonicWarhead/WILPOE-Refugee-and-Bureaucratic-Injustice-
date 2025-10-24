@@ -1577,8 +1577,9 @@ GameObject:
   - component: {fileID: 453362862}
   - component: {fileID: 453362861}
   - component: {fileID: 453362860}
+  - component: {fileID: 453362863}
   m_Layer: 0
-  m_Name: FastFoodItem
+  m_Name: VeggieItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1593,7 +1594,7 @@ RectTransform:
   m_GameObject: {fileID: 453362858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 3.7218, z: 1}
+  m_LocalScale: {x: 2.0606, y: 7.6691413, z: 2.0606}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1576159579}
@@ -1601,7 +1602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52, y: -236}
+  m_AnchoredPosition: {x: 74, y: -218.41}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &453362860
@@ -1648,7 +1649,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889046126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyHandler, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -1680,7 +1681,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1676400948560705938, guid: 302b6a01dc457b64abe0eea7bca5687b, type: 3}
+  m_Sprite: {fileID: 8707199833209870444, guid: 55f4f35ed41334f4baf2e6f72278c803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1698,6 +1699,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453362858}
   m_CullTransparentMesh: 1
+--- !u!114 &453362863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453362858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: f6a1e480db66f06408fef8b084a3bf22, type: 2}
+  buyButton: {fileID: 453362860}
 --- !u!1 &499537397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2821,6 +2836,7 @@ GameObject:
   - component: {fileID: 854760398}
   - component: {fileID: 854760397}
   - component: {fileID: 854760396}
+  - component: {fileID: 854760399}
   m_Layer: 0
   m_Name: MeatItem
   m_TagString: Untagged
@@ -2837,7 +2853,7 @@ RectTransform:
   m_GameObject: {fileID: 854760394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2692889, y: 3.5517652, z: 1.1944}
+  m_LocalScale: {x: 1.9346738, y: 6.8347545, z: 1.8205266}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1787311672}
@@ -2845,7 +2861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 425, y: -54}
+  m_AnchoredPosition: {x: 496, y: 25.003}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854760396
@@ -2892,7 +2908,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889046126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyHandler, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -2924,7 +2940,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1585780334044162203, guid: 4d94026f46e58e846ac6bff8c3e92423, type: 3}
+  m_Sprite: {fileID: -8654984860840952990, guid: 55f4f35ed41334f4baf2e6f72278c803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2942,6 +2958,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854760394}
   m_CullTransparentMesh: 1
+--- !u!114 &854760399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854760394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 31f6754218d80f149b13ac92629022d9, type: 2}
+  buyButton: {fileID: 854760396}
 --- !u!1 &864426924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2981,7 +3011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -152}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864426926
@@ -3004,7 +3034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3631212580781747591, guid: f9c8764b384905f4da7b7aef43b116dd, type: 3}
+  m_Sprite: {fileID: 5411830579390471805, guid: 67ee8f75ff81e3b46823b72e727c83b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3022,51 +3052,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864426924}
   m_CullTransparentMesh: 1
---- !u!1 &889046125
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 889046127}
-  - component: {fileID: 889046126}
-  m_Layer: 0
-  m_Name: BuySystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &889046126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889046125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 1c225df99e543b945ad115a02d41a33b, type: 2}
---- !u!4 &889046127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889046125}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &892391867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,7 +3222,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 426, y: -89.69728}
+  m_AnchoredPosition: {x: 46, y: -21.178497}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004212550
@@ -4186,8 +4171,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 423.03015}
-  m_SizeDelta: {x: 0, y: -846.0403}
+  m_AnchoredPosition: {x: 0, y: 427.43298}
+  m_SizeDelta: {x: 0, y: -854.846}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1443964245
 MonoBehaviour:
@@ -4705,7 +4690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -311, y: 44.602074}
+  m_AnchoredPosition: {x: 49, y: -17.195976}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1576159580
@@ -4891,8 +4876,9 @@ GameObject:
   - component: {fileID: 1656627855}
   - component: {fileID: 1656627854}
   - component: {fileID: 1656627853}
+  - component: {fileID: 1656627856}
   m_Layer: 0
-  m_Name: VeggieItem
+  m_Name: MaizeItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4907,7 +4893,7 @@ RectTransform:
   m_GameObject: {fileID: 1656627851}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 4.0135, z: 1}
+  m_LocalScale: {x: 1.6895, y: 7.9674497, z: 1.6895}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1004212549}
@@ -4915,7 +4901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -317, y: 26}
+  m_AnchoredPosition: {x: -339.75, y: -11}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656627853
@@ -4962,7 +4948,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889046126}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BuyHandler, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -4994,7 +4980,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5252455436920426891, guid: ebdd6a64c32d2f54793c3e5ff7b33ba8, type: 3}
+  m_Sprite: {fileID: -8763867710485335167, guid: 55f4f35ed41334f4baf2e6f72278c803, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5012,6 +4998,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656627851}
   m_CullTransparentMesh: 1
+--- !u!114 &1656627856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656627851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: db3e2dbeae815634b8be0acb4d920b6f, type: 2}
+  buyButton: {fileID: 1656627853}
 --- !u!1 &1672675967
 GameObject:
   m_ObjectHideFlags: 0
@@ -7050,4 +7050,3 @@ SceneRoots:
   - {fileID: 448240900}
   - {fileID: 324138883}
   - {fileID: 1563477758}
-  - {fileID: 889046127}
