@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class MoneySystem : MonoBehaviour
 {
@@ -10,8 +11,13 @@ public class MoneySystem : MonoBehaviour
     [Header("UI Reference")]
     public TextMeshProUGUI moneyText;
 
-    private int currentMoney = 150;
+    [Header("Starting Money")]
+    [SerializeField] private int startingMoney = 150;
+
+    private int currentMoney;
     private bool instanceSet = false;
+
+    public static event Action<int> OnMoneyChanged; // other scripts can listen to updates
 
     private void Awake()
     {
@@ -20,36 +26,18 @@ public class MoneySystem : MonoBehaviour
             Instance = this;
             instanceSet = true;
             DontDestroyOnLoad(gameObject);
+            currentMoney = startingMoney;
             Debug.Log($"[MoneySystem] Instance set for {gameObject.name}");
         }
         else if (Instance != this)
         {
-            Debug.LogWarning($"[MoneySystem] Duplicate detected. Destroying only this component on {gameObject.name}");
             Destroy(this);
             return;
         }
     }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    private void OnDisable()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    private void Start()
-    {
-        UpdateMoneyUI();
-    }
-
-    private void OnDestroy()
-    {
-        if (instanceSet)
-            Instance = null;
-    }
+    private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
+    private void OnDisable() => SceneManager.sceneLoaded -= OnSceneLoaded;
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -68,27 +56,20 @@ public class MoneySystem : MonoBehaviour
     {
         currentMoney += amount;
         UpdateMoneyUI();
-        Debug.Log($"[MoneySystem] Money earned: +{amount}. Total: {currentMoney}");
     }
 
     public bool SpendMoney(int amount)
     {
-        if (amount <= 0) return true; // ignore zero or negative
+        if (amount <= 0) return true;
         if (currentMoney >= amount)
         {
             currentMoney -= amount;
             UpdateMoneyUI();
-            Debug.Log($"[MoneySystem] Money spent: -{amount}. Remaining: {currentMoney}");
             return true;
         }
-        else
-        {
-            // If not enough, set to 0 and log
-            currentMoney = 0;
-            UpdateMoneyUI();
-            Debug.LogWarning($"[MoneySystem] Not enough money! Money set to 0.");
-            return false;
-        }
+
+        Debug.LogWarning("[MoneySystem] Not enough money!");
+        return false;
     }
 
     public int GetMoney() => currentMoney;
@@ -97,6 +78,7 @@ public class MoneySystem : MonoBehaviour
     {
         if (moneyText != null)
             moneyText.text = $"R {currentMoney}";
+        OnMoneyChanged?.Invoke(currentMoney);
     }
 
     public void SetMoneyText(TextMeshProUGUI newText)
