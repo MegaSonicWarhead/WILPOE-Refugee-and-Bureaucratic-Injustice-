@@ -1,44 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BuyHandler : MonoBehaviour
 {
-    [Header("Item To Buy")]
+    [Header("Item to Sell")]
     public InventoryItemData itemData;
-
-    [Header("Optional UI Reference")]
-    public Button buyButton;
-
-    private void Start()
-    {
-        if (buyButton != null)
-            buyButton.onClick.AddListener(Buy);
-    }
 
     public void Buy()
     {
         if (itemData == null)
         {
-            Debug.LogError("[BuyHandler] No item assigned to this button!");
-            return;
-        }
-
-        if (MoneySystem.Instance == null)
-        {
-            Debug.LogError("[BuyHandler] No MoneySystem found!");
+            Debug.LogError("[ShopItemSlot] No item assigned to shop slot.");
             return;
         }
 
         if (MoneySystem.Instance.SpendMoney(itemData.price))
         {
             InventoryManager.Instance.AddItem(itemData);
-            Debug.Log($"[BuyHandler] Bought {itemData.itemName} for R{itemData.price}");
+            Debug.Log($"[ShopItemSlot] Bought {itemData.itemName} for R{itemData.price}");
         }
         else
         {
-            Debug.LogWarning($"[BuyHandler] Not enough money for {itemData.itemName}");
+            Debug.LogWarning($"[ShopItemSlot] Not enough money for {itemData.itemName}");
         }
     }
 }
