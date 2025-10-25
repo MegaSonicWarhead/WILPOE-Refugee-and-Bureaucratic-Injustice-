@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac6937a38504ad147956674d99b1b98b, type: 3}
-  m_Name: Vegetables
+  m_Name: MaizeMeal
   m_EditorClassIdentifier: 
-  itemName: Vegetables
-  icon: {fileID: 8707199833209870444, guid: 55f4f35ed41334f4baf2e6f72278c803, type: 3}
-  maxStackSize: 10
-  price: 50
+  itemName: 
+  icon: {fileID: -8763867710485335167, guid: 55f4f35ed41334f4baf2e6f72278c803, type: 3}
+  maxStackSize: 99
+  price: 39
