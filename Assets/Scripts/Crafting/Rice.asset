@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454edb7ec39315c45ad91f2a3fb94671, type: 3}
   m_Name: Rice
   m_EditorClassIdentifier: 
-  ingredientName: 
+  ingredientName: Rice

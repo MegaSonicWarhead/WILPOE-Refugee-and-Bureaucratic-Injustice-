@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a224d4895f0a4c84995051e5dd11ab14, type: 3}
   m_Name: Recipe_Soup
   m_EditorClassIdentifier: 
-  ingredientA: {fileID: 0}
-  ingredientB: {fileID: 0}
-  resultMealPrefab: {fileID: 0}
+  ingredientA: {fileID: 11400000, guid: d1ea30e0f5957024bb0ef96249d2156b, type: 2}
+  ingredientB: {fileID: 11400000, guid: ca8e023148d90914bafa524f6a8d576d, type: 2}
+  resultMealPrefab: {fileID: 4692784972311527755, guid: f561fae65d1855f4da18309c66a703f8, type: 3}

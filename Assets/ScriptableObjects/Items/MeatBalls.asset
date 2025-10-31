@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 454edb7ec39315c45ad91f2a3fb94671, type: 3}
-  m_Name: Corn
+  m_Script: {fileID: 11500000, guid: ac6937a38504ad147956674d99b1b98b, type: 3}
+  m_Name: MeatBalls
   m_EditorClassIdentifier: 
-  ingredientName: Corn
+  itemName: MeatBalls
+  icon: {fileID: 7234376808908463202, guid: db61b6b549c7a4b47a962140ff03b0d5, type: 3}
+  maxStackSize: 0
+  price: 0

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientA: {fileID: 11400000, guid: 01c7a011b5b5a774eb839797afa56da7, type: 2}
   ingredientB: {fileID: 11400000, guid: d1ea30e0f5957024bb0ef96249d2156b, type: 2}
-  resultMealPrefab: {fileID: 309883244064026367, guid: ef6e218e81c3a5d4886ddf575ca1b943, type: 3}
+  resultMealPrefab: {fileID: 7696911027379598217, guid: ef50b04e3a4b3ba40b08fe4c71a11b66, type: 3}
