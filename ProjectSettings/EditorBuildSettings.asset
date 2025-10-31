@@ -44,5 +44,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop Items.unity
     guid: 1c7f6f3fffe25bc4b8b4c936d7a73c52
+  - enabled: 1
+    path: Assets/Scenes/DeliveryGame.unity
+    guid: a199084a6742a0f4c9c759fbe98a0d91
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

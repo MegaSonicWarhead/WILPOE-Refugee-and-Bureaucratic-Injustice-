@@ -1,23 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DeliveryRouteManager : MonoBehaviour
 {
-    [Header("Waypoints in order")]
+    [Header("Waypoints (Assign in Order)")]
     public List<GameObject> waypointPrefabs;
-
-    [Header("Waypoint Materials")]
-    public Material greenMaterial; // Current target
-    public Material yellowMaterial; // Next target
+    private Queue<GameObject> waypointQueue = new Queue<GameObject>();
 
     [Header("UI")]
     public TextMeshProUGUI jobStatusText;
+    public GameObject jobCompletePanel; // Assign in Inspector
+    public string campsiteSceneName = "CampsiteScene"; // Change to your actual scene name
 
     [Header("Money System")]
     public int rewardAmount = 500;
 
-    private Queue<GameObject> waypointQueue = new Queue<GameObject>();
     private GameObject currentWaypoint;
     private GameObject nextWaypoint;
     private bool routeCompleted = false;
@@ -26,18 +25,21 @@ public class DeliveryRouteManager : MonoBehaviour
     {
         if (waypointPrefabs.Count == 0)
         {
-            Debug.LogError("No waypoints assigned!");
+            Debug.LogError("No waypoints assigned to DeliveryRouteManager!");
             return;
         }
 
-        // Enqueue all waypoints
         foreach (GameObject wp in waypointPrefabs)
         {
-            wp.SetActive(false);
             waypointQueue.Enqueue(wp);
+            wp.SetActive(false);
         }
 
-        // Activate the first two
+        // Hide job complete panel
+        if (jobCompletePanel != null)
+            jobCompletePanel.SetActive(false);
+
+        // Activate the first two waypoints
         ActivateNextTwoWaypoints();
     }
 
@@ -47,85 +49,81 @@ public class DeliveryRouteManager : MonoBehaviour
         {
             currentWaypoint = waypointQueue.Dequeue();
             currentWaypoint.SetActive(true);
-            SetWaypointColor(currentWaypoint, greenMaterial);
+            SetWaypointColor(currentWaypoint, Color.green);
         }
 
         if (waypointQueue.Count > 0)
         {
             nextWaypoint = waypointQueue.Dequeue();
             nextWaypoint.SetActive(true);
-            SetWaypointColor(nextWaypoint, yellowMaterial);
+            SetWaypointColor(nextWaypoint, Color.yellow);
         }
 
-        UpdateUIText();
+        if (jobStatusText != null && currentWaypoint != null)
+            jobStatusText.text = "Drive to " + currentWaypoint.name;
     }
 
     public void OnWaypointReached(GameObject waypoint)
     {
         Debug.Log("Reached waypoint: " + waypoint.name);
+
         if (waypoint == currentWaypoint)
         {
-            Destroy(waypoint);
-            PromoteNextWaypoint();
-        }
-    }
-
-    private void PromoteNextWaypoint()
-    {
-        if (nextWaypoint != null)
-        {
+            Destroy(waypoint); // Remove reached waypoint
             currentWaypoint = nextWaypoint;
-            SetWaypointColor(currentWaypoint, greenMaterial);
-        }
-        else
-        {
-            currentWaypoint = null;
-        }
 
-        // Spawn another yellow one if there’s more in the queue
-        if (waypointQueue.Count > 0)
-        {
-            nextWaypoint = waypointQueue.Dequeue();
-            nextWaypoint.SetActive(true);
-            SetWaypointColor(nextWaypoint, yellowMaterial);
-        }
-        else
-        {
-            nextWaypoint = null;
-        }
+            if (currentWaypoint != null)
+                SetWaypointColor(currentWaypoint, Color.green);
 
-        // Check if finished
-        if (currentWaypoint == null && nextWaypoint == null && !routeCompleted)
-        {
-            routeCompleted = true;
-            if (jobStatusText != null)
-                jobStatusText.text = "Delivery route complete! You earned R" + rewardAmount;
+            if (waypointQueue.Count > 0)
+            {
+                nextWaypoint = waypointQueue.Dequeue();
+                nextWaypoint.SetActive(true);
+                SetWaypointColor(nextWaypoint, Color.yellow);
+            }
+            else
+            {
+                nextWaypoint = null;
+            }
 
-            if (MoneySystem.Instance != null)
-                MoneySystem.Instance.AddMoney(rewardAmount);
-
-            Debug.Log("All waypoints completed! Player rewarded R" + rewardAmount);
-        }
-        else
-        {
-            UpdateUIText();
+            // If no waypoints left and current is done
+            if (currentWaypoint == null && nextWaypoint == null)
+            {
+                CompleteJob();
+            }
         }
     }
 
-    private void UpdateUIText()
+    private void SetWaypointColor(GameObject waypoint, Color color)
     {
-        if (jobStatusText == null) return;
-
-        if (currentWaypoint != null)
-            jobStatusText.text = "Deliver to " + currentWaypoint.name;
-        else
-            jobStatusText.text = "All deliveries complete!";
+        Renderer rend = waypoint.GetComponent<Renderer>();
+        if (rend != null)
+        {
+            rend.material.color = color;
+        }
     }
 
-    private void SetWaypointColor(GameObject waypoint, Material mat)
+    private void CompleteJob()
     {
-        Renderer r = waypoint.GetComponent<Renderer>();
-        if (r != null && mat != null)
-            r.material = mat;
+        if (routeCompleted) return;
+
+        routeCompleted = true;
+        Debug.Log("Job complete! Player earned R" + rewardAmount);
+
+        if (jobStatusText != null)
+            jobStatusText.text = "Job complete! You earned R" + rewardAmount;
+
+        if (MoneySystem.Instance != null)
+            MoneySystem.Instance.AddMoney(rewardAmount);
+
+        if (jobCompletePanel != null)
+            jobCompletePanel.SetActive(true);
+    }
+
+    // Called by UI Button
+    public void ReturnToCampsite()
+    {
+        Debug.Log("Returning to Campsite scene...");
+        SceneManager.LoadScene(campsiteSceneName);
     }
 }
