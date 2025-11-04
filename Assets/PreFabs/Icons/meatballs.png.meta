@@ -202,7 +202,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      meatballs_0: 2535891443470734293
+      meatballs_1: -5505019451981117193
+      meatballs_2: -5804609675479108893
+      meatballs_3: 7234376808908463202
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

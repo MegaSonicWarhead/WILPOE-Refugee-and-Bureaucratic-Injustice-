@@ -19,43 +19,80 @@ public class InventoryUI : MonoBehaviour
 
     public void RefreshInventory()
     {
-        // Clear existing slots
+        // ✅ Clear existing slots first
         foreach (Transform child in slotParent)
-        {
             Destroy(child.gameObject);
-        }
 
-        // Populate inventory
+        // ✅ Safety: make sure we have a valid list
+        if (InventoryManager.Instance == null || InventoryManager.Instance.items == null)
+            return;
+
+        // ✅ Populate slots
         foreach (var item in InventoryManager.Instance.items)
         {
-            GameObject slot = Instantiate(slotPrefab, slotParent);
-            slot.transform.GetChild(0).GetComponent<Image>().sprite = item.data.icon;
-            slot.transform.GetChild(1).GetComponent<TMP_Text>().text = item.quantity.ToString();
+            // Create a local copy to avoid closure issues
+            InventoryItem currentItem = item;
 
-            // Add click listener for consuming food
+            // Instantiate the slot prefab under the parent
+            GameObject slot = Instantiate(slotPrefab, slotParent);
+
+            // --- ICON ---
+            Image icon = slot.transform.GetChild(0).GetComponent<Image>();
+            if (icon != null)
+                icon.sprite = currentItem.data.icon;
+
+            // --- QUANTITY ---
+            TMP_Text qtyText = slot.transform.GetChild(1).GetComponent<TMP_Text>();
+            if (qtyText != null)
+                qtyText.text = currentItem.quantity.ToString();
+
+            // --- BUTTON ---
             Button btn = slot.GetComponent<Button>();
-            if (btn != null)
+            if (btn == null)
             {
-                btn.onClick.RemoveAllListeners();
-                btn.onClick.AddListener(() => UseFoodItem(item));
+                // Add a Button automatically if missing
+                btn = slot.AddComponent<Button>();
+                var bg = slot.GetComponent<Image>();
+                if (bg == null)
+                    bg = slot.AddComponent<Image>(); // required for Button to detect clicks
+                bg.raycastTarget = true;
             }
+
+            // Clear any previous listeners
+            btn.onClick.RemoveAllListeners();
+
+            // Add the click action
+            btn.onClick.AddListener(() =>
+            {
+                Debug.Log($"[INVENTORY] Clicked on {currentItem.data.itemName}");
+
+                // Use the item
+                UseFoodItem(currentItem);
+            });
         }
     }
 
     private void UseFoodItem(InventoryItem item)
     {
-        if (item == null) return;
+        if (item == null || item.data == null)
+        {
+            Debug.LogWarning("[INVENTORY] Tried to use null item!");
+            return;
+        }
 
-        // Increase hunger and sanity by 20
-        PlayerStats.Instance.ModifyHunger(20f);
-        PlayerStats.Instance.ModifySanity(20f);
+        // Example: Only apply effects if it's an edible item
+        Debug.Log($"[INVENTORY] Using {item.data.itemName} (+20 Hunger, +20 Sanity)");
 
-        Debug.Log($"Consumed {item.data.itemName}: +20 Hunger, +20 Sanity");
+        if (PlayerStats.Instance != null)
+        {
+            PlayerStats.Instance.ModifyHunger(+20f);
+            PlayerStats.Instance.ModifySanity(+20f);
+        }
 
-        // Remove one quantity from inventory
+        // Remove item after consuming
         InventoryManager.Instance.RemoveItem(item.data);
 
-        // Refresh UI
+        // Refresh inventory UI after change
         RefreshInventory();
     }
 

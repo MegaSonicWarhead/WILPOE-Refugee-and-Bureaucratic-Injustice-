@@ -154,7 +154,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fufu_0: 2037078833332811358
+      fufu_1: 4275613767465868309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
