@@ -75,24 +75,39 @@ public class InventoryUI : MonoBehaviour
     private void UseFoodItem(InventoryItem item)
     {
         if (item == null || item.data == null)
-        {
-            Debug.LogWarning("[INVENTORY] Tried to use null item!");
             return;
-        }
 
-        // Example: Only apply effects if it's an edible item
-        Debug.Log($"[INVENTORY] Using {item.data.itemName} (+20 Hunger, +20 Sanity)");
+        var data = item.data;
 
-        if (PlayerStats.Instance != null)
+        if (data.itemType == ItemType.Ingredient)
         {
-            PlayerStats.Instance.ModifyHunger(+20f);
-            PlayerStats.Instance.ModifySanity(+20f);
+            // 🧂 Spawn ingredient on the crafting plate
+            if (IngredientSpawner.Instance != null)
+            {
+                IngredientSpawner.Instance.SpawnIngredient(data);
+                Debug.Log($"[INVENTORY] Placed ingredient {data.itemName} on the plate");
+            }
+            else
+            {
+                Debug.LogError("[INVENTORY] No IngredientSpawner in scene!");
+            }
+
+            // Optionally remove 1 ingredient from inventory
+            InventoryManager.Instance.RemoveItem(data);
+        }
+        else if (data.itemType == ItemType.Meal)
+        {
+            // 🍽️ Consume a crafted meal (increases stats)
+            if (PlayerStats.Instance != null)
+            {
+                PlayerStats.Instance.ModifyHunger(+20f);
+                PlayerStats.Instance.ModifySanity(+20f);
+            }
+
+            Debug.Log($"[INVENTORY] Consumed {data.itemName} (+20 Hunger, +20 Sanity)");
+            InventoryManager.Instance.RemoveItem(data);
         }
 
-        // Remove item after consuming
-        InventoryManager.Instance.RemoveItem(item.data);
-
-        // Refresh inventory UI after change
         RefreshInventory();
     }
 

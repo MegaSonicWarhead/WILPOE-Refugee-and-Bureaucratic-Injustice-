@@ -15,4 +15,6 @@ MonoBehaviour:
   itemName: Beans
   icon: {fileID: -9127457754326610764, guid: 55f4f35ed41334f4baf2e6f72278c803, type: 3}
   maxStackSize: 99
+  itemType: 0
   price: 25
+  worldPrefab: {fileID: 3925305033900625225, guid: c3337e9d2e7a9ce42a572fe1a7415f86, type: 3}

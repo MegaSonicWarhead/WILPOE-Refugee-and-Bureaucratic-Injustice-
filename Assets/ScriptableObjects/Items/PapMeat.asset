@@ -15,4 +15,6 @@ MonoBehaviour:
   itemName: PapMeat
   icon: {fileID: 2037078833332811358, guid: cfc1f82e8dce0f9429f2f4bf6bfc1f7d, type: 3}
   maxStackSize: 0
+  itemType: 0
   price: 0
+  worldPrefab: {fileID: 0}

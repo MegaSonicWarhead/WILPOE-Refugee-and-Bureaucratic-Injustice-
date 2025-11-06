@@ -44,5 +44,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop Items.unity
     guid: 1c7f6f3fffe25bc4b8b4c936d7a73c52
+  - enabled: 1
+    path: Assets/Scenes/Food Crafting.unity
+    guid: f759d349494c6124d9599d48853b6df5
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
