@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: e50323e591548774f86f9ab956e4e947
+guid: 55f4f35ed41334f4baf2e6f72278c803
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8151320263280786926
-    second: ChatGPT Image Nov 22, 2025, 11_06_06 AM_0
+      213: -8654984860840952990
+    second: Food Items_0
+  - first:
+      213: -8763867710485335167
+    second: Food Items_1
+  - first:
+      213: 8707199833209870444
+    second: Food Items_2
+  - first:
+      213: -9127457754326610764
+    second: Food Items_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChatGPT Image Nov 22, 2025, 11_06_06 AM_0
+      name: Food Items_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1536
-        height: 1024
+        x: 83
+        y: 528
+        width: 451
+        height: 491
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +123,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 21284b87861b0ee80800000000000000
-      internalID: -8151320263280786926
+      spriteID: 26bf039002153e780800000000000000
+      internalID: -8654984860840952990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Food Items_1
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 400
+        width: 443
+        height: 563
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183710210cc706680800000000000000
+      internalID: -8763867710485335167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Food Items_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 0
+        width: 427
+        height: 499
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6890d69d1036d870800000000000000
+      internalID: 8707199833209870444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Food Items_3
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 8
+        width: 347
+        height: 473
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc4af22881c45180800000000000000
+      internalID: -9127457754326610764
       vertices: []
       indices: 
       edges: []
@@ -131,7 +203,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ChatGPT Image Nov 22, 2025, 11_06_06 AM_0: -8151320263280786926
+      Food Items_0: -8654984860840952990
+      Food Items_1: -8763867710485335167
+      Food Items_2: 8707199833209870444
+      Food Items_3: -9127457754326610764
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

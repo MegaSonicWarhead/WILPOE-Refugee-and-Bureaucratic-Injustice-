@@ -1,23 +1,44 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CraftingLogic : MonoBehaviour
 {
-    public BowlCollector bowl;
-    public GameObject finalMealPrefab;
-    public Transform spawnPoint; // Where final meal appears
+    [Header("Reference to the bowl collector (trigger zone)")]
+    public BowlCollector bowlCollector;
 
-    public void CraftMeal()
+    [Header("Where the crafted meal will appear")]
+    public Transform spawnPoint;
+
+    [Header("All possible recipes")]
+    public List<Recipe> recipes = new List<Recipe>();
+
+    public void Craft()
     {
-        if (bowl.HasAllIngredients())
+        // Get all ingredients currently in the bowl
+        List<Ingredient> currentIngredients = bowlCollector.GetIngredientsInBowl();
+
+        if (currentIngredients.Count < 2)
         {
-            Instantiate(finalMealPrefab, spawnPoint.position, Quaternion.identity);
-            Debug.Log("Meal Crafted!");
+            Debug.Log("Not enough ingredients to craft.");
+            return;
         }
-        else
+
+        // Try every recipe
+        foreach (var recipe in recipes)
         {
-            Debug.Log("Missing ingredients!");
+            if (currentIngredients.Contains(recipe.ingredientA) &&
+                currentIngredients.Contains(recipe.ingredientB))
+            {
+                // Found a match
+                Instantiate(recipe.resultMealPrefab, spawnPoint.position, Quaternion.identity);
+                Debug.Log($"Crafted: {recipe.resultMealPrefab.name}");
+                bowlCollector.ClearBowl();
+                return;
+            }
         }
+
+        Debug.Log("No matching recipe found.");
     }
 }
