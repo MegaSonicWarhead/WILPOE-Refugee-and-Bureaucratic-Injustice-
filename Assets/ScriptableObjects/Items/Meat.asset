@@ -15,4 +15,6 @@ MonoBehaviour:
   itemName: Meat
   icon: {fileID: -2844531463381759980, guid: fd22515750ca5ab4e8216275da0949b0, type: 3}
   maxStackSize: 10
+  itemType: 0
   price: 60
+  worldPrefab: {fileID: 827441184729051620, guid: ec8a4452c57bb854a8279c5890468a22, type: 3}

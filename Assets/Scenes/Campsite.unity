@@ -3500,6 +3500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 0}
+  startingMoney: 150
 --- !u!4 &555069132
 Transform:
   m_ObjectHideFlags: 0
@@ -3787,6 +3788,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610469621}
   m_CullTransparentMesh: 1
+--- !u!1 &621863417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 621863419}
+  - component: {fileID: 621863418}
+  m_Layer: 0
+  m_Name: Crafting scene
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &621863418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621863417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753fb794ac7de47458a77059c7514386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &621863419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621863417}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 663.5855, y: 781.03876, z: 50.84153}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &624879559
 GameObject:
   m_ObjectHideFlags: 0
@@ -7252,6 +7297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 2091115143}
+  startingMoney: 150
 --- !u!4 &1220232077
 Transform:
   m_ObjectHideFlags: 0
@@ -8263,9 +8309,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1255388834}
-        m_TargetAssemblyTypeName: PopupMenuController, Assembly-CSharp
-        m_MethodName: ToggleFoodPopup
+      - m_Target: {fileID: 621863418}
+        m_TargetAssemblyTypeName: CraftSnenLoad, Assembly-CSharp
+        m_MethodName: LoadFoodCraftingScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19067,3 +19113,4 @@ SceneRoots:
   - {fileID: 1220232077}
   - {fileID: 291875659}
   - {fileID: 1184570384}
+  - {fileID: 621863419}
