@@ -164,25 +164,25 @@ public class OfficerManager : MonoBehaviour
         switch (GameState.Instance.playerProgression)
         {
             case PlayerProgression.Step1_AcquireAsylumApplicationForm:
-                SetButtons("Ask about Asylum Application Form", "I Don't Know?");
+                SetButtons("  Ask about Asylum Application Form", "  I Don't Know?");
                 break;
             case PlayerProgression.Step2_AcquireID:
-                SetButtons("Ask about ID", "I Don't Know?");
+                SetButtons("  Ask about ID", "  I Don't Know?");
                 break;
             case PlayerProgression.Step3_AcquireBiometrics:
-                SetButtons("Ask about Biometrics", "I Don't Know?");
+                SetButtons("  Ask about Biometrics", " I  Don't Know?");
                 break;
             case PlayerProgression.Step4_AcquireTravelDocument:
-                SetButtons("Ask about Travel Document", "I Don't Know?");
+                SetButtons("  Ask about Travel Document", "  I Don't Know?");
                 break;
             case PlayerProgression.Step5_AcquireFirstInterview:
-                SetButtons("Ask about First Interview", "I Don't Know?");
+                SetButtons("  Ask about First Interview", "  I Don't Know?");
                 break;
             case PlayerProgression.CompletedApplication:
-                SetButtons("What's Next?", "Thank You");
+                SetButtons("  What's Next?", "  Thank You");
                 break;
             default:
-                SetButtons("Ask for Help", "I Don't Know?");
+                SetButtons("  Ask for Help", "  I Don't Know?");
                 break;
         }
     }

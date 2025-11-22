@@ -215,7 +215,7 @@ public class PlayerStats : MonoBehaviour
         SceneManager.LoadScene("PlayerDead");
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (healthSlider != null) healthSlider.value = health;
         if (thirstSlider != null) thirstSlider.value = thirst;
