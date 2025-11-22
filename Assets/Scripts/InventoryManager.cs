@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -10,39 +9,8 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 🔥 Keep inventory across scenes
-
-            // Reconnect UI when a new scene is loaded
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    // ✅ Try to find a new InventoryUI in the new scene
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        InventoryUI foundUI = FindObjectOfType<InventoryUI>();
-        if (foundUI != null)
-        {
-            inventoryUI = foundUI;
-            inventoryUI.RefreshInventory();
-            Debug.Log($"[InventoryManager] Reconnected InventoryUI in scene: {scene.name}");
-        }
-        else
-        {
-            Debug.LogWarning($"[InventoryManager] No InventoryUI found in scene: {scene.name}");
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     public void AddItem(InventoryItemData newItemData)
@@ -57,15 +25,16 @@ public class InventoryManager : MonoBehaviour
             items.Add(new InventoryItem(newItemData, 1));
         }
 
-        if (inventoryUI != null)
-            inventoryUI.RefreshInventory();
+        inventoryUI.RefreshInventory();
     }
 
+    // ✅ Check if inventory contains this item
     public bool HasItem(InventoryItemData itemData)
     {
         return items.Exists(i => i.data == itemData && i.quantity > 0);
     }
 
+    // ✅ Remove an item (decrease quantity or remove completely)
     public bool RemoveItem(InventoryItemData itemData)
     {
         InventoryItem existingItem = items.Find(i => i.data == itemData);
@@ -76,9 +45,7 @@ public class InventoryManager : MonoBehaviour
             if (existingItem.quantity <= 0)
                 items.Remove(existingItem);
 
-            if (inventoryUI != null)
-                inventoryUI.RefreshInventory();
-
+            inventoryUI.RefreshInventory();
             return true;
         }
         return false;
