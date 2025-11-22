@@ -1059,7 +1059,7 @@ MonoBehaviour:
     quantity: 0
   - data: {fileID: 11400000, guid: f6a1e480db66f06408fef8b084a3bf22, type: 2}
     quantity: 0
-  - data: {fileID: 11400000, guid: 1c225df99e543b945ad115a02d41a33b, type: 2}
+  - data: {fileID: 11400000, guid: 264cc95382d897e4790de76ecc08cac4, type: 2}
     quantity: 0
   inventoryUI: {fileID: 1563477757}
 --- !u!4 &324138883
@@ -1549,7 +1549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4098f757499cbd54f8cba0de551bcc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 0}
+  moneyText: {fileID: 1272977049}
 --- !u!4 &448240900
 Transform:
   m_ObjectHideFlags: 0
@@ -1577,6 +1577,7 @@ GameObject:
   - component: {fileID: 453362862}
   - component: {fileID: 453362861}
   - component: {fileID: 453362860}
+  - component: {fileID: 453362863}
   m_Layer: 0
   m_Name: BeansItem
   m_TagString: Untagged
@@ -1601,7 +1602,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 120, y: -267}
+  m_AnchoredPosition: {x: 28, y: -267}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &453362860
@@ -1648,13 +1649,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889046126}
-        m_TargetAssemblyTypeName: BuyHandler, Assembly-CSharp
-        m_MethodName: Buy
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1698,6 +1699,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453362858}
   m_CullTransparentMesh: 1
+--- !u!114 &453362863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453362858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: b51c72f4fcd40f5409775df80742514a, type: 2}
+  buyButton: {fileID: 453362860}
 --- !u!1 &499537397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,6 +2538,7 @@ GameObject:
   - component: {fileID: 740007230}
   - component: {fileID: 740007229}
   - component: {fileID: 740007228}
+  - component: {fileID: 740007231}
   m_Layer: 0
   m_Name: 'MaizeItem '
   m_TagString: Untagged
@@ -2547,7 +2563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112, y: 120}
+  m_AnchoredPosition: {x: 20, y: 120}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740007228
@@ -2594,13 +2610,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889046126}
-        m_TargetAssemblyTypeName: BuyHandler, Assembly-CSharp
-        m_MethodName: Buy
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2644,6 +2660,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740007226}
   m_CullTransparentMesh: 1
+--- !u!114 &740007231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740007226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 264cc95382d897e4790de76ecc08cac4, type: 2}
+  buyButton: {fileID: 740007228}
 --- !u!1 &771939677
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +2836,7 @@ GameObject:
   - component: {fileID: 854760398}
   - component: {fileID: 854760397}
   - component: {fileID: 854760396}
+  - component: {fileID: 854760399}
   m_Layer: 0
   m_Name: MeatItem
   m_TagString: Untagged
@@ -2830,7 +2861,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 422.76, y: 66.662964}
+  m_AnchoredPosition: {x: 330.76, y: 66.662964}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854760396
@@ -2877,13 +2908,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889046126}
-        m_TargetAssemblyTypeName: BuyHandler, Assembly-CSharp
-        m_MethodName: Buy
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2927,6 +2958,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854760394}
   m_CullTransparentMesh: 1
+--- !u!114 &854760399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854760394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 31f6754218d80f149b13ac92629022d9, type: 2}
+  buyButton: {fileID: 854760396}
 --- !u!1 &864426924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2966,7 +3011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -89}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &864426926
@@ -2989,7 +3034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3631212580781747591, guid: f9c8764b384905f4da7b7aef43b116dd, type: 3}
+  m_Sprite: {fileID: -3216941542285921357, guid: 3fac5aeeade98c64492d25fce17611f9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3037,6 +3082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData: {fileID: 11400000, guid: 1c225df99e543b945ad115a02d41a33b, type: 2}
+  buyButton: {fileID: 0}
 --- !u!4 &889046127
 Transform:
   m_ObjectHideFlags: 0
@@ -3358,7 +3404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68, y: -29.3}
+  m_AnchoredPosition: {x: 68, y: -18.5}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1004212550
@@ -3898,10 +3944,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ebcab08e64d8040836306b9bda3fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
-  thirstSlider: {fileID: 0}
-  hungerSlider: {fileID: 0}
-  sanitySlider: {fileID: 0}
+  healthSlider: {fileID: 1141851685}
+  thirstSlider: {fileID: 2014262657}
+  hungerSlider: {fileID: 1725177905}
+  sanitySlider: {fileID: 406957789}
   health: 100
   thirst: 100
   hunger: 100
@@ -5077,6 +5123,7 @@ GameObject:
   - component: {fileID: 1656627855}
   - component: {fileID: 1656627854}
   - component: {fileID: 1656627853}
+  - component: {fileID: 1656627856}
   m_Layer: 0
   m_Name: VeggieItem
   m_TagString: Untagged
@@ -5101,7 +5148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -270, y: 20}
+  m_AnchoredPosition: {x: -362, y: 20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1656627853
@@ -5148,13 +5195,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 889046126}
-        m_TargetAssemblyTypeName: BuyHandler, Assembly-CSharp
-        m_MethodName: Buy
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5198,6 +5245,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656627851}
   m_CullTransparentMesh: 1
+--- !u!114 &1656627856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656627851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec6616d8b69336c4e9987b0da84e1bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: f6a1e480db66f06408fef8b084a3bf22, type: 2}
+  buyButton: {fileID: 1656627853}
 --- !u!1 &1672675967
 GameObject:
   m_ObjectHideFlags: 0
@@ -7042,7 +7103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b45bf8ed3681724e80d9405c8ce11e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 0}
+  moneyText: {fileID: 1272977049}
   startingMoney: 150
 --- !u!4 &2063424115
 Transform:
