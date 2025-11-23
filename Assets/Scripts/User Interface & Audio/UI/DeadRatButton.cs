@@ -29,7 +29,7 @@ public class DeadRatButton : MonoBehaviour
         stats.ModifySanity(-5f);
 
         // Update UI
-        stats.UpdateUI();
+       // stats.UpdateUI();
 
         Debug.Log("[DeadRatButton] Player ate a dead rat: +10 Hunger, -5 Health, -5 Sanity.");
     }

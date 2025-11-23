@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
     // ✅ Try to find a new InventoryUI in the new scene
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        InventoryUI foundUI = FindObjectOfType<InventoryUI>();
+        InventoryUI foundUI = Object.FindFirstObjectByType<InventoryUI>();
         if (foundUI != null)
         {
             inventoryUI = foundUI;

@@ -4,34 +4,41 @@ using UnityEngine;
 
 public class CraftingLogic : MonoBehaviour
 {
-    private List<Ingredient> ingredientsInBowl = new List<Ingredient>();
+    [Header("Reference to the bowl collector (trigger zone)")]
+    public BowlCollector bowlCollector;
 
-    private void OnTriggerEnter(Collider other)
+    [Header("Where the crafted meal will appear")]
+    public Transform spawnPoint;
+
+    [Header("All possible recipes")]
+    public List<Recipe> recipes = new List<Recipe>();
+
+    public void Craft()
     {
-        IngredientHolder holder = other.GetComponent<IngredientHolder>();
-        if (holder != null && !ingredientsInBowl.Contains(holder.ingredientData))
+        // Get all ingredients currently in the bowl
+        List<Ingredient> currentIngredients = bowlCollector.GetIngredientsInBowl();
+
+        if (currentIngredients.Count < 2)
         {
-            ingredientsInBowl.Add(holder.ingredientData);
+            Debug.Log("Not enough ingredients to craft.");
+            return;
         }
-    }
 
-    private void OnTriggerExit(Collider other)
-    {
-        IngredientHolder holder = other.GetComponent<IngredientHolder>();
-        if (holder != null && ingredientsInBowl.Contains(holder.ingredientData))
+        // Try every recipe
+        foreach (var recipe in recipes)
         {
-            ingredientsInBowl.Remove(holder.ingredientData);
+            if (currentIngredients.Contains(recipe.ingredientA) &&
+                currentIngredients.Contains(recipe.ingredientB))
+            {
+                // Found a match
+                Instantiate(recipe.resultMealPrefab, spawnPoint.position, Quaternion.identity);
+                Debug.Log($"Crafted: {recipe.resultMealPrefab.name}");
+                bowlCollector.ClearBowl();
+                return;
+            }
         }
-    }
 
-    public List<Ingredient> GetIngredientsInBowl()
-    {
-        return new List<Ingredient>(ingredientsInBowl);
-    }
-
-    public void ClearBowl()
-    {
-        ingredientsInBowl.Clear();
+        Debug.Log("No matching recipe found.");
     }
 
 

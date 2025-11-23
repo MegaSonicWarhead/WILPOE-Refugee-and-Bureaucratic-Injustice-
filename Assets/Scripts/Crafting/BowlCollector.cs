@@ -4,29 +4,34 @@ using UnityEngine;
 
 public class BowlCollector : MonoBehaviour
 {
-   public List<string> requiredIngredients; // Set in Inspector (ex: "Tomato", "Cheese", "Bread")
-    private List<string> currentIngredients = new List<string>();
+    private List<Ingredient> ingredientsInBowl = new List<Ingredient>();
 
     private void OnTriggerEnter(Collider other)
     {
-        Ingrediants ingredient = other.GetComponent<Ingrediants>();
-        if (ingredient != null)
+        IngredientHolder holder = other.GetComponent<IngredientHolder>();
+        if (holder != null && !ingredientsInBowl.Contains(holder.ingredientData))
         {
-            if (!currentIngredients.Contains(ingredient.ingredientName))
-            {
-                currentIngredients.Add(ingredient.ingredientName);
-                Debug.Log(ingredient.ingredientName + " added to bowl.");
-            }
+            ingredientsInBowl.Add(holder.ingredientData);
         }
     }
 
-    public bool HasAllIngredients()
+    private void OnTriggerExit(Collider other)
     {
-        foreach (string required in requiredIngredients)
+        IngredientHolder holder = other.GetComponent<IngredientHolder>();
+        if (holder != null && ingredientsInBowl.Contains(holder.ingredientData))
         {
-            if (!currentIngredients.Contains(required))
-                return false;
+            ingredientsInBowl.Remove(holder.ingredientData);
         }
-        return true;
     }
+
+    public List<Ingredient> GetIngredientsInBowl()
+    {
+        return new List<Ingredient>(ingredientsInBowl);
+    }
+
+    public void ClearBowl()
+    {
+        ingredientsInBowl.Clear();
+    }
+
 }

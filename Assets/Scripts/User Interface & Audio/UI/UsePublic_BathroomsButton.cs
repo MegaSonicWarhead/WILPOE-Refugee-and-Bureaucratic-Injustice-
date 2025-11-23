@@ -33,7 +33,7 @@ public class UsePublic_BathroomsButton : MonoBehaviour
         stats.ModifyHealth(+10f);
 
         // Update UI manually
-        stats.UpdateUI();
+      //  stats.UpdateUI();
 
         Debug.Log("[PublicBathroom] Player used public bathroom. Sanity restored & +10 health.");
     }

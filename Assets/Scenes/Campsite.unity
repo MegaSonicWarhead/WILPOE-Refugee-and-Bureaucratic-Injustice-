@@ -819,6 +819,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114743542}
   m_CullTransparentMesh: 1
+--- !u!1 &134060177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134060179}
+  - component: {fileID: 134060178}
+  m_Layer: 0
+  m_Name: SceneCrafting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &134060178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134060177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ca2f632e5fea94d9dadd8ebd9f4d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &134060179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134060177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540.005, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &145040200
 GameObject:
   m_ObjectHideFlags: 0
@@ -3500,6 +3544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 0}
+  startingMoney: 150
 --- !u!4 &555069132
 Transform:
   m_ObjectHideFlags: 0
@@ -7252,6 +7297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyText: {fileID: 2091115143}
+  startingMoney: 150
 --- !u!4 &1220232077
 Transform:
   m_ObjectHideFlags: 0
@@ -8263,9 +8309,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1255388834}
-        m_TargetAssemblyTypeName: PopupMenuController, Assembly-CSharp
-        m_MethodName: ToggleFoodPopup
+      - m_Target: {fileID: 134060178}
+        m_TargetAssemblyTypeName: CraftSnenLoad, Assembly-CSharp
+        m_MethodName: LoadFoodCraftingScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -19067,3 +19113,4 @@ SceneRoots:
   - {fileID: 1220232077}
   - {fileID: 291875659}
   - {fileID: 1184570384}
+  - {fileID: 134060179}

@@ -120,7 +120,7 @@ public class PlayerStats : MonoBehaviour
         else
             daysWithoutSleep = 0;
 
-      //  if (daysWithoutSleep >= 4) KillPlayer();
+        //  if (daysWithoutSleep >= 4) KillPlayer();
 
         UpdateUI();
     }
@@ -178,7 +178,7 @@ public class PlayerStats : MonoBehaviour
         health = Mathf.Clamp(health + amount, 0f, 100f);
         if (healthSlider != null) healthSlider.value = health;
 
-       // if (health <= 0f) KillPlayer();
+        // if (health <= 0f) KillPlayer();
     }
 
     public void ModifyThirst(float amount)
@@ -202,20 +202,20 @@ public class PlayerStats : MonoBehaviour
         if (sanitySlider != null) sanitySlider.value = sanity;
     }
 
-   /* void KillPlayer()
-    {
-        if (isDead) return;
-        isDead = true;
-        StartCoroutine(HandlePlayerDeath());
-    }
-   */
+    /* void KillPlayer()
+     {
+         if (isDead) return;
+         isDead = true;
+         StartCoroutine(HandlePlayerDeath());
+     }
+    */
     IEnumerator HandlePlayerDeath()
     {
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("PlayerDead");
     }
 
-    public void UpdateUI()
+    void UpdateUI()
     {
         if (healthSlider != null) healthSlider.value = health;
         if (thirstSlider != null) thirstSlider.value = thirst;

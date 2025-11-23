@@ -1232,7 +1232,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2028312001}
         m_TargetAssemblyTypeName: CraftingLogic, Assembly-CSharp
-        m_MethodName: ClearBowl
+        m_MethodName: Craft
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1489,7 +1489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 372e550a80c262b409b089ad5772de57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredIngredients: []
 --- !u!1 &584241551
 GameObject:
   m_ObjectHideFlags: 0
@@ -4952,6 +4951,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64939b4813148ca48b96e2a6aee0409b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bowlCollector: {fileID: 0}
+  spawnPoint: {fileID: 0}
+  recipes: []
 --- !u!4 &2028312002
 Transform:
   m_ObjectHideFlags: 0
