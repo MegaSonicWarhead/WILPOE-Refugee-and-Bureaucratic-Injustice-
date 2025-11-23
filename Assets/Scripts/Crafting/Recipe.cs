@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[System.Serializable]
-public class Recipe : MonoBehaviour
+
+[CreateAssetMenu(menuName = "Cooking/Recipe", fileName = "NewRecipe")]
+public class Recipe : ScriptableObject
+
 {
-        public List<string> requiredIngredients; // ingredient names
-        public GameObject finalMealPrefab;       // result prefab
-    
+    [Header("The two required ingredient prefabs")]
+    public Ingredient ingredientA;
+    public Ingredient ingredientB;
+
+    [Header("The meal prefab to spawn when this recipe matches")]
+    public GameObject resultMealPrefab;
+
+
 }
