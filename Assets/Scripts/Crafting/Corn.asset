@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac6937a38504ad147956674d99b1b98b, type: 3}
-  m_Name: Maize
+  m_Script: {fileID: 11500000, guid: 454edb7ec39315c45ad91f2a3fb94671, type: 3}
+  m_Name: Corn
   m_EditorClassIdentifier: 
-  itemName: Maize
-  icon: {fileID: 0}
-  maxStackSize: 99
-  itemType: 0
-  price: 39
-  worldPrefab: {fileID: 0}
+  ingredientName: Corn

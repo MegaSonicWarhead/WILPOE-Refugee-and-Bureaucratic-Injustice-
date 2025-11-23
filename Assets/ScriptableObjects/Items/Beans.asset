@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Beans
   m_EditorClassIdentifier: 
   itemName: Beans
-  icon: {fileID: 0}
+  icon: {fileID: 4999674671370978645, guid: 023f230531b21a54e9adea6b508fb2ec, type: 3}
   maxStackSize: 99
   itemType: 0
   price: 25

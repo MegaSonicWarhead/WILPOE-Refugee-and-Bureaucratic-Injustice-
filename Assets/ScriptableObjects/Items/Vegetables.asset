@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Vegetables
   m_EditorClassIdentifier: 
   itemName: Vegetables
-  icon: {fileID: -1610813842045675387, guid: 75f64a82e34134a4ebd7efdb3c74a345, type: 3}
+  icon: {fileID: -356635469015806235, guid: 023f230531b21a54e9adea6b508fb2ec, type: 3}
   maxStackSize: 10
+  itemType: 0
   price: 39
+  worldPrefab: {fileID: 0}
