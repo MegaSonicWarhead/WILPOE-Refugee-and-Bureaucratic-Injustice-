@@ -118,6 +118,14 @@ public class OfficerManager : MonoBehaviour
         // Determine which document is expected for current progression
         DocumentType neededDoc = GetExpectedDocumentForProgression();
 
+        // Validate that the needed document is one of the correct progression documents
+        if (!IsValidProgressionDocument(neededDoc))
+        {
+            responseText.text = $"{currentOfficer.officerName}: That document is not needed at this stage.";
+            Debug.LogWarning($"[HomeAffairs] Invalid document type requested: {neededDoc}");
+            return;
+        }
+
         if (DocumentDatabase.Instance == null)
         {
             Debug.LogError("DocumentDatabase.Instance is null! Make sure it's in the scene.");
@@ -139,24 +147,59 @@ public class OfficerManager : MonoBehaviour
             return;
         }
 
+        // First check if document was already acquired/submitted
+        if (GameState.Instance.HasDocument(neededDoc))
+        {
+            responseText.text = $"{currentOfficer.officerName}: You've already submitted this document. Your application is progressing.";
+            Debug.Log($"[HomeAffairs] Player tried to hand in {neededDoc}, but it was already acquired.");
+            return;
+        }
+
         // Check if player has the item in inventory
         if (InventoryManager.Instance.HasItem(docItemData))
         {
+            // Store current progression to check if it changes
+            PlayerProgression previousProgression = GameState.Instance.playerProgression;
+            Debug.Log($"[HomeAffairs] Before submitting {neededDoc}. Current progression: {previousProgression}");
+
             // Remove 1 from inventory
             InventoryManager.Instance.RemoveItem(docItemData);
 
-            // Advance game progression
+            // Advance game progression (only updates if correct document)
             GameState.Instance.AcquireDocument(neededDoc);
+
+            // Check if progression actually advanced
+            PlayerProgression newProgression = GameState.Instance.playerProgression;
+            if (newProgression != previousProgression)
+            {
+                // Update UI to reflect new progression
+                SetActionButtonTextsByProgression();
+                Debug.Log($"[HomeAffairs] Progression advanced from {previousProgression} to {newProgression}");
+            }
+            else
+            {
+                Debug.LogWarning($"[HomeAffairs] Progression did NOT advance! Still at {newProgression}. Document {neededDoc} may have already been acquired.");
+            }
 
             // Feedback to player
             responseText.text = $"{currentOfficer.officerName}: Thank you for providing your {neededDoc}. Your application is moving forward!";
-            Debug.Log($"[HomeAffairs] {neededDoc} handed in successfully.");
+            Debug.Log($"[HomeAffairs] {neededDoc} handed in successfully. Final progression: {newProgression}");
         }
         else
         {
-            responseText.text = $"{currentOfficer.officerName}: You don’t have the correct document yet.";
+            responseText.text = $"{currentOfficer.officerName}: You don't have the correct document yet.";
             Debug.Log($"[HomeAffairs] Player tried to hand in {neededDoc}, but it wasn't in inventory.");
         }
+    }
+
+    // Validate that a document is one of the correct progression documents
+    bool IsValidProgressionDocument(DocumentType doc)
+    {
+        return doc == DocumentType.AsylumApplicationFormDHA1590 ||
+               doc == DocumentType.ID ||
+               doc == DocumentType.Biometrics ||
+               doc == DocumentType.TravelDocument ||
+               doc == DocumentType.FirstInterview;
     }
 
     void SetActionButtonTextsByProgression()
@@ -208,42 +251,43 @@ public class OfficerManager : MonoBehaviour
     {
         if (currentOfficer == null) return;
 
-        if (GameState.Instance.clueGivenToday)
-        {
-            responseText.text = $"{currentOfficer.officerName}: I already helped you today.";
-            return;
-        }
-
+        // Always get the current document needed based on current player progression
+        // This reads directly from GameState.Instance.playerProgression, so it's always up-to-date
         DocumentType neededDoc = GetExpectedDocumentForProgression();
         string correctLocation = GetCorrectLocationForDocument(neededDoc);
+        
+        // Debug: Log current progression and needed document
+        Debug.Log($"[HelpButton] Current progression: {GameState.Instance.playerProgression}, Needed document: {neededDoc}");
 
-        if (GameState.Instance.HasDocument(neededDoc))
-        {
-            responseText.text = $"{currentOfficer.officerName}: You already have that document.";
-            return;
-        }
+        // Check if a clue was already given for THIS specific document today
+        //if (GameState.Instance.clueHistory.ContainsKey(neededDoc))
+       // {
+           // responseText.text = $"{currentOfficer.officerName}: I already helped you today.";
+           // return;
+       // }
 
         string message;
 
         if (currentOfficer.officerType == OfficerType.Nice)
         {
+            // Nice officer gives correct document and location
             message = $"You'll find your {neededDoc} at the {correctLocation}.";
-            GameState.Instance.clueGivenToday = true;
             GameState.Instance.clueHistory[neededDoc] = correctLocation;
             responseText.text = $"{currentOfficer.officerName}: {message}";
             return;
         }
         else if (currentOfficer.officerType == OfficerType.Corrupt)
         {
+            // Corrupt officer starts bribe flow for the new document
             StartBribeFlow(neededDoc, correctLocation);
             corruptOfficerAskedForHelp = true;
             return;
         }
         else
         {
+            // Other officers give wrong document from the array
             message = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
-            GameState.Instance.clueGivenToday = true;
-            GameState.Instance.clueHistory[neededDoc] = correctLocation;
+            GameState.Instance.clueHistory[neededDoc] = correctLocation; // Track that clue was given (even if wrong)
             responseText.text = $"{currentOfficer.officerName}: {message}";
             return;
         }
@@ -266,8 +310,8 @@ public class OfficerManager : MonoBehaviour
 
         if (MoneySystem.Instance != null && MoneySystem.Instance.SpendMoney(100))
         {
+            // Corrupt officer gives correct document and location after bribe
             string msg = $"Alright... You'll find your {doc} at the {location}.";
-            GameState.Instance.clueGivenToday = true;
             GameState.Instance.clueHistory[doc] = location;
             responseText.text = $"{currentOfficer.officerName}: {msg}";
         }
@@ -289,9 +333,9 @@ public class OfficerManager : MonoBehaviour
 
         if (currentOfficer.officerType == OfficerType.Corrupt && corruptOfficerAskedForHelp)
         {
+            // Corrupt officer gives wrong document when bribe is refused
             string msg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
-            GameState.Instance.clueGivenToday = true;
-            GameState.Instance.clueHistory[doc] = location;
+            GameState.Instance.clueHistory[doc] = location; // Track that clue was given (even if wrong)
             responseText.text = $"{currentOfficer.officerName}: {msg}";
             corruptOfficerAskedForHelp = false;
             awaitingBribeChoice = false;
@@ -299,8 +343,7 @@ public class OfficerManager : MonoBehaviour
         }
 
         string fallbackMsg = $"Maybe you need a {GetRandomWrongDocument()} from the {GetRandomLocation()}?";
-        GameState.Instance.clueGivenToday = true;
-        GameState.Instance.clueHistory[doc] = location;
+        GameState.Instance.clueHistory[doc] = location; // Track that clue was given (even if wrong)
         responseText.text = $"{currentOfficer.officerName}: {fallbackMsg}";
 
         awaitingBribeChoice = false;
@@ -314,14 +357,19 @@ public class OfficerManager : MonoBehaviour
 
     DocumentType GetExpectedDocumentForProgression()
     {
-        return GameState.Instance.playerProgression switch
+        // Always read directly from GameState to ensure we get the latest progression
+        PlayerProgression currentProgression = GameState.Instance.playerProgression;
+        
+        return currentProgression switch
         {
+            PlayerProgression.None => DocumentType.AsylumApplicationFormDHA1590, // Start with first document
             PlayerProgression.Step1_AcquireAsylumApplicationForm => DocumentType.AsylumApplicationFormDHA1590,
             PlayerProgression.Step2_AcquireID => DocumentType.ID,
             PlayerProgression.Step3_AcquireBiometrics => DocumentType.Biometrics,
             PlayerProgression.Step4_AcquireTravelDocument => DocumentType.TravelDocument,
             PlayerProgression.Step5_AcquireFirstInterview => DocumentType.FirstInterview,
-            _ => DocumentType.ID
+            PlayerProgression.CompletedApplication => DocumentType.FirstInterview, // No more documents needed
+            _ => DocumentType.AsylumApplicationFormDHA1590 // Default to first document
         };
     }
 

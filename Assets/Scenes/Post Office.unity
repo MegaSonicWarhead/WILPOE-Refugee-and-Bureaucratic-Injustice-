@@ -429,7 +429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Get Travel Document
+  m_text: Pay R20 to get Travel Document
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3214,6 +3214,8 @@ MonoBehaviour:
     quantity: 1
   - data: {fileID: 11400000, guid: 94da77bd9da5feb47b0866ed2a18758c, type: 2}
     quantity: 1
+  - data: {fileID: 11400000, guid: 61f0a73aedf5f794bab0232da3066150, type: 2}
+    quantity: 1
   inventoryUI: {fileID: 1224623819}
 --- !u!4 &817529336
 Transform:
@@ -3653,6 +3655,8 @@ MonoBehaviour:
     itemData: {fileID: 11400000, guid: 8db38ba046c3097428067913fee63377, type: 2}
   - documentType: 0
     itemData: {fileID: 11400000, guid: 8db38ba046c3097428067913fee63377, type: 2}
+  - documentType: 4
+    itemData: {fileID: 11400000, guid: 61f0a73aedf5f794bab0232da3066150, type: 2}
 --- !u!4 &937942169
 Transform:
   m_ObjectHideFlags: 0
@@ -5788,8 +5792,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 551, y: -322}
-  m_SizeDelta: {x: 160, y: 65}
+  m_AnchoredPosition: {x: 561.5986, y: -345.99}
+  m_SizeDelta: {x: 181.1974, y: 112.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1564656036
 MonoBehaviour:

@@ -101,7 +101,7 @@ public class OfficerManager_Bank : MonoBehaviour
         if (docItemData != null)
         {
             InventoryManager.Instance.AddItem(docItemData);
-            GameState.Instance.AcquireDocument(DocumentType.Biometrics);
+            // Note: Document is only "acquired" when given to Home Affairs officer, not when obtained here
 
             responseText.text = $"{bankClerk.officerName}: Here is your Biometrics document.";
             if (NotificationText != null)

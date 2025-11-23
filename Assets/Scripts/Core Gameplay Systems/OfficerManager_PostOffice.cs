@@ -108,7 +108,7 @@ public class OfficerManager_PostOffice : MonoBehaviour
         if (docItemData != null)
         {
             InventoryManager.Instance.AddItem(docItemData);
-            GameState.Instance.AcquireDocument(DocumentType.ID);
+            // Note: Document is only "acquired" when given to Home Affairs officer, not when obtained here
             responseText.text = $"{postOfficeClerk.officerName}: Here is your ID document.";
             if (NotificationText != null)
                 NotificationText.text = "You received your ID document.";
@@ -134,7 +134,7 @@ public class OfficerManager_PostOffice : MonoBehaviour
         if (docItemData != null)
         {
             InventoryManager.Instance.AddItem(docItemData);
-            GameState.Instance.AcquireDocument(DocumentType.TravelDocument);
+            // Note: Document is only "acquired" when given to Home Affairs officer, not when obtained here
             responseText.text = $"{postOfficeClerk.officerName}: Here is your Travel Document.";
             if (NotificationText != null)
                 NotificationText.text = "You received your Travel Document.";

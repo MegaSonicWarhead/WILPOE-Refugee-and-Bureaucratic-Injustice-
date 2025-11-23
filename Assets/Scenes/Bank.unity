@@ -1710,6 +1710,8 @@ MonoBehaviour:
     itemData: {fileID: 11400000, guid: 8db38ba046c3097428067913fee63377, type: 2}
   - documentType: 2
     itemData: {fileID: 11400000, guid: 089db75d0905e904497e5ae80603f2f5, type: 2}
+  - documentType: 4
+    itemData: {fileID: 11400000, guid: 61f0a73aedf5f794bab0232da3066150, type: 2}
 --- !u!4 &347049275
 Transform:
   m_ObjectHideFlags: 0
@@ -5507,6 +5509,8 @@ MonoBehaviour:
   - data: {fileID: 11400000, guid: 089db75d0905e904497e5ae80603f2f5, type: 2}
     quantity: 1
   - data: {fileID: 11400000, guid: 94da77bd9da5feb47b0866ed2a18758c, type: 2}
+    quantity: 1
+  - data: {fileID: 11400000, guid: 61f0a73aedf5f794bab0232da3066150, type: 2}
     quantity: 1
   inventoryUI: {fileID: 319045802}
 --- !u!4 &1543269874

@@ -2,12 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTime : MonoBehaviour
 {
     public static GameTime Instance;
 
-    public int currentWeek = 0;
+    public int currentWeek = 1; // Start at week 1, no tutorial week
     public int currentDay = 0;
     public int currentHour = 8;
     public int currentMinute = 0;
@@ -83,7 +84,8 @@ public class GameTime : MonoBehaviour
 
             if (currentWeek > 12)
             {
-                Debug.Log("All game weeks finished!");
+                Debug.Log("Time limit reached! Player should be deported.");
+                LoadDeportedScene();
                 return;
             }
 
@@ -105,10 +107,10 @@ public class GameTime : MonoBehaviour
         return $"Day {currentDay + 1}";
     }
 
-    // Returns readable week info (e.g., "Tutorial Week" or "Week 1")
+    // Returns readable week info (e.g., "Week 1" to "Week 12")
     public string GetWeekInfo()
     {
-        return currentWeek == 0 ? "Tutorial Week" : $"Week {currentWeek}";
+        return $"Week {currentWeek}";
     }
 
     // Skips time (for testing or gameplay systems)
@@ -116,5 +118,18 @@ public class GameTime : MonoBehaviour
     {
         for (int i = 0; i < hours * 60; i++)
             AdvanceMinute();
+    }
+
+    private void LoadDeportedScene()
+    {
+        if (Application.CanStreamedLevelBeLoaded("Deported"))
+        {
+            Debug.Log("[GameTime] Loading Deported scene - Time limit exceeded.");
+            SceneManager.LoadScene("Deported");
+        }
+        else
+        {
+            Debug.LogError("[GameTime] Deported scene not found in Build Settings!");
+        }
     }
 }

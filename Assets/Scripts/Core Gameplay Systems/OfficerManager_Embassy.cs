@@ -13,6 +13,7 @@ public class OfficerManager_Embassy : MonoBehaviour
     public Button actionButton1;
     public Button actionButton2;
     public Button giveAsylumApplicationFormButton;
+    public Button giveFirstInterviewButton;
     public Button giveWrongDocButton;
     public Button leaveButton;
     public Button getOfficerButton;
@@ -31,6 +32,8 @@ public class OfficerManager_Embassy : MonoBehaviour
         actionButton2.onClick.AddListener(() => HandleResponse(2));
 
         giveAsylumApplicationFormButton.onClick.AddListener(GiveCorrectDocument);
+        if (giveFirstInterviewButton != null)
+            giveFirstInterviewButton.onClick.AddListener(GiveFirstInterview);
         giveWrongDocButton.onClick.AddListener(GiveWrongDocument);
     }
 
@@ -45,10 +48,27 @@ public class OfficerManager_Embassy : MonoBehaviour
 
         SetActionButtonTextsByProgression();
 
-        if (GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm)
+        // Allow getting Asylum Application Form if progression is None or Step1, and player doesn't already have it
+        bool canGetAsylumForm = (GameState.Instance.playerProgression == PlayerProgression.None || 
+                                 GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm) &&
+                                !GameState.Instance.HasDocument(DocumentType.AsylumApplicationFormDHA1590);
+        
+        if (canGetAsylumForm)
             giveAsylumApplicationFormButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Pay R20 to get Asylum Application Form";
         else
             giveAsylumApplicationFormButton.GetComponentInChildren<TMPro.TMP_Text>().text = "No Document Available";
+
+        // Allow getting First Interview if progression is Step5, and player doesn't already have it
+        if (giveFirstInterviewButton != null)
+        {
+            bool canGetFirstInterview = GameState.Instance.playerProgression == PlayerProgression.Step5_AcquireFirstInterview &&
+                                        !GameState.Instance.HasDocument(DocumentType.FirstInterview);
+            
+            if (canGetFirstInterview)
+                giveFirstInterviewButton.GetComponentInChildren<TMPro.TMP_Text>().text = "Pay R20 to get First Interview";
+            else
+                giveFirstInterviewButton.GetComponentInChildren<TMPro.TMP_Text>().text = "No Document Available";
+        }
     }
 
     private void SetActionButtonTextsByProgression()
@@ -92,17 +112,78 @@ public class OfficerManager_Embassy : MonoBehaviour
             return;
         }
 
-        if (GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm)
-        {
-            GameState.Instance.AcquireDocument(DocumentType.AsylumApplicationFormDHA1590);
-            responseText.text = $"{embassyEmployee.officerName}: Here you go, one Asylum Application Form (DHA-1590).";
+        // Check if player can get Asylum Application Form (progression is None or Step1, and doesn't already have it)
+        bool canGetAsylumForm = (GameState.Instance.playerProgression == PlayerProgression.None || 
+                                 GameState.Instance.playerProgression == PlayerProgression.Step1_AcquireAsylumApplicationForm) &&
+                                !GameState.Instance.HasDocument(DocumentType.AsylumApplicationFormDHA1590);
 
-            if (NotificationText != null)
-                NotificationText.text = "You received the Asylum Application Form.";
+        if (canGetAsylumForm)
+        {
+            var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.AsylumApplicationFormDHA1590);
+            if (docItemData != null)
+            {
+                InventoryManager.Instance.AddItem(docItemData);
+                // Note: Document is only "acquired" when given to Home Affairs officer, not when obtained here
+                responseText.text = $"{embassyEmployee.officerName}: Here you go, one Asylum Application Form (DHA-1590).";
+
+                if (NotificationText != null)
+                    NotificationText.text = "You received the Asylum Application Form.";
+                Debug.Log("[Embassy] Asylum Application Form added to inventory.");
+            }
+            else
+            {
+                Debug.LogError("AsylumApplicationFormDHA1590 ScriptableObject not found in DocumentDatabase!");
+                responseText.text = $"{embassyEmployee.officerName}: I'm sorry, we're out of forms right now.";
+            }
         }
         else
         {
-            responseText.text = $"{embassyEmployee.officerName}: You already have what you need from me.";
+            if (GameState.Instance.HasDocument(DocumentType.AsylumApplicationFormDHA1590))
+                responseText.text = $"{embassyEmployee.officerName}: You already have the Asylum Application Form.";
+            else
+                responseText.text = $"{embassyEmployee.officerName}: You already have what you need from me.";
+        }
+    }
+
+    private void GiveFirstInterview()
+    {
+        // ✅ Payment check
+        if (!MoneySystem.Instance.SpendMoney(20))
+        {
+            if (NotificationText != null)
+                NotificationText.text = "You need R20 to request this document.";
+            return;
+        }
+
+        // Check if player can get First Interview (progression is Step5, and doesn't already have it)
+        bool canGetFirstInterview = GameState.Instance.playerProgression == PlayerProgression.Step5_AcquireFirstInterview &&
+                                    !GameState.Instance.HasDocument(DocumentType.FirstInterview);
+
+        if (canGetFirstInterview)
+        {
+            var docItemData = DocumentDatabase.Instance.GetItemDataForDocument(DocumentType.FirstInterview);
+            if (docItemData != null)
+            {
+                InventoryManager.Instance.AddItem(docItemData);
+                // Note: Document is only "acquired" when given to Home Affairs officer, not when obtained here
+                responseText.text = $"{embassyEmployee.officerName}: Your First Interview has been completed. Here is your proof of completion.";
+
+                if (NotificationText != null)
+                    NotificationText.text = "You received the First Interview document.";
+                Debug.Log("[Embassy] First Interview document added to inventory.");
+            }
+            else
+            {
+                Debug.LogError("FirstInterview ScriptableObject not found in DocumentDatabase!");
+                responseText.text = $"{embassyEmployee.officerName}: I'm sorry, there was an issue processing your interview.";
+            }
+        }
+        else
+        {
+            if (GameState.Instance.HasDocument(DocumentType.FirstInterview))
+                responseText.text = $"{embassyEmployee.officerName}: You already have the First Interview document.";
+            else
+                responseText.text = $"{embassyEmployee.officerName}: You're not ready for your First Interview yet.";
         }
     }
 
