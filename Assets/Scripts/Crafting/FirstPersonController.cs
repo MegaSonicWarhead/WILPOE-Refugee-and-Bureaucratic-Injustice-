@@ -93,4 +93,5 @@ public class FirstPersonController : MonoBehaviour
         Cursor.lockState = shouldLock ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !shouldLock;
     }
+
 }

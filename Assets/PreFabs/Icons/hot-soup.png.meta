@@ -202,7 +202,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      hot-soup_0: 8633235005392171597
+      hot-soup_1: 4054931281907793815
+      hot-soup_2: 6073541055327281575
+      hot-soup_3: -4851838926728618100
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

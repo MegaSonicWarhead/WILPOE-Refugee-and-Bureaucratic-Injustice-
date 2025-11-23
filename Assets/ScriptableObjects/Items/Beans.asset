@@ -17,4 +17,4 @@ MonoBehaviour:
   maxStackSize: 99
   itemType: 0
   price: 25
-  worldPrefab: {fileID: 0}
+  worldPrefab: {fileID: 2989393526655350022, guid: c3337e9d2e7a9ce42a572fe1a7415f86, type: 3}
