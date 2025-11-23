@@ -1061,6 +1061,8 @@ MonoBehaviour:
     quantity: 0
   - data: {fileID: 11400000, guid: 264cc95382d897e4790de76ecc08cac4, type: 2}
     quantity: 0
+  - data: {fileID: 11400000, guid: b51c72f4fcd40f5409775df80742514a, type: 2}
+    quantity: 0
   inventoryUI: {fileID: 1563477757}
 --- !u!4 &324138883
 Transform:

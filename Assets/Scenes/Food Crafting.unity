@@ -3531,6 +3531,12 @@ MonoBehaviour:
     quantity: 1
   - data: {fileID: 11400000, guid: 5fb6bb0db560d1c44ac89a089cb7dc8c, type: 2}
     quantity: 1
+  - data: {fileID: 11400000, guid: 264cc95382d897e4790de76ecc08cac4, type: 2}
+    quantity: 1
+  - data: {fileID: 11400000, guid: 31f6754218d80f149b13ac92629022d9, type: 2}
+    quantity: 1
+  - data: {fileID: 11400000, guid: b51c72f4fcd40f5409775df80742514a, type: 2}
+    quantity: 1
   inventoryUI: {fileID: 2139421988}
 --- !u!4 &1481896650
 Transform:
@@ -4951,9 +4957,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64939b4813148ca48b96e2a6aee0409b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowlCollector: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  recipes: []
+  bowlCollector: {fileID: 524764599}
+  spawnPoint: {fileID: 735651506}
+  recipes:
+  - {fileID: 11400000, guid: 7ec004c0d5f47a0469dd7c1c5eed9df4, type: 2}
+  - {fileID: 11400000, guid: fc37a6abd162d494bb90fc75c1b7c317, type: 2}
+  - {fileID: 11400000, guid: b077fffed625bed4fbd52e15b2925da5, type: 2}
 --- !u!4 &2028312002
 Transform:
   m_ObjectHideFlags: 0
