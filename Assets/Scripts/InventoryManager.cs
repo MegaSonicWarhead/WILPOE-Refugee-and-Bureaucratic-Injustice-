@@ -14,6 +14,8 @@ public class InventoryManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // 🔥 Keep inventory across scenes
+                                           // 💡 THIS LINE CLEARS THE INVENTORY!
+            items = new List<InventoryItem>();
 
             // Reconnect UI when a new scene is loaded
             SceneManager.sceneLoaded += OnSceneLoaded;
