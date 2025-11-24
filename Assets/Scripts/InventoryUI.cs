@@ -102,9 +102,17 @@ public class InventoryUI : MonoBehaviour
             {
                 PlayerStats.Instance.ModifyHunger(+20f);
                 PlayerStats.Instance.ModifySanity(+20f);
+
+                // 💡 Force UI refresh and log for debug
+                PlayerStats.Instance.UpdateUI();
+                Debug.Log($"[INVENTORY] Consumed {data.itemName} (+20 Hunger, +20 Sanity)");
+                Debug.Log($"[DEBUG] After meal: Hunger = {PlayerStats.Instance.hunger}, Sanity = {PlayerStats.Instance.sanity}");
+            }
+            else
+            {
+                Debug.LogError("[INVENTORY] No PlayerStats instance found!");
             }
 
-            Debug.Log($"[INVENTORY] Consumed {data.itemName} (+20 Hunger, +20 Sanity)");
             InventoryManager.Instance.RemoveItem(data);
         }
 

@@ -2452,8 +2452,8 @@ MonoBehaviour:
   sanitySlider: {fileID: 635226215}
   health: 100
   thirst: 100
-  hunger: 40
-  sanity: 40
+  hunger: 100
+  sanity: 100
 --- !u!114 &1011561275
 MonoBehaviour:
   m_ObjectHideFlags: 0

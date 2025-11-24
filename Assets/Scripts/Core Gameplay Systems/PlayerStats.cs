@@ -193,6 +193,8 @@ public class PlayerStats : MonoBehaviour
         if (isDead || isInJail) return;
         hunger = Mathf.Clamp(hunger + amount, 0f, 100f);
         if (hungerSlider != null) hungerSlider.value = hunger;
+        Debug.Log($"[PlayerStats] Hunger changed by {amount}, new value: {hunger}");
+        UpdateUI(); // always update
     }
 
     public void ModifySanity(float amount)
@@ -200,6 +202,8 @@ public class PlayerStats : MonoBehaviour
         if (isDead || isInJail) return;
         sanity = Mathf.Clamp(sanity + amount, 0f, 100f);
         if (sanitySlider != null) sanitySlider.value = sanity;
+        Debug.Log($"[PlayerStats] Sanity changed by {amount}, new value: {sanity}");
+        UpdateUI(); // always update
     }
 
     void KillPlayer()
@@ -215,7 +219,7 @@ public class PlayerStats : MonoBehaviour
         SceneManager.LoadScene("PlayerDead");
     }
 
-    void UpdateUI()
+   public void UpdateUI()
     {
         if (healthSlider != null) healthSlider.value = health;
         if (thirstSlider != null) thirstSlider.value = thirst;

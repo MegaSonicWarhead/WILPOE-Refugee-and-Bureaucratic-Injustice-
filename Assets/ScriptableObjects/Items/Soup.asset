@@ -15,6 +15,6 @@ MonoBehaviour:
   itemName: Soup
   icon: {fileID: -4851838926728618100, guid: 17a5047aafe0edf44a06380782851d20, type: 3}
   maxStackSize: 99
-  itemType: 0
+  itemType: 1
   price: 0
   worldPrefab: {fileID: 0}
