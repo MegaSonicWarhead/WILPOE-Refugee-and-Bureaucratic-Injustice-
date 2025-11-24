@@ -1,0 +1,882 @@
+fileFormatVersion: 2
+guid: f3de037713a4f7c41a6a6996557fb484
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8294136378922688427
+    second: Weather sprites 4_0
+  - first:
+      213: -7848395104529795050
+    second: Weather sprites 4_1
+  - first:
+      213: -6648081756572044567
+    second: Weather sprites 4_2
+  - first:
+      213: -304648882520698675
+    second: Weather sprites 4_3
+  - first:
+      213: 2143097429933939763
+    second: Weather sprites 4_4
+  - first:
+      213: 5746918832808481142
+    second: Weather sprites 4_5
+  - first:
+      213: -2549471551593117587
+    second: Weather sprites 4_6
+  - first:
+      213: -575686985985052440
+    second: Weather sprites 4_7
+  - first:
+      213: 6668739025894535880
+    second: Weather sprites 4_8
+  - first:
+      213: -1823106834746302237
+    second: Weather sprites 4_9
+  - first:
+      213: -7114260944588747267
+    second: Weather sprites 4_10
+  - first:
+      213: -3437784488749135337
+    second: Weather sprites 4_11
+  - first:
+      213: 252953649831608848
+    second: Weather sprites 4_12
+  - first:
+      213: 3391483406614495115
+    second: Weather sprites 4_13
+  - first:
+      213: -4052017330264373333
+    second: Weather sprites 4_14
+  - first:
+      213: 8090463724514871788
+    second: Weather sprites 4_15
+  - first:
+      213: -8362099982602097624
+    second: Weather sprites 4_16
+  - first:
+      213: 3066385055426587195
+    second: Weather sprites 4_17
+  - first:
+      213: -5701446122994434562
+    second: Weather sprites 4_18
+  - first:
+      213: -857589039196785369
+    second: Weather sprites 4_19
+  - first:
+      213: 1757957436135348287
+    second: Weather sprites 4_20
+  - first:
+      213: 5081311397559706208
+    second: Weather sprites 4_21
+  - first:
+      213: -933796342657942195
+    second: Weather sprites 4_22
+  - first:
+      213: 5610997478932147371
+    second: Weather sprites 4_23
+  - first:
+      213: 852691058995105185
+    second: Weather sprites 4_24
+  - first:
+      213: -6560782261336787111
+    second: Weather sprites 4_25
+  - first:
+      213: -500300099054768728
+    second: Weather sprites 4_26
+  - first:
+      213: -123822378838253198
+    second: Weather sprites 4_27
+  - first:
+      213: 627116113184195072
+    second: Weather sprites 4_28
+  - first:
+      213: 866986737292006187
+    second: Weather sprites 4_29
+  - first:
+      213: 6593505598829443469
+    second: Weather sprites 4_30
+  - first:
+      213: -3875100207505432054
+    second: Weather sprites 4_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Weather sprites 4_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 240
+        height: 580
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bafd458a711ba1370800000000000000
+      internalID: 8294136378922688427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 579
+        width: 103
+        height: 432
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61836992c36e41390800000000000000
+      internalID: -7848395104529795050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 567
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e2b4cd8dd44db3a0800000000000000
+      internalID: -6648081756572044567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 567
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc05228947ba5cbf0800000000000000
+      internalID: -304648882520698675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1
+        width: 248
+        height: 608
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33cd34602cfcdbd10800000000000000
+      internalID: 2143097429933939763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_5
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 484
+        width: 725
+        height: 540
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6715d8eda3821cf40800000000000000
+      internalID: 5746918832808481142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_6
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 484
+        width: 207
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68045aa1257e9cd0800000000000000
+      internalID: -2549471551593117587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_7
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 2
+        width: 236
+        height: 612
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0bb828cbfb208f0800000000000000
+      internalID: -575686985985052440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_8
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 494
+        width: 209
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c27a32cfce1c8c50800000000000000
+      internalID: 6668739025894535880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_9
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 464
+        width: 28
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e02c573ef503b6e0800000000000000
+      internalID: -1823106834746302237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_10
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 447
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfd4a562d51154d90800000000000000
+      internalID: -7114260944588747267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_11
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 463
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a82cdb8398a40d0800000000000000
+      internalID: -3437784488749135337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_12
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 461
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0120ada110ca28300800000000000000
+      internalID: 252953649831608848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_13
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 464
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8f73e08038f01f20800000000000000
+      internalID: 3391483406614495115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_14
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 462
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba78dd5e4b754c7c0800000000000000
+      internalID: -4052017330264373333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_15
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 479
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce984ef64e9174070800000000000000
+      internalID: 8090463724514871788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_16
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 470
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ca3b0ce5ad3fb80800000000000000
+      internalID: -8362099982602097624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_17
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1
+        width: 147
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3aa44526fcfd8a20800000000000000
+      internalID: 3066385055426587195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_18
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 249
+        width: 91
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd73ec65f460e0b0800000000000000
+      internalID: -5701446122994434562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_19
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 470
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7253863005b3914f0800000000000000
+      internalID: -857589039196785369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_20
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 456
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f389a1f59f4856810800000000000000
+      internalID: 1757957436135348287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_21
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 463
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 062a0bc4bc1748640800000000000000
+      internalID: 5081311397559706208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_22
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 447
+        width: 42
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d705f7c2d7a03f0800000000000000
+      internalID: -933796342657942195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_23
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 463
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bacec5f8a744edd40800000000000000
+      internalID: 5610997478932147371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_24
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 428
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad0e8a100e55db00800000000000000
+      internalID: 852691058995105185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_25
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 430
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95736583b4b63f4a0800000000000000
+      internalID: -6560782261336787111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_26
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 439
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ad6fbae5b39e09f0800000000000000
+      internalID: -500300099054768728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_27
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 237
+        width: 224
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2712a16d338184ef0800000000000000
+      internalID: -123822378838253198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_28
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 429
+        width: 34
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 002844748c6f3b800800000000000000
+      internalID: 627116113184195072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_29
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 433
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23d34518d7280c00800000000000000
+      internalID: 866986737292006187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_30
+      rect:
+        serializedVersion: 2
+        x: 1283
+        y: 384
+        width: 46
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8937c28866d08b50800000000000000
+      internalID: 6593505598829443469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Weather sprites 4_31
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 434
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02a89674e0e83ac0800000000000000
+      internalID: -3875100207505432054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

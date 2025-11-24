@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1e7fd8c165b89ec4b9e29ac125d43cc6
+guid: 25e202226a1217346a1ee464b95d1ba0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3552811588165988264
-    second: WIL Exit Btn_0
+      213: -8784262647837670284
+    second: Drink water_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WIL Exit Btn_0
+      name: Drink water_0
       rect:
         serializedVersion: 2
-        x: 529
-        y: 466
-        width: 788
-        height: 247
+        x: 103
+        y: 57
+        width: 783
+        height: 861
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85099752fa0e1bec0800000000000000
-      internalID: -3552811588165988264
+      spriteID: 47447eda9a7081680800000000000000
+      internalID: -8784262647837670284
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      WIL Exit Btn_0: -3552811588165988264
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
