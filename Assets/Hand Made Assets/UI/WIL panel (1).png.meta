@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a510fc4118f5cb84891531504f00c325
+guid: 8ef18b28092b00e45a536c8a6d422e82
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1963622608112351264
-    second: Inventory Logo_0
+      213: -8481541399629276381
+    second: WIL panel (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inventory Logo_0
+      name: WIL panel (1)_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 32
-        width: 923
-        height: 987
+        x: 655
+        y: 275
+        width: 684
+        height: 481
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e7898244afcfb4e0800000000000000
-      internalID: -1963622608112351264
+      spriteID: 32bd35fb8038b4a80800000000000000
+      internalID: -8481541399629276381
       vertices: []
       indices: 
       edges: []

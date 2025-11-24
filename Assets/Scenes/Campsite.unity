@@ -7458,7 +7458,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -253.08, y: 84.77}
+  m_AnchoredPosition: {x: -253.08, y: 122}
   m_SizeDelta: {x: 215.02, y: 47.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1222636519
@@ -8565,14 +8565,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3647059, g: 0.34901962, b: 0.34901962, a: 1}
+  m_Color: {r: 0.68187076, g: 0.71840876, b: 0.7264151, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1585460918649113898, guid: 789a78737ee37cc4bb0ac3f6969fd96f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15313,7 +15313,7 @@ RectTransform:
   m_GameObject: {fileID: 1512709955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5770408, y: 1.5770408, z: 1.5770408}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 55740282}
@@ -15400,7 +15400,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2181421762966098303, guid: da92e64087bcbcc4d9330ca0db3b4654, type: 3}
+  m_Sprite: {fileID: -1821197718541867445, guid: c46ed8a34fb7cdf4881c2b1b0e6bab5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15933,7 +15933,7 @@ RectTransform:
   m_GameObject: {fileID: 1604814475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1658037, y: 1.5453764, z: 1.4229985}
+  m_LocalScale: {x: 1.1982102, y: 1.0495489, z: 0.56495196}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1874907059}
@@ -15941,7 +15941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13, y: -3}
+  m_AnchoredPosition: {x: 13, y: -3}
   m_SizeDelta: {x: -1529.5891, y: -43.2327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1604814477
@@ -15964,7 +15964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -932560800768314578, guid: 21febceccedef054a8cf2362eb7d629a, type: 3}
+  m_Sprite: {fileID: -3582579203759524482, guid: 5c3ca7920e253004185bff01a7d62855, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17173,14 +17173,14 @@ RectTransform:
   m_GameObject: {fileID: 1874907058}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4993409, y: 0.7548699, z: 0.65526}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1604814476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00024128, y: 0.00026941}
+  m_AnchoredPosition: {x: -9, y: 0}
   m_SizeDelta: {x: 390.41, y: 190.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1874907060
@@ -17203,7 +17203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: You were caught stealing , fine of 10 ndays
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17230,13 +17230,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 44.46
+  m_fontSizeBase: 44.46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c759bf092dec6ef4c8ace3141b5b76c1
+guid: 6bb46c0d3f7e8d0418d3df88c1278022
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3921671143143459928
-    second: WIL Slider bar2_0
+      213: -9199787763999382370
+    second: ChatGPT Image Nov 25, 2025, 12_03_35 AM 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WIL Slider bar2_0
+      name: ChatGPT Image Nov 25, 2025, 12_03_35 AM 1_0
       rect:
         serializedVersion: 2
-        x: 441
-        y: 363
-        width: 1332
-        height: 250
+        x: 2
+        y: 8
+        width: 1022
+        height: 1503
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a3b80b8fdc6399c0800000000000000
-      internalID: -3921671143143459928
+      spriteID: e94e4dd65c9c35080800000000000000
+      internalID: -9199787763999382370
       vertices: []
       indices: 
       edges: []
