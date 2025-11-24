@@ -18739,15 +18739,15 @@ MonoBehaviour:
   weatherText: {fileID: 1770457906}
   weatherTypes:
   - name: Sunny
-    icon: {fileID: 1750847918288461579, guid: be565f62eb60a454ebf504af40b168b1, type: 3}
+    icon: {fileID: 8294136378922688427, guid: f3de037713a4f7c41a6a6996557fb484, type: 3}
     particleEffect: {fileID: 0}
     weight: 25
   - name: Cloudy
-    icon: {fileID: 5704748392462881141, guid: 1366f0075fafde0418a1f487417fda9f, type: 3}
+    icon: {fileID: 6668739025894535880, guid: f3de037713a4f7c41a6a6996557fb484, type: 3}
     particleEffect: {fileID: 0}
     weight: 22
   - name: Rain
-    icon: {fileID: -6830152201372448578, guid: 8fbbfdc7f5aed79489b0b91cd86f6dd2, type: 3}
+    icon: {fileID: -2549471551593117587, guid: f3de037713a4f7c41a6a6996557fb484, type: 3}
     particleEffect: {fileID: 0}
     weight: 19
 --- !u!1 &2665460377836735849
