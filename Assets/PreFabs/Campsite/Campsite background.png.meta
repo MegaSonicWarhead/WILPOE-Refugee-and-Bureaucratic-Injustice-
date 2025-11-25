@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Campsite background_0: 4222734646559134208
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

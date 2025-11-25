@@ -682,7 +682,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Weather Sprites_0: -2035423026717900072
+      Weather Sprites_1: 8249065320173128016
+      Weather Sprites_10: 3002622383561789515
+      Weather Sprites_11: -8700599070391693909
+      Weather Sprites_12: -4392387263521071586
+      Weather Sprites_13: -6198066093445487013
+      Weather Sprites_14: 7435200115817838647
+      Weather Sprites_15: -4930390829948857967
+      Weather Sprites_16: 8556747788721562937
+      Weather Sprites_17: 4484459900594436250
+      Weather Sprites_18: 1571884817810595969
+      Weather Sprites_19: -8499483035752380858
+      Weather Sprites_2: 3591044834827863205
+      Weather Sprites_20: -290070257408136588
+      Weather Sprites_21: -1431218755454354893
+      Weather Sprites_22: -4116925386407903737
+      Weather Sprites_23: -6713282950346758175
+      Weather Sprites_3: 4969747091846970148
+      Weather Sprites_4: -3561784893789665475
+      Weather Sprites_5: 3412886137248661141
+      Weather Sprites_6: -3181894495482846956
+      Weather Sprites_7: -4718942872337487460
+      Weather Sprites_8: -7835320440151451366
+      Weather Sprites_9: -7399925178317289309
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

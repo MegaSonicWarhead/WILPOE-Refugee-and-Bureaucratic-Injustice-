@@ -154,7 +154,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Campsite Fire_0: 5823735601244180866
+      Campsite Fire_1: 9026582100673391808
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

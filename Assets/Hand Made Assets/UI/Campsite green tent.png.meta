@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Campsite green tent_0: 8363174596535667332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

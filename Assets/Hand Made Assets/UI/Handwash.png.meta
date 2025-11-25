@@ -154,7 +154,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Handwash_0: -4433523317865912902
+      Handwash_1: -7695371157700601415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

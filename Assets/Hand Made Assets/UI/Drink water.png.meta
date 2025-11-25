@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Drink water_0: -8784262647837670284
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
