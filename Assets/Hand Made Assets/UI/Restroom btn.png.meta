@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Restroom btn_0: -594566795850596603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
