@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SAHAbackground_0: -6537509839632312438
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

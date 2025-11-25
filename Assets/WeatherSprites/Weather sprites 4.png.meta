@@ -874,7 +874,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Weather sprites 4_0: 8294136378922688427
+      Weather sprites 4_1: -7848395104529795050
+      Weather sprites 4_10: -7114260944588747267
+      Weather sprites 4_11: -3437784488749135337
+      Weather sprites 4_12: 252953649831608848
+      Weather sprites 4_13: 3391483406614495115
+      Weather sprites 4_14: -4052017330264373333
+      Weather sprites 4_15: 8090463724514871788
+      Weather sprites 4_16: -8362099982602097624
+      Weather sprites 4_17: 3066385055426587195
+      Weather sprites 4_18: -5701446122994434562
+      Weather sprites 4_19: -857589039196785369
+      Weather sprites 4_2: -6648081756572044567
+      Weather sprites 4_20: 1757957436135348287
+      Weather sprites 4_21: 5081311397559706208
+      Weather sprites 4_22: -933796342657942195
+      Weather sprites 4_23: 5610997478932147371
+      Weather sprites 4_24: 852691058995105185
+      Weather sprites 4_25: -6560782261336787111
+      Weather sprites 4_26: -500300099054768728
+      Weather sprites 4_27: -123822378838253198
+      Weather sprites 4_28: 627116113184195072
+      Weather sprites 4_29: 866986737292006187
+      Weather sprites 4_3: -304648882520698675
+      Weather sprites 4_30: 6593505598829443469
+      Weather sprites 4_31: -3875100207505432054
+      Weather sprites 4_4: 2143097429933939763
+      Weather sprites 4_5: 5746918832808481142
+      Weather sprites 4_6: -2549471551593117587
+      Weather sprites 4_7: -575686985985052440
+      Weather sprites 4_8: 6668739025894535880
+      Weather sprites 4_9: -1823106834746302237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

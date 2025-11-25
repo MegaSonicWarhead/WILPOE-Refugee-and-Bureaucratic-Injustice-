@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Camsite wood panel (1)_0: -3582579203759524482
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

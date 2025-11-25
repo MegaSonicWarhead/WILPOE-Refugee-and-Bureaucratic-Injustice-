@@ -970,7 +970,43 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Campsite trees_0: 4041344297945648334
+      Campsite trees_1: -6693938197155758877
+      Campsite trees_10: -5622082085526860554
+      Campsite trees_11: -747929769832969011
+      Campsite trees_12: -9108742264356390940
+      Campsite trees_13: -4386886701321913398
+      Campsite trees_14: 3395379244607563369
+      Campsite trees_15: 4571289039852882763
+      Campsite trees_16: 4610284472885621761
+      Campsite trees_17: -5233112467387231389
+      Campsite trees_18: 1751063006540712479
+      Campsite trees_19: 7627517288856960039
+      Campsite trees_2: -4980703384143337608
+      Campsite trees_20: 1005170651975833873
+      Campsite trees_21: 6670941277086304685
+      Campsite trees_22: -451338263833919601
+      Campsite trees_23: -7375600409168106532
+      Campsite trees_24: -3788721745519753103
+      Campsite trees_25: -7772637409641176899
+      Campsite trees_26: -6052590769655545224
+      Campsite trees_27: 8150957895456522584
+      Campsite trees_28: -7640978376709343526
+      Campsite trees_29: 2506982726719025850
+      Campsite trees_3: -7346705312623380003
+      Campsite trees_30: -5658790515518596301
+      Campsite trees_31: -6064148437566531726
+      Campsite trees_32: 6019860923626132739
+      Campsite trees_33: 8733844831794998608
+      Campsite trees_34: 8390487252468373856
+      Campsite trees_35: 8115456788251109621
+      Campsite trees_4: 1485655011349818190
+      Campsite trees_5: 5806681502593654323
+      Campsite trees_6: 2979636103674758858
+      Campsite trees_7: -8804844332643763878
+      Campsite trees_8: -7352372297080723408
+      Campsite trees_9: -4475208300907188852
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

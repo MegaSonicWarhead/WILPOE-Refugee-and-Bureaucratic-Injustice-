@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Campsite Bag_0: -7016749445408611360
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
