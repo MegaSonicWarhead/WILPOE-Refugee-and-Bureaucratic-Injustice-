@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Biometrics btn_0: 2798244708218275003
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

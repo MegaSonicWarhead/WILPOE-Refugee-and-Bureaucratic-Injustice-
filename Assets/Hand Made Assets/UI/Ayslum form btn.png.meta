@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ayslum form btn_0: 5465335534687167647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

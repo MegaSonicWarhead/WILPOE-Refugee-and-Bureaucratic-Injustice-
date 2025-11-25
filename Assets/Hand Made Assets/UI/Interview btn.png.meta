@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Interview btn_0: 3020747539283677097
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
